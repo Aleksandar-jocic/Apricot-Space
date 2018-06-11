@@ -1,4 +1,6 @@
+Sta god da se radi, koristi yarn! nevidjeni mindfuck u suprotnom!!!!
 
+-->package.json setup for scss
 {
   "name": "bitbookapp",
   "version": "0.1.0",
@@ -22,6 +24,8 @@
     "eject": "react-scripts eject"
   }
 }
+<--package.json setup for scss
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
