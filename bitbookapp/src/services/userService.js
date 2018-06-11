@@ -1,23 +1,53 @@
-import { url } from "../shared/const"
+import {
+    url,
+    headers
+} from "../shared/const"
 class UserService {
 
-    getProfileData() {
+    getProfile() {
 
-        return fetch(url + '/', {
-            headers: {
-
-
-
-                "Key": "bitbookdev",
-                "SessionId": "2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE"
-
-
-
-            }
-        })
+        return fetch(url + '/profile', {
+                headers
+            })
             .then(function (response) {
                 return response.json();
             })
+
+    }
+
+    getUser() {
+        return fetch(url + '/users/747', {
+                headers
+            })
+            .then(function (response) {
+                return response.json();
+            })
+
+
+    }
+
+    getUsers() {
+
+        return fetch(url + '/users', {
+                headers
+            })
+            .then(function (response) {
+                return response.json();
+            })
+
+
+
+    }
+
+    setUser(data) {
+
+        return fetch(url + '/Profiles', {
+            headers,
+            body: JSON.stringify(data),
+            method: 'PUT'
+        })
+
+
 
     }
 
@@ -28,5 +58,3 @@ class UserService {
 
 
 export default new UserService();
-
-
