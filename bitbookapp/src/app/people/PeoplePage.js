@@ -1,6 +1,9 @@
 import React from 'react';
 import UserService from '../../services/userService';
-import Axios from 'axios'
+import Axios from 'axios';
+import ItemList from './ItemList';
+import Search from './Search';
+
 
 class PeoplePage extends React.Component {
 
@@ -37,7 +40,6 @@ class PeoplePage extends React.Component {
         this.listOfUsers()
     }
 
-
     render() {
 
         return (
@@ -46,15 +48,7 @@ class PeoplePage extends React.Component {
 
                 <h1>PeoplePage</h1>
 
-                <div id='inputDiv'>
-                    <div>
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <input id='textInput' type='text' onChange={this.inputMonitor} />
-                    <div>
-                        <i class="fas fa-times"></i>
-                    </div>
-                </div>
+                <Search inputMonitor={this.inputMonitor}/>
 
                 <div id='itemList'>
 
@@ -71,24 +65,7 @@ class PeoplePage extends React.Component {
 
                     }).map((item) => (
 
-
-                        // for component <Grid userData={userData} />
-                        <div id='singleItem'>
-
-                            <div id='imageDiv'>
-                                <img src={item.avatarUrl} alt="userPhoto" />
-                            </div>
-
-                            <div id='nameAndDescriptionDiv'>
-                                <h3>{item.name}</h3>
-                                <p>short description</p>
-                            </div>
-
-                            <div id='lastPostDiv'>
-                                <p>Last post at 16:20</p>
-                            </div>
-
-                        </div>
+                        <ItemList item={item}/>                       
 
                     ))}
 

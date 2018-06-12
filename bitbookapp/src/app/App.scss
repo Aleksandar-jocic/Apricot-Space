@@ -1,7 +1,7 @@
 //                      ROOT                      //
-#root{
+// #root{
 
-}
+// }
 
 //                      HEADER                      //
 #container {
@@ -21,6 +21,7 @@
             font-size: 40px;
             display: inline-block;
             margin-top: 7px;
+            color: white;
         }
         div {
             position: absolute;
@@ -43,32 +44,69 @@
 
     width: 70%;
     margin: 0 auto;
+
+    //              search                  //
+
     #inputDiv {
         width: 100%;
+        height: 40px;
+        border-radius: 5px;
         //place in var 
-        -webkit-box-shadow: 0px 0px 70px -2px rgba(127,200,255,1);
-        -moz-box-shadow: 0px 0px 70px -2px rgba(127,200,255,1);
-        box-shadow: 0px 0px 70px -2px rgba(127,200,255,1);
-    }
+        -webkit-box-shadow: 0px 0px 8px 5px rgba(69,171,255,0.7);
+        -moz-box-shadow: 0px 0px 8px 5px rgba(69,171,255,0.7);
+        box-shadow: 0px 0px 8px 5px rgba(69,171,255,0.7);
+        i {
+            font-size: 30px;
+            padding-top: 5px;
+            color: white;
+        }
+        div {
+            text-align: center;
+            
+        }
 
-    #textInput {
-        width: 80%;
-        border: 0px;
-        background-color: rgb(12, 140, 245);
-        height: 35px; 
-        color: white;       
+        input {
+            width: calc(100% - 80px);
+            border: 0px;
+            background-color: rgb(12, 140, 245);
+            height: 40px; 
+            color: white;   
+            padding: 0px; 
+            float: left;                      
+
+        }
+        #searchIconDiv {
+            width: 40px;
+            background-color: rgb(12, 140, 245);
+            height: 40px;  
+            float: left; 
+            border-radius: 6px 0px 0px 0px;
+                                                        
+                  
+        }
+        #cancelIconDiv {
+            width: 40px;
+            background-color: rgb(12, 140, 245);
+            height: 40px; 
+            float: left;  
+            border-radius: 0px 6px 0px 0px;
+                                                       
+                          
+        }
     }
 
     //              itemList                //
+
     #itemList {
       
 
         #singleItem{
-            margin-top: 15px;
+            margin-top: 45px;
             box-sizing: border-box;
             width: 100%;
-            height: 90px;
-            padding: 8px;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
 
 
             //place in var class something
@@ -77,21 +115,26 @@
             box-shadow: 0px 0px 13px 2px rgba(163,163,163,0.56);
 
             #imageDiv {
-                width: 15%;
-                // display: inline-block;
-                float: left;                             
+
+                width: 80px;
+                height: 80px;            
+                // float: left;                             
+                display: inline-block;
                
                 
                 img {
                     border-radius: 50%;
-                    width: 100%;
+                    display: block;
+                    max-height: 80px;
+                    max-width: 80px;
+                    margin: 0 auto;
                 }
             }
             #nameAndDescriptionDiv {
-                // display: inline-block;
-                width: 62%;
-                height: 90px;   
-                float: left;                             
+                display: inline-block;
+                width: calc(100% - 140px);
+                height: 80px;   
+                vertical-align: top;
     
                 p, h3 {
                     margin: 0px 0px 0px 10px;
@@ -103,9 +146,18 @@
             }
             #lastPostDiv {
                 display: inline-block;
-                width: 13%;
-               
+                width: 60px;
+                height: 80px;   
+                vertical-align: top;
             } 
         }               
     }
+}
+//                      MISCELLANEOUS                      //
+
+::placeholder {
+    color: white;
+}
+a:visited {
+    color: white;
 }
