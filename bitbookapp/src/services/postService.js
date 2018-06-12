@@ -4,45 +4,39 @@ import {
 } from "../shared/const"
 class PostService {
 
+
+    //preuzimanje liste svih postova
     getPosts() {
 
-        return fetch(url + '/Posts', {
-                headers
-            })
+        return fetch(`${url}/Posts`, {
+            headers
+        })
             .then(function (response) {
                 return response.json();
             })
 
     }
+
+
+    //brisanje postova
     deletePost(id) {
 
         return fetch(`${url}/Posts/${id}`, {
-                method: 'DELETE',
-                headers
-            })
+            method: 'DELETE',
+            headers
+        })
             .then(function (response) {
                 return response.json();
             })
 
     }
 
+
+    //broj svih postova
     countPosts() {
-        return fetch(url + '/posts/count', {
-                headers
-            })
-            .then(function (response) {
-                return response.json();
-            })
-
-
-    }
-    setTextPost(data) {
-
-        return fetch(url + '/TextPosts', {
-                headers,
-                body: JSON.stringify(data),
-                method: 'POST'
-            })
+        return fetch(`${url}/posts/count`, {
+            headers
+        })
             .then(function (response) {
                 return response.json();
             })
@@ -51,56 +45,88 @@ class PostService {
     }
 
 
+
+    //Preuzimanje tekstualnog posta na osnovu ID 
     getTextPost(id) {
 
         return fetch(`${url}/TextPosts/${id}`, {
-                headers
-            })
+            headers
+        })
             .then(function (response) {
                 return response.json();
             })
 
     }
+
+
+    //upload tekst posta 
+    uploadTextPost(textPost) {
+
+        return fetch(`${url}/TextPosts`, {
+            headers,
+            body: JSON.stringify(textPost),
+            method: 'POST'
+        })
+            .then(function (response) {
+                return response.json();
+            })
+
+
+    }
+
+
+    //Preuzimanje image posta na osnovu ID 
     getImagePost(id) {
 
         return fetch(`${url}/ImagePosts/${id}`, {
-                headers
-            })
+            headers
+        })
             .then(function (response) {
                 return response.json();
             })
 
     }
+
+
+
+    //upload image posta 
+    uploadImagePost(imagePost) {
+
+        return fetch(`${url}/ImagePosts`, {
+            headers,
+            body: JSON.stringify(imagePost),
+            method: 'POST'
+        })
+            .then(function (response) {
+                return response.json();
+            })
+
+
+    }
+
+    //Preuzimanje video posta na osnovu ID 
+
     getVideoPost(id) {
 
         return fetch(`${url}/VideoPosts/${id}`, {
-                headers
-            })
+            headers
+        })
             .then(function (response) {
                 return response.json();
             })
 
     }
-    setImagePost(data) {
-
-        return fetch(url + '/ImagePosts', {
-                headers,
-                body: JSON.stringify(data),
-                method: 'POST'
-            })
-            .then(function (response) {
-                return response.json();
-            })
 
 
-    }
-    setVideoPost(data) {
 
-        return fetch(url + '/VideoPosts', {
-                headers,
-                body: JSON.stringify(data),
-                method: 'POST'
-            })
+    //upload video posta 
+    uploadVideoPost(videoPost) {
+
+        return fetch(`${url}/VideoPosts`, {
+            headers,
+            body: JSON.stringify(videoPost),
+            method: 'POST'
+        })
             .then(function (response) {
                 return response.json();
             })
@@ -109,11 +135,13 @@ class PostService {
     }
 
 
+
+    //preuzimanje komentara na osnovu ID
     getComment(id) {
 
         return fetch(`${url}/Comments?postId=${id}`, {
-                headers
-            })
+            headers
+        })
             .then(function (response) {
                 return response.json();
             })
@@ -122,13 +150,15 @@ class PostService {
 
 
     }
-    postComment(data) {
 
-        return fetch(url + '/Comments', {
-                headers,
-                body: JSON.stringify(data),
-                method: 'POST'
-            })
+    //uploadovanje komentara na server
+    uploadComment(comment) {
+
+        return fetch(`${url}/Comments`, {
+            headers,
+            body: JSON.stringify(comment),
+            method: 'POST'
+        })
             .then(function (response) {
                 return response.json();
             })
