@@ -1,3 +1,33 @@
+Sta god da se radi, koristi yarn! nevidjeni mindfuck u suprotnom!!!!
+
+-->package.json setup for scss
+{
+  "name": "bitbookapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node-sass-chokidar": "^1.3.0",
+    "npm-run-all": "^4.1.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^1.1.4"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+<--package.json setup for scss
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

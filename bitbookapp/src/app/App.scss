@@ -1,0 +1,32 @@
+//                      ROOT                      //
+#root{
+
+}
+
+//                      HEADER                      //
+#header {
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgb(12, 140, 245);
+    position: relative;
+    height: 60px;
+    border-radius: 10px;
+    #bitspan {
+        font-size: 40px;
+        display: inline-block;
+        margin-top: 7px;
+    }
+    div {
+        position: absolute;
+        right: 30px;
+        top: 17px;
+        display: inline-block;
+        span {
+            margin-left: 17px;
+            font-size: 20px;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
