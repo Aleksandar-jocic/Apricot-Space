@@ -14,9 +14,9 @@ class Header extends React.Component {
 
         return (
 
-            <div>
+            <div id="header">
 
-                <span>BitBook</span>
+                <span id="bitSpan">BitBook</span>
 
                 <div>
 

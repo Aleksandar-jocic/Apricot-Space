@@ -1,5 +1,11 @@
 Sta god da se radi, koristi yarn! nevidjeni mindfuck u suprotnom!!!!
 
+
+
+
+
+
+
 -->package.json setup for scss
 {
   "name": "bitbookapp",
