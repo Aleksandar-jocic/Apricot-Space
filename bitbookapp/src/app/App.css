@@ -1,21 +1,65 @@
-#header {
-  width: 90%;
-  margin: 0 auto;
-  background-color: #0c8cf5;
-  position: relative;
-  height: 60px;
-  border-radius: 10px; }
-  #header #bitSpan {
-    font-size: 40px;
-    display: inline-block;
-    margin-top: 7px; }
-  #header div {
-    position: absolute;
-    right: 30px;
-    top: 17px;
-    display: inline-block; }
-    #header div span {
-      margin-left: 17px;
-      font-size: 20px; }
-      #header div span a {
-        text-decoration: none; }
+#container {
+  width: 100%;
+  background-color: #0c8cf5; }
+  #container #header {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #0c8cf5;
+    position: relative;
+    height: 60px;
+    border-radius: 10px; }
+    #container #header #bitSpan {
+      font-size: 40px;
+      display: inline-block;
+      margin-top: 7px; }
+    #container #header div {
+      position: absolute;
+      right: 30px;
+      top: 17px;
+      display: inline-block; }
+      #container #header div span {
+        margin-left: 17px;
+        font-size: 20px; }
+        #container #header div span a {
+          text-decoration: none; }
+
+#PeoplePage {
+  width: 70%;
+  margin: 0 auto; }
+  #PeoplePage #inputDiv {
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 70px -2px #7fc8ff;
+    -moz-box-shadow: 0px 0px 70px -2px #7fc8ff;
+    box-shadow: 0px 0px 70px -2px #7fc8ff; }
+  #PeoplePage #textInput {
+    width: 80%;
+    border: 0px;
+    background-color: #0c8cf5;
+    height: 35px;
+    color: white; }
+  #PeoplePage #itemList #singleItem {
+    margin-top: 15px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 90px;
+    padding: 8px;
+    -webkit-box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56);
+    -moz-box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56);
+    box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56); }
+    #PeoplePage #itemList #singleItem #imageDiv {
+      width: 15%;
+      float: left; }
+      #PeoplePage #itemList #singleItem #imageDiv img {
+        border-radius: 50%;
+        width: 100%; }
+    #PeoplePage #itemList #singleItem #nameAndDescriptionDiv {
+      width: 62%;
+      height: 90px;
+      float: left; }
+      #PeoplePage #itemList #singleItem #nameAndDescriptionDiv p, #PeoplePage #itemList #singleItem #nameAndDescriptionDiv h3 {
+        margin: 0px 0px 0px 10px; }
+      #PeoplePage #itemList #singleItem #nameAndDescriptionDiv h3 {
+        margin-bottom: 5px; }
+    #PeoplePage #itemList #singleItem #lastPostDiv {
+      display: inline-block;
+      width: 13%; }
