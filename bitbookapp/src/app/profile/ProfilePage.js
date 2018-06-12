@@ -1,4 +1,6 @@
 import React from 'react';
+import userService from "../../services/userService"
+import EditProfileModal from "./EditProfileModal"
 
 class ProfilePage extends React.Component {
 
@@ -7,15 +9,72 @@ class ProfilePage extends React.Component {
         super(props),
             this.state = {
 
+
+                profile: {},
+                editProfile: false
+
+
             }
     }
 
+    getUpdatedProfile = () => {
+        userService.getProfile().then((profile) => {
+            this.setState({
+                editProfile: false,
+                profile
+            })
+        })
+
+    }
+
+    handleClose = () => {
+        this.setState({
+            editProfile: false,
+        })
+    }
+
+    handleEditProfile = (event) => {
+        event.preventDefault()
+        this.setState({
+            editProfile: true
+        })
+
+    }
+
+    componentDidMount() {
+        userService.getProfile().then((profile) => {
+            this.setState({
+                profile
+            })
+        })
+
+
+
+    }
     render() {
 
         return (
 
             <div>
-                <h1>ProfilePage</h1>
+                <img src={this.state.profile.avatarUrl} alt="" />
+                <h1>{this.state.profile.name}</h1>
+                <a href="" onClick={this.handleEditProfile} >Edit profile</a>
+                <p>{this.state.profile.about}</p>
+
+                <span>{this.state.profile.postsCount} posts  </span>
+                <br />
+                <span>{this.state.profile.commentsCount} comments</span>
+                <EditProfileModal
+
+                    userId={this.state.profile.userId}
+                    email={this.state.profile.email}
+                    postsCount={this.state.profile.postsCount}
+                    commentsCount={this.state.profile.commentsCount}
+                    aboutShort={this.state.profile.aboutShort}
+                    editProfile={this.state.editProfile}
+                    handleClose={this.handleClose}
+                    getUpdatedProfile={this.getUpdatedProfile}
+                />
             </div>
         )
     }
