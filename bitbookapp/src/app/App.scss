@@ -158,6 +158,42 @@
         }               
     }
 }
+//                      UPLOAD ON FEED                      //
+
+#NewPosts{
+
+    position: fixed;
+    bottom: 150px;
+    right: 150px;
+    display: inline-block;
+
+    #contentButtons {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        bottom: 50px;
+
+
+    }
+
+    i{
+        color: orange;
+        font-size: 45px;
+        display: inline;
+    
+    }
+    
+    button {
+        background-color: white;
+        border: 0px;
+    }
+    span {
+        display: inline-block;
+              
+    }
+}
+
+
 //                      MISCELLANEOUS                      //
 
 ::placeholder {
@@ -165,4 +201,7 @@
 }
 a:visited {
     color: white;
+}
+#NewPosts:hover #contentButtons {
+    display: block;
 }
