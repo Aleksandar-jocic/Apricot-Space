@@ -1,21 +1,102 @@
-#header {
-  width: 90%;
-  margin: 0 auto;
-  background-color: #0c8cf5;
-  position: relative;
-  height: 60px;
-  border-radius: 10px; }
-  #header #bitSpan {
-    font-size: 40px;
-    display: inline-block;
-    margin-top: 7px; }
-  #header div {
-    position: absolute;
-    right: 30px;
-    top: 17px;
-    display: inline-block; }
-    #header div span {
-      margin-left: 17px;
-      font-size: 20px; }
-      #header div span a {
-        text-decoration: none; }
+#container {
+  width: 100%;
+  background-color: #0c8cf5; }
+  #container #header {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #0c8cf5;
+    position: relative;
+    height: 60px;
+    border-radius: 10px; }
+    #container #header #bitSpan {
+      font-size: 40px;
+      display: inline-block;
+      margin-top: 7px;
+      color: white; }
+    #container #header div {
+      position: absolute;
+      right: 30px;
+      top: 17px;
+      display: inline-block; }
+      #container #header div span {
+        margin-left: 17px;
+        font-size: 20px; }
+        #container #header div span a {
+          text-decoration: none; }
+
+#PeoplePage {
+  width: 70%;
+  margin: 0 auto; }
+  #PeoplePage #inputDiv {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 8px 5px rgba(69, 171, 255, 0.7);
+    -moz-box-shadow: 0px 0px 8px 5px rgba(69, 171, 255, 0.7);
+    box-shadow: 0px 0px 8px 5px rgba(69, 171, 255, 0.7); }
+    #PeoplePage #inputDiv i {
+      font-size: 30px;
+      padding-top: 5px;
+      color: white; }
+    #PeoplePage #inputDiv div {
+      text-align: center; }
+    #PeoplePage #inputDiv input {
+      width: calc(100% - 80px);
+      border: 0px;
+      background-color: #0c8cf5;
+      height: 40px;
+      color: white;
+      padding: 0px;
+      float: left; }
+    #PeoplePage #inputDiv #searchIconDiv {
+      width: 40px;
+      background-color: #0c8cf5;
+      height: 40px;
+      float: left;
+      border-radius: 6px 0px 0px 0px; }
+    #PeoplePage #inputDiv #cancelIconDiv {
+      width: 40px;
+      background-color: #0c8cf5;
+      height: 40px;
+      float: left;
+      border-radius: 0px 6px 0px 0px; }
+  #PeoplePage #itemList #singleItem {
+    margin-top: 45px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56);
+    -moz-box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56);
+    box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56); }
+    #PeoplePage #itemList #singleItem #imageDiv {
+      width: 80px;
+      height: 80px;
+      display: inline-block; }
+      #PeoplePage #itemList #singleItem #imageDiv img {
+        border-radius: 50%;
+        display: block;
+        max-height: 80px;
+        max-width: 80px;
+        margin: 0 auto; }
+    #PeoplePage #itemList #singleItem #nameAndDescriptionDiv {
+      display: inline-block;
+      width: calc(100% - 140px);
+      height: 80px;
+      vertical-align: top; }
+      #PeoplePage #itemList #singleItem #nameAndDescriptionDiv p, #PeoplePage #itemList #singleItem #nameAndDescriptionDiv h3 {
+        margin: 0px 0px 0px 10px; }
+      #PeoplePage #itemList #singleItem #nameAndDescriptionDiv h3 {
+        margin-bottom: 5px; }
+    #PeoplePage #itemList #singleItem #lastPostDiv {
+      display: inline-block;
+      width: 60px;
+      height: 80px;
+      vertical-align: top; }
+
+::placeholder {
+  color: white; }
+
+a:visited {
+  color: white; }

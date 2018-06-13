@@ -7,7 +7,7 @@ import LandingPage from './landing/LandingPage';
 import FeedPage from './feed/FeedPage';
 import ProfilePage from './profile/ProfilePage';
 import PeoplePage from './people/PeoplePage';
-
+//partials
 import Header from './partials/Header';
 
 
@@ -24,8 +24,8 @@ class App extends Component {
                 <Switch>
 
                     <Route exact path='/' component={FeedPage} />
-                    <Route exact path='/Profile' component={ProfilePage} />
                     <Route exact path='/People' component={PeoplePage} />
+                    <Route exact path='/Profile' component={ProfilePage} />
 
                 </Switch>
 

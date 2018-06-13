@@ -45,8 +45,6 @@ class UserService {
                 return response.json();
             })
 
-
-
     }
 
 
@@ -58,9 +56,6 @@ class UserService {
             body: JSON.stringify(user),
             method: 'PUT'
         })
-
-
-
     }
 
 

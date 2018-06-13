@@ -13,19 +13,23 @@ class Header extends React.Component {
     render() {
 
         return (
+            <div id="container">
 
-            <div id="header">
+                <div id="header">
 
-                <span id="bitSpan">BitBook</span>
+                    <span id="bitSpan">BitBook</span>
 
-                <div>
+                    <div>
 
-                    <span><Link to='/'>Feed</Link></span>
-                    <span><Link to='/Profile'>Profile</Link></span>
-                    <span><Link to='/People'>People</Link></span>
+                        <span><Link to='/'>Feed</Link></span>
+                        <span><Link to='/People'>People</Link></span>
+                        <span><Link to='/Profile'>Profile</Link></span>
+
+                    </div>
+
                 </div>
-
             </div>
+
         )
     }
 
