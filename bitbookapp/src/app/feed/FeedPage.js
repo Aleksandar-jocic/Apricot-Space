@@ -24,7 +24,7 @@ class FeedPage extends React.Component {
         this.setState({
 
             filterVideos: true,
-            filterImage: false,
+            filterImages: false,
             filterText: false
         })
 
@@ -34,7 +34,7 @@ class FeedPage extends React.Component {
         this.setState({
 
             filterVideos: false,
-            filterImage: false,
+            filterImages: false,
             filterText: false
         })
 
