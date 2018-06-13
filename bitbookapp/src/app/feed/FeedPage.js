@@ -3,6 +3,7 @@ import React from 'react';
 import postService from '../../services/postService';
 import PostsList from './PostsList';
 import Sidebar from './Sidebar';
+import NewPosts from './NewPosts';
 
 
 class FeedPage extends React.Component {
@@ -84,9 +85,9 @@ class FeedPage extends React.Component {
         return (
 
             <div>
-                <Sidebar
-                    filterVideos={this.filterVideos}
-                    filterImages={this.filterImages}
+                {/* <Sidebar */}
+                {/* filterVideos={this.filterVideos} */}
+                {/* filterImages={this.filterImages}
                     filterText={this.filterText}
                     clearFilter={this.clearFilter}
                 />
@@ -96,7 +97,8 @@ class FeedPage extends React.Component {
                     filterText={this.state.filterText}
                     posts={this.state.posts}
 
-                />
+                /> */}
+                <NewPosts />
 
             </div>
 
