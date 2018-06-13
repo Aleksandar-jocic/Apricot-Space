@@ -36,7 +36,8 @@ class PostsList extends Component {
 
 
                 }).map(post =>
-                    <Link to={`/feeds/${post.id}`}>
+                    <Link to={
+                        `/feeds/${post.type}/${post.id}`} >
                         {
 
                             post.type === "text" ?
@@ -63,7 +64,8 @@ class PostsList extends Component {
                     </Link>
 
 
-                )}
+                )
+                }
             </div>
         );
     }
