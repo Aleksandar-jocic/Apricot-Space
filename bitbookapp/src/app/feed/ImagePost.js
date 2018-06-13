@@ -5,9 +5,9 @@ class ImagePost extends Component {
         return (
             <div>
                 <div>  <img width="420" height="315" src={this.props.imageUrl} alt="" /></div>
-                <span>Image post</span>
+                {this.props.commentsNum >= 0 ? (<span>Image Post</span>) : undefined}
                 <br />
-                <span>{this.props.commentsNum} comments</span>
+                {this.props.commentsNum >= 0 ? (<span>{this.props.commentsNum} Comments</span>) : undefined}
             </div>
         );
     }

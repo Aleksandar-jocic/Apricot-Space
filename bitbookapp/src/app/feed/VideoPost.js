@@ -13,9 +13,9 @@ class VideoPost extends Component {
                         src={this.props.videoUrl}>
                     </iframe>
                 </div>
-                <span>Video post</span>
+                {this.props.commentsNum >= 0 ? (<span>Video Post</span>) : undefined}
                 <br />
-                <span>{this.props.commentsNum} comments</span>
+                {this.props.commentsNum >= 0 ? (<span>{this.props.commentsNum} Comments</span>) : undefined}
             </div>
         );
     }

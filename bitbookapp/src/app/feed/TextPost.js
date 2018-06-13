@@ -9,9 +9,9 @@ class TextPost extends Component {
         return (
             <div>
                 <div>  {this.props.text}</div>
-                <span>Text post</span>
+                {this.props.commentsNum >= 0 ? (<span>Text Post</span>) : undefined}
                 <br />
-                <span>{this.props.commentsNum} Comments</span>
+                {this.props.commentsNum >= 0 ? (<span>{this.props.commentsNum} Comments</span>) : undefined}
             </div>
         );
     }

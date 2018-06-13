@@ -9,6 +9,7 @@ import ProfilePage from './profile/ProfilePage';
 import PeoplePage from './people/PeoplePage';
 //partials
 import Header from './partials/Header';
+import PostDetailsPage from './postDetails/PostDetailsPage';
 
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
                     <Route exact path='/' component={FeedPage} />
                     <Route exact path='/People' component={PeoplePage} />
                     <Route exact path='/Profile' component={ProfilePage} />
+                    <Route exact path='/feeds/:type/:id' component={PostDetailsPage} />
 
                 </Switch>
 
