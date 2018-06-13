@@ -3,6 +3,9 @@ import React from 'react';
 import postService from '../../services/postService';
 import PostsList from './PostsList';
 import Sidebar from './Sidebar';
+import TextPostModal from './TextPostModal';
+import ImagePostModal from './ImagePostModal';
+
 
 
 class FeedPage extends React.Component {
@@ -14,7 +17,9 @@ class FeedPage extends React.Component {
                 posts: [],
                 filterVideos: false,
                 filterImages: false,
-                filterText: false
+                filterText: false,
+                textPostModal: false,
+                imagePostModal: false
             }
     }
 
@@ -66,7 +71,7 @@ class FeedPage extends React.Component {
     componentDidMount() {
 
         postService.getPosts().then((posts) => {
-            console.log(posts)
+
             this.setState({
 
                 posts
@@ -79,11 +84,59 @@ class FeedPage extends React.Component {
         )
 
     }
+    getUpdatedPosts = () => {
+
+
+        postService.getPosts().then((posts) => {
+
+            this.setState({
+
+                posts,
+                textPostModal: false
+            })
+
+        }
+
+        )
+
+    }
+
+
+
+
+    openTextModal = () => {
+
+        this.setState({
+
+            textPostModal: true
+        })
+
+    }
+    openImageModal = () => {
+
+        this.setState({
+
+            imagePostModal: true
+        })
+
+    }
+
+    closeModal = () => {
+
+        this.setState({
+
+            textPostModal: false,
+            imagePostModal: false
+        })
+    }
     render() {
 
         return (
 
             <div>
+                <button onClick={this.openTextModal} >TextModal</button>
+                <br />
+                <button onClick={this.openImageModal} >ImageModal</button>
                 <Sidebar
                     filterVideos={this.filterVideos}
                     filterImages={this.filterImages}
@@ -97,6 +150,22 @@ class FeedPage extends React.Component {
                     posts={this.state.posts}
 
                 />
+
+
+
+                <TextPostModal
+                    closeModal={this.closeModal}
+                    textPostModal={this.state.textPostModal}
+                    getUpdatedPosts={this.getUpdatedPosts}
+                />
+                <ImagePostModal
+
+                    closeModal={this.closeModal}
+                    imagePostModal={this.state.imagePostModal}
+                    getUpdatedPosts={this.getUpdatedPosts}
+                />
+
+
 
             </div>
 
