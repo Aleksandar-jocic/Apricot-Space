@@ -58,7 +58,7 @@ class ProfilePage extends React.Component {
             <div>
                 <img src={this.state.profile.avatarUrl} alt="" />
                 <h1>{this.state.profile.name}</h1>
-                <a href="" onClick={this.handleEditProfile} >Edit profile</a>
+                <span onClick={this.handleEditProfile} >Edit profile</span>
                 <p>{this.state.profile.about}</p>
 
                 <span>{this.state.profile.postsCount} posts  </span>
