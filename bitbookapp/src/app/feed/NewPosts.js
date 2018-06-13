@@ -9,13 +9,14 @@ const NewPosts = (props) => (
         <div id='contentButtons'>
 
             <div>
-                <i class="fas fa-circle"></i><span>video</span>
+                <button onClick={props.newVideo} ><i class="fas fa-circle"></i><span>video</span></button>
+
             </div>
             <div>
-                <i class="fas fa-circle"></i><span>image</span>
+                <button onClick={props.newImage} ><i class="fas fa-circle"></i><span>Image</span></button>
             </div>
             <div>
-                <i class="fas fa-circle"></i><span>post</span>
+                <button onClick={props.newText} ><i class="fas fa-circle"></i><span>Text</span></button>
             </div>
 
         </div>

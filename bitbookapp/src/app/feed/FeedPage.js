@@ -3,8 +3,10 @@ import React from 'react';
 import postService from '../../services/postService';
 import PostsList from './PostsList';
 import Sidebar from './Sidebar';
+
 import TextPostModal from './TextPostModal';
 import ImagePostModal from './ImagePostModal';
+import VideoPostModal from './VideoPostModal'
 
 import NewPosts from './NewPosts';
 
@@ -20,7 +22,8 @@ class FeedPage extends React.Component {
                 filterImages: false,
                 filterText: false,
                 textPostModal: false,
-                imagePostModal: false
+                imagePostModal: false,
+                videoPostModal: false
             }
     }
 
@@ -87,13 +90,15 @@ class FeedPage extends React.Component {
     }
     getUpdatedPosts = () => {
 
-
         postService.getPosts().then((posts) => {
 
             this.setState({
 
                 posts,
-                textPostModal: false
+                textPostModal: false,
+                imagePostModal: false,
+                videoPostModal: false
+
             })
 
         }
@@ -121,13 +126,22 @@ class FeedPage extends React.Component {
         })
 
     }
+    openVideoModal = () => {
+
+        this.setState({
+
+            videoPostModal: true
+        })
+    }
+
 
     closeModal = () => {
 
         this.setState({
 
             textPostModal: false,
-            imagePostModal: false
+            imagePostModal: false,
+            videoPostModal: false
         })
     }
     render() {
@@ -135,9 +149,7 @@ class FeedPage extends React.Component {
         return (
 
             <div>
-                <button onClick={this.openTextModal} >TextModal</button>
-                <br />
-                <button onClick={this.openImageModal} >ImageModal</button>
+
                 <Sidebar
                     filterVideos={this.filterVideos}
                     filterImages={this.filterImages}
@@ -151,9 +163,11 @@ class FeedPage extends React.Component {
                     posts={this.state.posts}
 
                 />
-                <NewPosts />
-
-
+                <NewPosts
+                    newText={this.openTextModal}
+                    newImage={this.openImageModal}
+                    newVideo={this.openVideoModal}
+                />
 
                 <TextPostModal
                     closeModal={this.closeModal}
@@ -165,6 +179,12 @@ class FeedPage extends React.Component {
                     closeModal={this.closeModal}
                     imagePostModal={this.state.imagePostModal}
                     getUpdatedPosts={this.getUpdatedPosts}
+                />
+                <VideoPostModal
+                    closeModal={this.closeModal}
+                    videoPostModal={this.state.videoPostModal}
+                    getUpdatedPosts={this.getUpdatedPosts}
+
                 />
 
 
