@@ -12,7 +12,7 @@ const ItemList = (props) => (
             <h3>{props.item.name}</h3>
             <p>short description</p>
         </div>
-        
+
         <div id='lastPostDiv'>
             <p>Last post at 16:20</p>
         </div>
