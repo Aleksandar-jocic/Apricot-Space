@@ -48,7 +48,7 @@ class PeoplePage extends React.Component {
 
                 <h1>PeoplePage</h1>
 
-                <Search inputMonitor={this.inputMonitor}/>
+                <Search inputMonitor={this.inputMonitor} />
 
                 <div id='itemList'>
 
@@ -65,7 +65,7 @@ class PeoplePage extends React.Component {
 
                     }).map((item) => (
 
-                        <ItemList item={item}/>                       
+                        <ItemList item={item} />
 
                     ))}
 

@@ -1,3 +1,6 @@
+change colors..add to vars 
+
+
 Sta god da se radi, koristi yarn! nevidjeni mindfuck u suprotnom!!!!
 
 

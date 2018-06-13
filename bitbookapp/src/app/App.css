@@ -95,29 +95,85 @@
       height: 80px;
       vertical-align: top; }
 
+#ProfilePage {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center; }
+  #ProfilePage img {
+    border-radius: 50%;
+    display: block;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 40px;
+    -webkit-box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56);
+    -moz-box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56);
+    box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56); }
+  #ProfilePage #postsAndCommentsDiv {
+    position: relative; }
+    #ProfilePage #postsAndCommentsDiv h4 {
+      margin: 0px;
+      padding: 7px;
+      padding-left: 20px;
+      background-color: rgba(163, 163, 163, 0.56);
+      border-radius: 0px 20px 20px 0px;
+      margin-left: 17px; }
+    #ProfilePage #postsAndCommentsDiv span {
+      background-color: #0c8cf5;
+      border-radius: 50%;
+      color: white;
+      display: table-cell;
+      height: 32px;
+      width: 32px;
+      text-align: center;
+      vertical-align: middle; }
+    #ProfilePage #postsAndCommentsDiv #PostsDiv {
+      display: inline-block;
+      position: relative; }
+      #ProfilePage #postsAndCommentsDiv #PostsDiv div {
+        position: absolute; }
+    #ProfilePage #postsAndCommentsDiv #CommentsDiv {
+      display: inline-block;
+      position: relative;
+      margin-left: 50px; }
+      #ProfilePage #postsAndCommentsDiv #CommentsDiv div {
+        position: absolute;
+        top: 0px;
+        left: 0px; }
+
+#ProfileModal input {
+  border: 0px;
+  border-bottom: 1px solid red; }
+
+#ProfileModal #uploadNameDiv {
+  margin-bottom: 120px;
+  margin-top: 50px; }
+  #ProfileModal #uploadNameDiv label {
+    color: red; }
+
+#ProfileModal #uploadAboutDiv {
+  margin-bottom: 20px; }
+
+#ProfileModal button {
+  background-color: #0c8cf5;
+  padding: 10px;
+  border: 0px;
+  border-radius: 3px;
+  color: white;
+  -webkit-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+  -moz-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+  box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+  margin-left: 20px; }
+
 ::placeholder {
   color: white; }
 
-a:visited {
+#header a:visited {
   color: white; }
-#header {
-  width: 90%;
-  margin: 0 auto;
-  background-color: #0c8cf5;
-  position: relative;
-  height: 60px;
-  border-radius: 10px; }
-  #header #bitspan {
-    font-size: 40px;
-    display: inline-block;
-    margin-top: 7px; }
-  #header div {
-    position: absolute;
-    right: 30px;
-    top: 17px;
-    display: inline-block; }
-    #header div span {
-      margin-left: 17px;
-      font-size: 20px; }
-      #header div span a {
-        text-decoration: none; }
+
+#ProfilePage > a:hover {
+  color: #0c8cf5;
+  cursor: pointer; }
+
+#ProfileModal button:hover {
+  cursor: pointer; }
