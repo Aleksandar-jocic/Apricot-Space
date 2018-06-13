@@ -6,6 +6,7 @@ import Sidebar from './Sidebar';
 import TextPostModal from './TextPostModal';
 import ImagePostModal from './ImagePostModal';
 
+import NewPosts from './NewPosts';
 
 
 class FeedPage extends React.Component {
@@ -150,6 +151,7 @@ class FeedPage extends React.Component {
                     posts={this.state.posts}
 
                 />
+                <NewPosts />
 
 
 
