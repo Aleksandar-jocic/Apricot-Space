@@ -34,17 +34,10 @@ class EditProfileModal extends Component {
     }
 
     handleUpdate = () => {
-
-        userService.uploadUser({
-            "userId": this.props.userId,
-            "name": this.state.name,
-            "email": this.props.email,
-            "aboutShort": this.props.aboutShort,
-            "about": this.state.about,
-            "avatarUrl": this.state.avatarUrl,
-            "postsCount": this.props.postsCount,
-            "commentsCount": this.props.commentsCount
-        }).then(() => {
+        this.props.profile.name = this.state.name || this.props.profile.name
+        this.props.profile.about = this.state.about || this.props.profile.about
+        this.props.profile.avatarUrl = this.state.avatarUrl || this.props.profile.avatarUrl
+        userService.uploadUser(this.props.profile).then(() => {
 
             this.props.getUpdatedProfile();
         })
