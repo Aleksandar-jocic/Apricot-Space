@@ -66,11 +66,7 @@ class ProfilePage extends React.Component {
                 <span>{this.state.profile.commentsCount} comments</span>
                 <EditProfileModal
 
-                    userId={this.state.profile.userId}
-                    email={this.state.profile.email}
-                    postsCount={this.state.profile.postsCount}
-                    commentsCount={this.state.profile.commentsCount}
-                    aboutShort={this.state.profile.aboutShort}
+                    profile={this.state.profile}
                     editProfile={this.state.editProfile}
                     handleClose={this.handleClose}
                     getUpdatedProfile={this.getUpdatedProfile}
