@@ -7,14 +7,31 @@ class VideoPostModal extends Component {
         super(props);
         this.state = {
 
-            newVideoPost: ""
+            newVideoPost: "",
+            error: ""
         };
     }
     handleNewVideoPost = (event) => {
 
-        this.setState({
-            newVideoPost: event.target.value
-        })
+        let youTubeRegex = /(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|[a-zA-Z0-9_\-]+\?v=)([^#\&\?\n<>\'\"]*)/gi;
+        if (youTubeRegex.test(event.target.value)) {
+
+            let youTubeWatch = event.target.value
+            let youTubeEmbed = `https://www.youtube.com/embed/${youTubeWatch.split("=")[1]}`
+
+            this.setState({
+                newVideoPost: youTubeEmbed,
+                error: ''
+            })
+
+        } else {
+
+            this.setState({
+
+                error: 'This is not valid Youtube url'
+            })
+        }
+
     }
     uploadVideoPost = () => {
 
@@ -31,6 +48,7 @@ class VideoPostModal extends Component {
                 contentLabel="Post new video">
                 <h1>NEW VIDEO POST</h1>
                 <input type="text" onChange={this.handleNewVideoPost} />
+                <span>{this.state.error}</span>
                 <br />
                 <br />
                 <br />
