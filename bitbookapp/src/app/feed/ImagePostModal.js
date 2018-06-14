@@ -7,7 +7,8 @@ class ImagePostModal extends Component {
         super(props);
         this.state = {
 
-            newImagePost: ""
+            newImagePost: "Unesite url...",
+
         };
     }
 
@@ -37,7 +38,7 @@ class ImagePostModal extends Component {
                 isOpen={this.props.imagePostModal}
                 contentLabel="Post new TextPost">
                 <h1>NEW IMAGE POST</h1>
-                <input type="text" onChange={this.handleNewImagePost} />
+                <input type="text" value={this.state.newImagePost} onChange={this.handleNewImagePost} />
                 <br />
                 <br />
                 <br />

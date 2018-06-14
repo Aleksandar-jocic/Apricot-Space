@@ -13,6 +13,7 @@ class PostsList extends Component {
         super(props);
         this.state = {};
     }
+
     render() {
         return (
             <div>
@@ -35,33 +36,43 @@ class PostsList extends Component {
 
 
 
-                }).map(post =>
-                    <Link to={
-                        `/feeds/${post.type}/${post.id}`} >
-                        {
+                }).map(post => {
 
-                            post.type === "text" ?
-                                <TextPost
+                    return (
+
+                        post.type === "text" ?
+                            <TextPost
+                                commentsNum={post.commentsNum}
+                                type={post.type}
+                                text={post.text}
+                                id={post.id}
+                                deletePost={this.props.deletePost}
+
+                            /> : (post.type === "image" ?
+                                <ImagePost
                                     commentsNum={post.commentsNum}
                                     type={post.type}
-                                    text={post.text}
-
-                                /> : (post.type === "image" ?
-                                    <ImagePost
-                                        commentsNum={post.commentsNum}
-                                        type={post.type}
-                                        imageUrl={post.imageUrl}
-                                    /> :
-                                    <VideoPost
-                                        commentsNum={post.commentsNum}
-                                        type={post.type}
-                                        videoUrl={post.videoUrl}
-                                    />)
-
-                        }
+                                    imageUrl={post.imageUrl}
+                                    id={post.id}
+                                    deletePost={this.props.deletePost}
+                                /> :
+                                <VideoPost
+                                    commentsNum={post.commentsNum}
+                                    type={post.type}
+                                    videoUrl={post.videoUrl}
+                                    id={post.id}
+                                    deletePost={this.props.deletePost}
+                                />)
 
 
-                    </Link>
+                    )
+
+
+
+                }
+
+
+
 
 
                 )
