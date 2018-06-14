@@ -27,6 +27,21 @@ class FeedPage extends React.Component {
             }
     }
 
+    deletePost = (id) => {
+
+        postService.deletePost(id).then(() => {
+
+            postService.getPosts().then((posts) => {
+
+                this.setState({
+
+                    posts
+
+                })
+            })
+        })
+
+    }
     filterVideos = () => {
 
 
@@ -161,6 +176,7 @@ class FeedPage extends React.Component {
                     filterImages={this.state.filterImages}
                     filterText={this.state.filterText}
                     posts={this.state.posts}
+                    deletePost={this.deletePost}
 
                 />
                 <NewPosts

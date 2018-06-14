@@ -12,7 +12,7 @@ class PostService {
         return fetch(`${url}/Posts`, {
             headers
         })
-            .then(function (response) {
+            .then((response) => {
                 return response.json();
             })
 
@@ -82,7 +82,7 @@ class PostService {
         return fetch(`${url}/ImagePosts/${id}`, {
             headers
         })
-            .then(function (response) {
+            .then((response) => {
                 return response.json();
             })
 
@@ -165,18 +165,7 @@ class PostService {
             })
 
     }
-    uploadComment(formData) {
 
-        return fetch(`${url}/upload`, {
-            headersImg,
-            body: formData,
-            method: 'POST'
-        })
-            .then(function (response) {
-                return response.json();
-            })
-
-    }
 
 
 }
