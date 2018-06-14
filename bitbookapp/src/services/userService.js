@@ -1,6 +1,7 @@
 import {
     url,
-    headers
+    headers,
+    headersImg
 } from "../shared/const"
 
 
@@ -56,6 +57,29 @@ class UserService {
             body: JSON.stringify(user),
             method: 'PUT'
         })
+    }
+
+
+
+    uploadImage(formData) {
+
+        return fetch(`${url}/upload`, {
+            headers: {
+
+
+
+                "Key": "bitbookdev",
+                "SessionId": "2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE"
+
+
+            },
+            body: formData,
+            method: 'POST'
+        })
+            .then(function (response) {
+                return response.json();
+            })
+
     }
 
 

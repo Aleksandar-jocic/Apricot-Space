@@ -9,7 +9,8 @@ class EditProfileModal extends Component {
 
             name: "",
             about: "",
-            avatarUrl: ""
+            avatarUrl: "",
+            image: ""
         };
     }
 
@@ -45,6 +46,43 @@ class EditProfileModal extends Component {
 
 
     }
+
+    handleImageUpload = (event) => {
+
+        const formData = new FormData();
+        formData.append('file', event.target.files[0])
+        userService.uploadImage(formData).then((data) => {
+
+            this.setState({
+
+
+                avatarUrl: data
+            })
+
+
+        })
+
+
+
+    }
+
+    // uploadImage = () => {
+    //     const formData = new FormData();
+    //     formData.append('file', this.state.image)
+    //     userService.uploadImage(formData).then((data) => {
+    //         console.log(data)
+    //         this.setState({
+
+
+    //             avatarUrl: data
+    //         })
+
+
+    //     })
+
+    // }
+
+
     render() {
         return (
             <Modal
@@ -57,6 +95,9 @@ class EditProfileModal extends Component {
                     <div id='uploadImageDiv'>
                         <input onChange={this.handlePicture} type="text" />
                     </div>
+
+                    <input type="file" onChange={this.handleImageUpload} />
+                    <button onClick={this.uploadImage} >Upload Image</button>
 
                     <div id='uploadNameDiv'>
                         <label>Name</label><br />
@@ -78,5 +119,6 @@ class EditProfileModal extends Component {
         );
     }
 }
+
 
 export default EditProfileModal;
