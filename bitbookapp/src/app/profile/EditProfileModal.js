@@ -50,21 +50,29 @@ class EditProfileModal extends Component {
             <Modal
                 isOpen={this.props.editProfile}
                 contentLabel="Edit Profile">
+                <div id='ProfileModal'>
 
-                <h3>Update Profile</h3>
-                <input onChange={this.handlePicture} type="text" />
-                <br />
-                <br />
-                <input onChange={this.handleName} type="text" />
-                <br />
-                <br />
-                <input onChange={this.handleAbout} type="text" />
-                <br />
-                <br />
-                <button onClick={this.props.handleClose} >CLOSE</button>
-                <br />
-                <br />
-                <button onClick={this.handleUpdate}>UPDATE</button>
+                    <h2>Update Profile</h2>
+
+                    <div id='uploadImageDiv'>
+                        <input onChange={this.handlePicture} type="text" />
+                    </div>
+
+                    <div id='uploadNameDiv'>
+                        <label>Name</label><br />
+                        <input placeholder='Something about you...' onChange={this.handleName} type="text" />
+                    </div>
+
+                    <div id='uploadAboutDiv'>
+                        <input type="text" placeholder='Something about you...' onChange={this.handleAbout} />
+                    </div>
+
+                    <div>
+                        <button onClick={this.props.handleClose} >CLOSE</button>
+                        <button onClick={this.handleUpdate}>UPDATE</button>
+                    </div>
+
+                </div>
 
             </Modal>
         );

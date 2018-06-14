@@ -24,7 +24,6 @@ class ProfilePage extends React.Component {
                 profile
             })
         })
-
     }
 
     handleClose = () => {
@@ -38,7 +37,6 @@ class ProfilePage extends React.Component {
         this.setState({
             editProfile: true
         })
-
     }
 
     componentDidMount() {
@@ -47,23 +45,30 @@ class ProfilePage extends React.Component {
                 profile
             })
         })
-
-
-
     }
+
     render() {
 
         return (
 
-            <div>
+            <div id='ProfilePage'>
+
                 <img src={this.state.profile.avatarUrl} alt="" />
+
                 <h1>{this.state.profile.name}</h1>
                 <span onClick={this.handleEditProfile} >Edit profile</span>
                 <p>{this.state.profile.about}</p>
+                <div id='postsAndCommentsDiv'>
+                    <div id='PostsDiv'>
+                        <div><span>P</span></div>
+                        <h4> {this.state.profile.postsCount} posts  </h4>
+                    </div>
+                    <div id='CommentsDiv'>
+                        <div><span>C</span></div>
+                        <h4> {this.state.profile.commentsCount} comments</h4>
+                    </div>
+                </div>
 
-                <span>{this.state.profile.postsCount} posts  </span>
-                <br />
-                <span>{this.state.profile.commentsCount} comments</span>
                 <EditProfileModal
 
                     profile={this.state.profile}
