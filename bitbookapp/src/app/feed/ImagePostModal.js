@@ -7,18 +7,36 @@ class ImagePostModal extends Component {
         super(props);
         this.state = {
 
-            newImagePost: "Unesite url...",
+            newImagePost: "",
+            error: ""
 
         };
     }
 
     handleNewImagePost = (event) => {
 
-        this.setState({
+        let reg = /^(ftp|http|https):\/\/[^ "]+$/
 
-            newImagePost: event.target.value
+        if (reg.test(event.target.value)) {
 
-        })
+            this.setState({
+
+                newImagePost: event.target.value,
+                error: ""
+
+            })
+
+        } else {
+
+            this.setState({
+
+                error: "This is not valid image url"
+
+            })
+
+        }
+
+
 
     }
     uploadImagePost = () => {
@@ -36,9 +54,11 @@ class ImagePostModal extends Component {
         return (
             <Modal
                 isOpen={this.props.imagePostModal}
-                contentLabel="Post new TextPost">
+                contentLabel="Post new TextPost" center>
                 <h1>NEW IMAGE POST</h1>
-                <input type="text" value={this.state.newImagePost} onChange={this.handleNewImagePost} />
+                <input type="text" onChange={this.handleNewImagePost} />
+
+                <span>{this.state.error}</span>
                 <br />
                 <br />
                 <br />
