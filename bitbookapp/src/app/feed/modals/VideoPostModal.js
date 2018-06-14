@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Modal from "react-modal";
-import postService from "../../services/postService"
+import postService from "../../../services/postService"
 
 class VideoPostModal extends Component {
     constructor(props) {
