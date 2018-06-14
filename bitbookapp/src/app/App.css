@@ -114,6 +114,7 @@
     border: 0px; }
   #NewPosts span {
     display: inline-block; }
+
 #ProfilePage {
   width: 70%;
   margin: 0 auto;
@@ -192,6 +193,7 @@
 
 #NewPosts:hover #contentButtons {
   display: block; }
+
 #ProfilePage > a:hover {
   color: #0c8cf5;
   cursor: pointer; }

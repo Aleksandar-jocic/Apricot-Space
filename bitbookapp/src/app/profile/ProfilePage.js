@@ -1,6 +1,7 @@
 import React from 'react';
 import userService from "../../services/userService"
 import EditProfileModal from "./EditProfileModal"
+import ProfileExtension from './ProfileExtension'
 
 class ProfilePage extends React.Component {
 
@@ -9,16 +10,14 @@ class ProfilePage extends React.Component {
         super(props),
             this.state = {
 
-
                 profile: {},
                 editProfile: false
-
-
             }
     }
 
     getUpdatedProfile = () => {
         userService.getProfile().then((profile) => {
+
             this.setState({
                 editProfile: false,
                 profile
@@ -41,6 +40,8 @@ class ProfilePage extends React.Component {
 
     componentDidMount() {
         userService.getProfile().then((profile) => {
+            console.log(profile);
+
             this.setState({
                 profile
             })
@@ -53,21 +54,13 @@ class ProfilePage extends React.Component {
 
             <div id='ProfilePage'>
 
-                <img src={this.state.profile.avatarUrl} alt="" />
+                <ProfileExtension
 
-                <h1>{this.state.profile.name}</h1>
-                <span onClick={this.handleEditProfile} >Edit profile</span>
-                <p>{this.state.profile.about}</p>
-                <div id='postsAndCommentsDiv'>
-                    <div id='PostsDiv'>
-                        <div><span>P</span></div>
-                        <h4> {this.state.profile.postsCount} posts  </h4>
-                    </div>
-                    <div id='CommentsDiv'>
-                        <div><span>C</span></div>
-                        <h4> {this.state.profile.commentsCount} comments</h4>
-                    </div>
-                </div>
+                    profile={this.state.profile}
+                    params={this.props.match.params}
+                    handler={this.handleEditProfile}
+
+                />
 
                 <EditProfileModal
 

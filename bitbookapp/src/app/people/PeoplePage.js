@@ -4,7 +4,6 @@ import Axios from 'axios';
 import ItemList from './ItemList';
 import Search from './Search';
 
-
 class PeoplePage extends React.Component {
 
     constructor(props) {
@@ -28,6 +27,8 @@ class PeoplePage extends React.Component {
     listOfUsers() {
 
         UserService.getUsers().then((userList) => {
+
+            console.log(userList);
 
             this.setState({
                 users: userList
