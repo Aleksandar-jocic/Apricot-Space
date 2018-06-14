@@ -12,6 +12,7 @@ class TextPost extends Component {
     }
     render() {
         return (
+
             <div>
                 <div>  {this.props.text}</div>
                 <Link to={

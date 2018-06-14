@@ -9,25 +9,32 @@ import { Link } from 'react-router-dom';
 
 
 class PostsList extends Component {
+
     constructor(props) {
+
         super(props);
         this.state = {};
     }
 
     render() {
+
         return (
+
             <div>
                 {this.props.posts.filter((post) => {
 
                     if (this.props.filterVideos) {
 
                         return post.type === "video"
+
                     } else if (this.props.filterImages) {
+
                         return post.type === "image"
 
                     } else if (this.props.filterText) {
 
                         return post.type === "text"
+
                     } else {
 
                         return true

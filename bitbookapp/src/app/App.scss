@@ -6,6 +6,7 @@
 $mainColor: rgb(12, 140, 245); 
 $shadow: rgba(163,163,163,0.56);
 $shadowStrong: rgba(92, 92, 92, 0.56);
+$postColor: rgb(122, 195, 255);
 
 //                      HEADER                      //
 #container {
@@ -269,6 +270,7 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
         }
     }
 }
+//                       PROFILE MODAL                        //
 
 #ProfileModal {
 
@@ -303,6 +305,9 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
         margin-left: 20px;
     }
 }
+
+//                            FEED                          //
+
 
 
 
