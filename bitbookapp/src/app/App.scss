@@ -6,6 +6,7 @@
 $mainColor: rgb(12, 140, 245); 
 $shadow: rgba(163,163,163,0.56);
 $shadowStrong: rgba(92, 92, 92, 0.56);
+$postColor: rgb(167, 201, 230);
 
 //                      HEADER                      //
 #container {
@@ -162,39 +163,6 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
         }               
     }
 }
-//                      UPLOAD ON FEED                      //
-
-#NewPosts{
-
-    position: fixed;
-    bottom: 150px;
-    right: 150px;
-    display: inline-block;
-
-    #contentButtons {
-        display: none;
-        position: absolute;
-        z-index: 1;
-        bottom: 50px;
-
-
-    }
-
-    i{
-        color: orange;
-        font-size: 45px;
-        display: inline;
-    
-    }
-    
-    button {
-        background-color: white;
-        border: 0px;
-    }
-    span {
-        display: inline-block;
-    }
-}
               
 //                       PROFILE                             //
 
@@ -269,6 +237,7 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
         }
     }
 }
+//                       PROFILE MODAL                        //
 
 #ProfileModal {
 
@@ -304,6 +273,138 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
     }
 }
 
+//                            FEED                          //
+#FeedPage {
+
+    width: 70%;
+    margin: 0 auto;
+
+}
+#PostList {
+    width: 90%;
+    display: inline-block;
+}
+#SideBarNewPosts {
+    width: 1%;
+    display: inline-block;
+    vertical-align: top;   
+    position: relative; 
+}
+
+//              filterList DOWN            //
+#FilterList{
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: inline-block;
+    width: 90px;
+
+    
+
+    #contentList {
+        display: none;
+        position: absolute;
+        z-index: 1;
+    }
+}
+//               newPost UP                 //
+
+#NewPosts{
+
+    position: fixed;
+    bottom: 150px;
+    right: 80px;
+    display: inline-block;
+
+    #contentButtons {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        bottom: 47px;
+
+
+    }
+
+    i{
+        color: orange;
+        font-size: 45px;
+        display: inline;
+    
+    }
+    
+    button {
+        background-color: white;
+        border: 0px;
+    }
+    span {
+        display: inline-block;
+    }
+}
+
+
+//          TEXT POST           \\
+
+.Post {
+
+    margin-top: 20px;
+    padding: 20px;
+    background-color: $postColor;
+    position: relative;
+    border-radius: 5px;
+
+    -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
+    -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
+    box-shadow: 2px 4px 13px 0px $shadowStrong;
+
+    .textPostDiv {
+        text-align: left;
+        display: inline-block;
+        width: 33%;
+        
+    }
+    .commentPostDiv {
+        text-align: right;
+        display: inline-block;
+        width: 33%;        
+    }
+    .deletePostButton{
+        text-align: center;
+        display: inline-block;
+        width: 33%;
+    }
+    .imageDivOnFeed {
+        
+        img {
+            width: 100%;
+            margin-bottom: 16px;
+            
+        }
+        
+    }
+    .videoDivOnFeed {
+
+        iframe {
+            width: 100%;
+            height: 330px;
+            margin-bottom: 16px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+//          IMAGE POST           \\
+//          VIDEO POST           \\
+
 
 
 
@@ -317,6 +418,8 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
 #header a:visited {
     color: white;
 }
+
+
 #NewPosts:hover #contentButtons {
     display: block;
 }
@@ -325,8 +428,19 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
     color: $mainColor;
     cursor: pointer;
 }
+
+#FilterList:hover #contentList {
+    display: block;
+}
+
+
+
 #ProfileModal button:hover {
     cursor: pointer;
+}
+.deletePostButton:hover {
+    cursor: pointer;
+    color: rgb(148, 22, 22);
 }
 
 
