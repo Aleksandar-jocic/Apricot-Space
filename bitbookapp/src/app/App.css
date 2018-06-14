@@ -100,24 +100,3 @@
 
 a:visited {
   color: white; }
-#header {
-  width: 90%;
-  margin: 0 auto;
-  background-color: #0c8cf5;
-  position: relative;
-  height: 60px;
-  border-radius: 10px; }
-  #header #bitspan {
-    font-size: 40px;
-    display: inline-block;
-    margin-top: 7px; }
-  #header div {
-    position: absolute;
-    right: 30px;
-    top: 17px;
-    display: inline-block; }
-    #header div span {
-      margin-left: 17px;
-      font-size: 20px; }
-      #header div span a {
-        text-decoration: none; }

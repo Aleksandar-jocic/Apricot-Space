@@ -1,6 +1,7 @@
 import {
     url,
-    headers
+    headers,
+    headersImg
 } from "../shared/const"
 class PostService {
 
@@ -157,6 +158,24 @@ class PostService {
         return fetch(`${url}/Comments`, {
             headers,
             body: JSON.stringify(comment),
+            method: 'POST'
+        })
+            .then(function (response) {
+                return response.json();
+            })
+
+    }
+
+
+
+
+
+    //upload fotografije sa diska
+
+    uploadImage(formData) {
+        return fetch(`${url}/upload`, {
+            headersImg,
+            body: formData,
             method: 'POST'
         })
             .then(function (response) {
