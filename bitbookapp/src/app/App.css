@@ -95,26 +95,6 @@
       height: 80px;
       vertical-align: top; }
 
-#NewPosts {
-  position: fixed;
-  bottom: 150px;
-  right: 150px;
-  display: inline-block; }
-  #NewPosts #contentButtons {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    bottom: 50px; }
-  #NewPosts i {
-    color: orange;
-    font-size: 45px;
-    display: inline; }
-  #NewPosts button {
-    background-color: white;
-    border: 0px; }
-  #NewPosts span {
-    display: inline-block; }
-
 #ProfilePage {
   width: 70%;
   margin: 0 auto;
@@ -185,6 +165,80 @@
   box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
   margin-left: 20px; }
 
+#FeedPage {
+  width: 70%;
+  margin: 0 auto; }
+
+#PostList {
+  width: 90%;
+  display: inline-block; }
+
+#SideBarNewPosts {
+  width: 1%;
+  display: inline-block;
+  vertical-align: top;
+  position: relative; }
+
+#FilterList {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-block;
+  width: 90px; }
+  #FilterList #contentList {
+    display: none;
+    position: absolute;
+    z-index: 1; }
+
+#NewPosts {
+  position: fixed;
+  bottom: 150px;
+  right: 80px;
+  display: inline-block; }
+  #NewPosts #contentButtons {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    bottom: 47px; }
+  #NewPosts i {
+    color: orange;
+    font-size: 45px;
+    display: inline; }
+  #NewPosts button {
+    background-color: white;
+    border: 0px; }
+  #NewPosts span {
+    display: inline-block; }
+
+.Post {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #a7c9e6;
+  position: relative;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
+  .Post .textPostDiv {
+    text-align: left;
+    display: inline-block;
+    width: 33%; }
+  .Post .commentPostDiv {
+    text-align: right;
+    display: inline-block;
+    width: 33%; }
+  .Post .deletePostButton {
+    text-align: center;
+    display: inline-block;
+    width: 33%; }
+  .Post .imageDivOnFeed img {
+    width: 100%;
+    margin-bottom: 16px; }
+  .Post .videoDivOnFeed iframe {
+    width: 100%;
+    height: 330px;
+    margin-bottom: 16px; }
+
 ::placeholder {
   color: white; }
 
@@ -198,5 +252,12 @@
   color: #0c8cf5;
   cursor: pointer; }
 
+#FilterList:hover #contentList {
+  display: block; }
+
 #ProfileModal button:hover {
   cursor: pointer; }
+
+.deletePostButton:hover {
+  cursor: pointer;
+  color: #941616; }

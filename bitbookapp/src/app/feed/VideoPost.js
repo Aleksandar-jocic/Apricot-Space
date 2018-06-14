@@ -11,20 +11,28 @@ class VideoPost extends Component {
     }
     render() {
         return (
-            <div>
+            <div className='Post'>
 
-                <div>
-                    <iframe width="420" height="315"
+                <div className='videoDivOnFeed'>
+                    <iframe
                         src={this.props.videoUrl}>
                     </iframe>
                 </div>
-                <Link to={
-                    `/feeds/${this.props.type}/${this.props.id}`}>
-                    {this.props.commentsNum >= 0 ? (<span>Video Post</span>) : undefined}
-                    <br />
-                    {this.props.commentsNum >= 0 ? (<span>{this.props.commentsNum} Comments</span>) : undefined}
-                </Link>
-                <button onClick={this.handleDelete} >deleteMe</button>
+                {this.props.commentsNum >= 0 ?
+
+                    (<div>
+
+                        <div className='textPostDiv' ><span>Video</span></div>
+                        <div className='deletePostButton'><span onClick={this.handleDelete} >{`<Delete post>`}</span></div>
+                        <Link to={`/feeds/${this.props.type}/${this.props.id}`}>
+
+                            <div className='commentPostDiv'><span>{this.props.commentsNum} Comments</span></div>
+
+                        </Link>
+
+
+                    </div>) : undefined}
+
             </div>
         );
     }
