@@ -12,28 +12,70 @@ import Header from './partials/Header';
 
 import PostDetailsPage from './postDetails/PostDetailsPage';
 
-class App extends Component {
 
+
+
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+
+
+            login: false
+        };
+    }
+
+
+    redirect = () => {
+
+        this.setState({
+            login: true
+        })
+    }
     render() {
 
         return (
 
+
             <div>
 
-                <Header />
 
-                <Switch>
+                {
+                    this.state.login ?
 
-                    <Route exact path='/' component={FeedPage} />
-                    <Route exact path='/People' component={PeoplePage} />
-                    <Route exact path='/Profile' component={ProfilePage} />
-                    <Route exact path='/feeds/:type/:id' component={PostDetailsPage} />
-                    <Route exact path='/People/:userId' component={ProfilePage} />
+                        (<div>
+                            <Header />
 
-                </Switch>
+                            <Switch>
+
+                                <Route exact path='/Home' component={FeedPage} />
+                                <Route exact path='/People' component={PeoplePage} />
+                                <Route exact path='/Profile' component={ProfilePage} />
+                                <Route exact path='/feeds/:type/:id' component={PostDetailsPage} />
+                                <Route exact path='/People/:userId' component={ProfilePage} />
+
+                            </Switch>
+                        </div>
+                        )
+                        :
+                        (<Switch>
+                            <Route exact path='/' render={() => <LandingPage redirect={this.redirect} />}
+
+                            />
+                        </Switch>)
+                }
+
+
+
+
+
 
             </div>
-        );
+
+
+        )
+
     }
 }
 

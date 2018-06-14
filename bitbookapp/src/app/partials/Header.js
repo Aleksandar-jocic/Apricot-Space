@@ -21,7 +21,7 @@ class Header extends React.Component {
 
                     <div>
 
-                        <span><Link to='/'>Feed</Link></span>
+                        <span><Link to='/Home'>Feed</Link></span>
                         <span><Link to='/People'>People</Link></span>
                         <span><Link to='/Profile'>Profile</Link></span>
 
