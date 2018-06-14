@@ -123,8 +123,6 @@ class FeedPage extends React.Component {
     }
 
 
-
-
     openTextModal = () => {
 
         this.setState({
@@ -163,27 +161,35 @@ class FeedPage extends React.Component {
 
         return (
 
-            <div>
+            <div id='FeedPage'>
 
-                {/* <Sidebar
-                    filterVideos={this.filterVideos}
-                    filterImages={this.filterImages}
-                    filterText={this.filterText}
-                    clearFilter={this.clearFilter}
-                /> */}
-                <PostsList
-                    filterVideos={this.state.filterVideos}
-                    filterImages={this.state.filterImages}
-                    filterText={this.state.filterText}
-                    posts={this.state.posts}
-                    deletePost={this.deletePost}
+                <div id='PostList'>
 
-                />
-                {/* <NewPosts
-                    newText={this.openTextModal}
-                    newImage={this.openImageModal}
-                    newVideo={this.openVideoModal}
-                /> */}
+                    <PostsList
+                        filterVideos={this.state.filterVideos}
+                        filterImages={this.state.filterImages}
+                        filterText={this.state.filterText}
+                        posts={this.state.posts}
+                        deletePost={this.deletePost}
+                    />
+                </div>
+
+                <div id='SideBarNewPosts'>
+
+                    <Sidebar
+                        filterVideos={this.filterVideos}
+                        filterImages={this.filterImages}
+                        filterText={this.filterText}
+                        clearFilter={this.clearFilter}
+                    />
+
+                    <NewPosts
+                        newText={this.openTextModal}
+                        newImage={this.openImageModal}
+                        newVideo={this.openVideoModal}
+                    />
+
+                </div>
 
                 <TextPostModal
                     closeModal={this.closeModal}
@@ -203,14 +209,9 @@ class FeedPage extends React.Component {
 
                 />
 
-
-
-
             </div>
-
         )
     }
-
 }
 
 export default FeedPage

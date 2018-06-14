@@ -13,15 +13,25 @@ class TextPost extends Component {
     render() {
         return (
 
-            <div>
-                <div>  {this.props.text}</div>
-                <Link to={
-                    `/feeds/${this.props.type}/${this.props.id}`}>
-                    {this.props.commentsNum >= 0 ? (<span>Text Post</span>) : undefined}
-                    <br />
-                    {this.props.commentsNum >= 0 ? (<span>{this.props.commentsNum} Comments</span>) : undefined}
-                </Link>
-                <button onClick={this.handleDelete} >deleteMe</button>
+            <div className='Post' >
+
+                <p>{this.props.text}</p>
+
+                {this.props.commentsNum >= 0 ?
+
+                    (<div>
+
+                        <div className='textPostDiv' ><span>Text</span></div>
+                        <div className='deletePostButton'><span onClick={this.handleDelete} >{`<Delete post>`}</span></div>
+                        <Link to={`/feeds/${this.props.type}/${this.props.id}`}>
+
+                            <div className='commentPostDiv'><span>{this.props.commentsNum} Comments</span></div>
+
+                        </Link>
+
+
+                    </div>) : undefined}
+
             </div>
         );
     }

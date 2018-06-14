@@ -9,21 +9,25 @@ class ImagePost extends Component {
     }
     render() {
         return (
-            <div>
-                <div>  <img width="420" height="315" src={this.props.imageUrl} alt="" /></div>
+            <div className='Post'>
+
+                <div className='imageDivOnFeed'>
+                    <img src={this.props.imageUrl} alt="" />
+                </div>
 
                 {this.props.commentsNum >= 0 ?
-                    <div>
-                        <Link to={
-                            `/feeds/${this.props.type}/${this.props.id}`}>
-                            <span>Image Post</span>
-                            <br />
-                            <span>{this.props.commentsNum} Comments</span>
+
+                    (<div>
+
+                        <div className='textPostDiv' ><span>Image</span></div>
+                        <div className='deletePostButton' onClick={this.handleDelete} >{`<Delete post>`}</div>
+                        <Link to={`/feeds/${this.props.type}/${this.props.id}`}>
+
+                            <div className='commentPostDiv'><span>{this.props.commentsNum} Comments</span></div>
+
                         </Link>
-                        <button onClick={this.handleDelete} >deleteMe</button>
-                    </div>
-                    : undefined
-                }
+
+                    </div>) : undefined}
 
             </div>
         );
