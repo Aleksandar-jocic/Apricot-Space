@@ -161,7 +161,8 @@ body {
 
 #ProfileModal input {
   border: 0px;
-  border-bottom: 1px solid red; }
+  border-bottom: 1px solid red;
+  background-color: #f8eee7; }
 
 #ProfileModal #uploadNameDiv {
   margin-bottom: 120px;
@@ -180,8 +181,7 @@ body {
   color: white;
   -webkit-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
   -moz-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
-  box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
-  margin-left: 20px; }
+  box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56); }
 
 #FeedPage {
   width: 50%;
@@ -296,6 +296,99 @@ body {
     width: 100%;
     height: 330px;
     margin-bottom: 16px; }
+
+.imageModal {
+  background-color: #f8eee7;
+  position: fixed;
+  width: 450px;
+  top: 100px;
+  right: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
+  .imageModal div {
+    margin-top: 20px; }
+  .imageModal input {
+    border: 0px;
+    border-bottom: 1px solid red;
+    background-color: #f8eee7;
+    width: 100%;
+    margin-top: 15px; }
+  .imageModal button {
+    background-color: #f7882f;
+    padding: 10px;
+    border: 0px;
+    border-radius: 3px;
+    color: white;
+    -webkit-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    -moz-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    display: inline-block;
+    margin-right: 20px; }
+
+.textModal {
+  background-color: #f8eee7;
+  position: fixed;
+  width: 450px;
+  top: 100px;
+  right: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
+  .textModal div {
+    margin-top: 20px; }
+  .textModal input {
+    border: 0px;
+    border-bottom: 1px solid red;
+    background-color: #f8eee7;
+    width: 100%;
+    margin-top: 15px; }
+  .textModal button {
+    background-color: #f7882f;
+    padding: 10px;
+    border: 0px;
+    border-radius: 3px;
+    color: white;
+    -webkit-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    -moz-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    display: inline-block;
+    margin-right: 20px; }
+
+.videoModal {
+  background-color: #f8eee7;
+  position: fixed;
+  width: 450px;
+  top: 100px;
+  right: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
+  .videoModal div {
+    margin-top: 20px; }
+  .videoModal input {
+    border: 0px;
+    border-bottom: 1px solid red;
+    background-color: #f8eee7;
+    width: 100%;
+    margin-top: 15px; }
+  .videoModal button {
+    background-color: #f7882f;
+    padding: 10px;
+    border: 0px;
+    border-radius: 3px;
+    color: white;
+    -webkit-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    -moz-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    display: inline-block;
+    margin-right: 20px; }
 
 ::placeholder {
   color: white; }
