@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import userService from "../../services/userService"
+import { Link } from "react-router-dom";
 
 class Comment extends Component {
     constructor(props) {
@@ -23,14 +24,17 @@ class Comment extends Component {
     }
     render() {
         return (
-            <div>
-                {this.props.comment.body}
-                <br />
-                <span>Author name: {this.props.comment.authorName}</span>
-                <br />
+            <div className='commentsDiv'>
+
                 <img width="320px" src={this.state.avatarUrl} alt="" />
+                <div>
+                    <span><Link to='/'>{this.props.comment.authorName}</Link></span>
+
+                    <p>{this.props.comment.body}</p>
+                </div>
+                
             </div>
-        );
+        )
     }
 }
 

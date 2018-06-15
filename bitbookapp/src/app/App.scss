@@ -96,7 +96,7 @@ body {
 
 #PeoplePage {
 
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
 
     //              search                  //
@@ -218,7 +218,7 @@ body {
 
 #ProfilePage {
 
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     text-align: center;            
 
@@ -489,10 +489,6 @@ body {
     }
 }
 //                      IMAGE MODAL                       //
-
-
-
-
 .imageModal {
 
     @include moduleSetup;
@@ -514,6 +510,7 @@ body {
 
     }
 }
+//                      TEXT MODAL                       //
 .textModal {
 
     @include moduleSetup;
@@ -535,6 +532,7 @@ body {
 
     }
 }
+//                      VIDEO MODAL                       //
 .videoModal {
     
     @include moduleSetup;
@@ -555,6 +553,80 @@ body {
 
     }
 }
+#postDetails {
+    width: 40%;
+    margin: 20px auto;
+    background-color: $tertiaryColor;
+    border-radius: 15px;
+    padding: 0px;
+
+    -webkit-box-shadow: 0px 0px 18px 2px $shadowStrong;
+        -moz-box-shadow: 0px 0px 18px 2px $shadowStrong;
+        box-shadow: 0px 0px 18px 2px $shadowStrong;
+
+    .Post {
+    box-shadow: 0px 0px 0px 0px;
+    border-radius: 15px;   
+    margin: 0px;  
+    padding: 10px; 
+
+    }
+    .commentsDiv {
+
+        padding: 10px 20px;
+        div {
+            display: inline-block;
+            margin-left: 15px;
+            background-color: $shadow;
+            padding: 2px 10px;
+            border-radius: 15px;
+
+            p {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0px;
+                padding-left: 12px;
+            }    
+            span {
+                vertical-align: middle;
+                display: inline-block;                                
+            }
+        }
+        img{
+            border-radius: 50%;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+        } 
+    }
+    #commentControls {
+        padding: 10px 20px;
+        
+        img {
+
+            border-radius: 50%;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+        }
+
+        div {
+            display: inline-block;
+            margin-left: 15px;
+            background-color: $baseColor;
+            padding: 7px 10px;
+            border-radius: 25px;
+            width: calc(100% - 60px);
+
+            input {
+                @include generalInput($shadow);
+                width: 100%;
+                background-color: $baseColor;
+            }
+        }
+    } 
+}
+
 
 
 //                      MISCELLANEOUS                      //
@@ -566,7 +638,7 @@ body {
 //https://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
 
 ::placeholder {
-    color: white;
+    color: $shadowStrong;
 }
 #header a:visited {
     color: white;

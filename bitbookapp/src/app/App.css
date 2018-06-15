@@ -29,7 +29,7 @@ body {
           text-decoration: none; }
 
 #PeoplePage {
-  width: 50%;
+  width: 40%;
   margin: 0 auto; }
   #PeoplePage #inputDiv {
     width: 100%;
@@ -102,7 +102,7 @@ body {
       vertical-align: top; }
 
 #ProfilePage {
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   text-align: center; }
   #ProfilePage img {
@@ -390,8 +390,64 @@ body {
     display: inline-block;
     margin-right: 20px; }
 
+#postDetails {
+  width: 40%;
+  margin: 20px auto;
+  background-color: #f4decb;
+  border-radius: 15px;
+  padding: 0px;
+  -webkit-box-shadow: 0px 0px 18px 2px rgba(92, 92, 92, 0.56);
+  -moz-box-shadow: 0px 0px 18px 2px rgba(92, 92, 92, 0.56);
+  box-shadow: 0px 0px 18px 2px rgba(92, 92, 92, 0.56); }
+  #postDetails .Post {
+    box-shadow: 0px 0px 0px 0px;
+    border-radius: 15px;
+    margin: 0px;
+    padding: 10px; }
+  #postDetails .commentsDiv {
+    padding: 10px 20px; }
+    #postDetails .commentsDiv div {
+      display: inline-block;
+      margin-left: 15px;
+      background-color: rgba(163, 163, 163, 0.56);
+      padding: 2px 10px;
+      border-radius: 15px; }
+      #postDetails .commentsDiv div p {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0px;
+        padding-left: 12px; }
+      #postDetails .commentsDiv div span {
+        vertical-align: middle;
+        display: inline-block; }
+    #postDetails .commentsDiv img {
+      border-radius: 50%;
+      display: inline-block;
+      height: 40px;
+      width: 40px; }
+  #postDetails #commentControls {
+    padding: 10px 20px; }
+    #postDetails #commentControls img {
+      border-radius: 50%;
+      display: inline-block;
+      height: 40px;
+      width: 40px; }
+    #postDetails #commentControls div {
+      display: inline-block;
+      margin-left: 15px;
+      background-color: #f8eee7;
+      padding: 7px 10px;
+      border-radius: 25px;
+      width: calc(100% - 60px); }
+      #postDetails #commentControls div input {
+        border: 0px;
+        border-bottom: 1px solid red;
+        background-color: rgba(163, 163, 163, 0.56);
+        width: 100%;
+        background-color: #f8eee7; }
+
 ::placeholder {
-  color: white; }
+  color: rgba(92, 92, 92, 0.56); }
 
 #header a:visited {
   color: white; }
