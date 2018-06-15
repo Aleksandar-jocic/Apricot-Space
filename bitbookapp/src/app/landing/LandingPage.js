@@ -6,14 +6,15 @@ class LandingPage extends React.Component {
 
     constructor(props) {
 
-        super(props),
-            this.state = {
-                email: "",
-                password: "",
-                name: "",
-                username: "",
-                logInError: ""
-            }
+        super(props)
+
+        this.state = {
+            email: "",
+            password: "",
+            name: "",
+            username: "",
+            logInError: ""
+        }
     }
 
     handleEmail = (event) => {
@@ -23,9 +24,8 @@ class LandingPage extends React.Component {
 
             email: event.target.value
         })
-
-
     }
+
     handlePassword = (event) => {
 
 
@@ -33,9 +33,8 @@ class LandingPage extends React.Component {
 
             password: event.target.value
         })
-
-
     }
+
     handleName = (event) => {
 
 
@@ -43,9 +42,8 @@ class LandingPage extends React.Component {
 
             name: event.target.value
         })
-
-
     }
+
     handleUsername = (event) => {
 
 
@@ -53,8 +51,6 @@ class LandingPage extends React.Component {
 
             username: event.target.value
         })
-
-
     }
 
     handleLogin = () => {
@@ -62,28 +58,25 @@ class LandingPage extends React.Component {
 
             "username": this.state.email,
             "password": this.state.password
+
         }).then((data) => {
             this.setState({
 
                 logInError: ""
 
             })
-            localStorage.setItem("SessionId", data.sessionId)
-            localStorage.setItem("profile", data)
-            this.props.redirect(data)
+            localStorage.setItem("SessionId", data.sessionId),
+                localStorage.setItem("profile", data),
+                this.props.redirect(data)
         }).catch(() => {
             this.setState({
 
                 logInError: "Pogresni podaci, molim vas pokusajte ponovo"
 
             })
-
         })
-
-
-
-
     }
+
     handleRegister = () => {
         authenticationService.register({
 
@@ -91,27 +84,22 @@ class LandingPage extends React.Component {
             "password": this.state.password,
             "name": this.state.name,
             "email": this.state.email
+
         }).then((data) => {
             this.setState({
 
-                registrationError: ""
+                registrationError: "success"
 
             })
-            sessionStorage.setItem("SessionId", data.sessionId);
-            this.props.redirect(data);
+            // localStorage.setItem("SessionId", data.sessionId);
+            // this.props.redirect(data);
         }).catch(() => {
             this.setState({
 
                 registrationError: "Pogresni podaci, molim vas pokusajte ponovo"
 
-
-
             })
-
-
         })
-
-
     }
 
     render() {
@@ -183,7 +171,6 @@ class LandingPage extends React.Component {
             </div>
         )
     }
-
 }
 
 export default LandingPage

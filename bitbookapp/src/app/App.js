@@ -28,6 +28,7 @@ class App extends Component {
 
     handleLogOut = () => {
         localStorage.setItem("profile", "")
+        localStorage.setItem("SessionId", "")
         this.setState({
             login: false,
 
