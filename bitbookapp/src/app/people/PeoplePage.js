@@ -17,6 +17,24 @@ class PeoplePage extends React.Component {
         this.inputMonitor = this.inputMonitor.bind(this)
     }
 
+    date = (postDate) => {
+
+        let todayDate = new Date();
+        let todayDateFormatted = `${todayDate.getFullYear()}/${todayDate.getMonth() + 1}/${todayDate.getDate()}`
+
+        let lastPostDate = new Date(postDate)
+        let lastPostDateFormmated = `${lastPostDate.getFullYear()}/${lastPostDate.getMonth() + 1}/${lastPostDate.getDate()}`
+
+        if (todayDateFormatted === lastPostDateFormmated) {
+
+            return `Last post at:${lastPostDate.getHours()}:${lastPostDate.getMinutes()} `
+        } else {
+
+            return `Last post at:${lastPostDateFormmated} ${lastPostDate.getHours()}:${lastPostDate.getMinutes()}`
+        }
+
+    }
+
     inputMonitor(event) {
 
         this.setState({
@@ -66,7 +84,7 @@ class PeoplePage extends React.Component {
 
                     }).map((item) => (
 
-                        <ItemList item={item} />
+                        <ItemList item={item} date={this.date} />
 
                     ))}
 

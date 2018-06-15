@@ -24,7 +24,7 @@ class PostDetailsPage extends Component {
 
     getUpdatedProfile = () => {
         console.log(this.state.myProfile.avatarUrl);
-        
+
         userService.getProfile().then((profile) => {
 
             this.setState({
@@ -33,7 +33,7 @@ class PostDetailsPage extends Component {
         })
     }
 
-    
+
     //          END OF              //
 
 
@@ -110,13 +110,13 @@ class PostDetailsPage extends Component {
                 comments
 
             })
-        }) 
+        })
     }
 
     handleKeyPress = (e) => {
 
-        if(e.keyCode === 13) {
-            console.log('someerroe');            
+        if (e.keyCode === 13) {
+            console.log('someerroe');
 
             this.uploadComment();
             e.target.value = '';
@@ -126,26 +126,26 @@ class PostDetailsPage extends Component {
     render() {
         return (
 
-            <div id='postDetails'> 
+            <div id='postDetails'>
 
                 {this.props.match.params.type === "text" ?
-                    
-                    (<TextPost  text={this.state.text} />) : (this.props.match.params.type === "image") ?
-                        (<ImagePost imageUrl={this.state.imageUrl} />) : 
+
+                    (<TextPost text={this.state.text} />) : (this.props.match.params.type === "image") ?
+                        (<ImagePost imageUrl={this.state.imageUrl} />) :
                         (<VideoPost videoUrl={this.state.videoUrl} />)}
-                
+
                 <CommentList
                     comments={this.state.comments}
                 />
-                
+
                 <div id='commentControls'>
 
-                    <img src={this.state.myProfile.avatarUrl}  alt="" />
-                
+                    <img src={this.state.myProfile.avatarUrl} alt="" />
+
                     <div >
-                        <input type="text" onKeyUp={this.handleKeyPress} placeholder="Write a comment here..." onChange={this.handleNewComment}  />
+                        <input type="text" onKeyUp={this.handleKeyPress} placeholder="Write a comment here..." onChange={this.handleNewComment} />
                     </div>
-                    
+
                     {/* <button onClick={this.uploadComment} >Send Comment</button> */}
                 </div>
 
