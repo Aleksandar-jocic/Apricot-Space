@@ -1,10 +1,10 @@
-// $mainColor: #f7882f; 
-// $secondaryColor: #f7c331;
+$mainColor: #f7882f; 
+$secondaryColor: #f7c331;
 // $tertiaryColor: #6b7a8f;
 // $baseColor: #dcc7aa;
 
-$mainColor: #3b284d; 
-$secondaryColor: #885282;
+// $mainColor: #3b284d; 
+// $secondaryColor: #885282;
 $tertiaryColor: #f4decb;
 $baseColor: #f8eee7;
 
@@ -17,7 +17,7 @@ $shadow: rgba(163,163,163,0.56);
 $shadowStrong: rgba(92, 92, 92, 0.56);
 
 //                      ROOT                      //
-#base{
+body {
     background-color: $baseColor
 }
 
@@ -39,8 +39,10 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
             font-size: 40px;
             display: inline-block;
             color: white;
+            a {text-decoration: none;            
+        
+            }
         }
-
         div {
             position: absolute;
             right: 30px;
@@ -136,6 +138,10 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
             -moz-box-shadow: 0px 0px 13px 2px $shadow;
             box-shadow: 0px 0px 13px 2px $shadow;
 
+            a {
+                color: black;
+            }
+
             #imageDiv {
 
                 width: 80px;
@@ -192,10 +198,24 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
         margin: 0 auto;
         margin-top: 40px;
 
-
         -webkit-box-shadow: 0px 0px 18px 2px $shadow;
         -moz-box-shadow: 0px 0px 18px 2px $shadow;
         box-shadow: 0px 0px 18px 2px $shadow;
+    }
+    h1 {
+        margin: 15px 0px;
+    }
+    #editProfileSpan {
+        padding: 4px 8px;
+        border: 2px solid $secondaryColor;
+        border-radius: 10px;
+        :hover {
+            cursor: pointer;
+        }
+    }
+   
+    p {
+        margin-top: 15px;
     }
 
     #postsAndCommentsDiv{
@@ -226,21 +246,17 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
 
         #PostsDiv{
             display: inline-block;
-            position: relative;
-            
+            position: relative;            
 
             div{
                 position: absolute;
                 
-            }  
-
-
+            } 
         }
         #CommentsDiv{
             display: inline-block;
             position: relative;
-            margin-left: 50px;
-            
+            margin-left: 50px;            
            
             div{
                 position: absolute;
@@ -292,7 +308,6 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
 
     width: 50%;
     margin: 0 auto;
-
 }
 #PostList {
     width: 90%;
@@ -312,25 +327,34 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
     top: 20px;
     left: 20px;
     display: inline-block;
+    -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
+    -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
+    box-shadow: 2px 4px 13px 0px $shadowStrong;
 
     button {
         background-color: $secondaryColor;
         border: 0px;
         border-radius: 3px; 
         width: 120px;
-        color: white;
-        
+        color: white;      
                        
     }    
 
     #contentList {
-        display: none;
+        // display: none;
         position: absolute;
         z-index: -1;
         visibility: hidden; /* hides sub-menu */
+        top: 100%;
+        left: 0;
+        width: 100%;
         opacity: 0;
         transform: translateY(-2em);
-        transition: all 0.9s ease-in-out 2s, visibility 2s linear 0.9s, z-index 1s linear 0.9s;
+        transition: all 0.4s ease-in-out 0.3s, visibility 1s linear 0.5s, z-index 0s linear 0.5s;
+        outline: none;
+        -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
+        -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
+        box-shadow: 2px 4px 13px 0px $shadowStrong;
                 
         button {
             width: 120px;
@@ -345,8 +369,10 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
   opacity: 1;
   z-index: 1;
   transform: translateY(0%);
-  transition-delay: 1s, 1s, 0.9s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+  transition-delay: 0s, 0s, 0.3s;
+   /* this removes the transition delay so the menu will be visible while the other styles transition */
 }
+
 //               newPost UP                 //
 
 #NewPosts{
@@ -356,20 +382,29 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
     right: 80px;
     display: inline-block;
 
+    i {
+        border-radius: 50%;
+        margin-top: 5px;
+    }
+
+    
     #contentButtons {
         display: none;
         position: absolute;
         z-index: 1;
         bottom: 65px;
         background-color: $baseColor;  
-           
+
     }
 
     i{
         color: $secondaryColor;
         font-size: 65px;
         display: inline;
-    
+
+        -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
+        -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
+        box-shadow: 2px 4px 13px 0px $shadowStrong;    
     }
     
     button {
@@ -378,6 +413,7 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
     }
     span {
         display: inline-block;
+        
     }
 }
 
@@ -434,6 +470,12 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
 
 //                      MISCELLANEOUS                      //
 
+//https://codemyui.com/drop-down-list-with-hover-animation/
+
+//https://tympanus.net/Tutorials/CustomDropDownListStyling/index3.html
+
+//https://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
+
 ::placeholder {
     color: white;
 }
@@ -442,17 +484,29 @@ $shadowStrong: rgba(92, 92, 92, 0.56);
 }
 
 
+
 #NewPosts:hover #contentButtons {
     display: block;
 }
+#NewPosts button:hover {
+    cursor: pointer;     
+}
+
+
 #ProfilePage > a:hover {
 
     color: $mainColor;
     cursor: pointer;
 }
+#editProfileSpan:hover {
+    cursor: pointer;
+}
 
 #FilterList:hover #contentList {
     display: block;
+}
+#FilterList button:hover{
+    cursor: pointer;  
 }
 
 
