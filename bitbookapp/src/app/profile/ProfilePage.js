@@ -39,57 +39,70 @@ class ProfilePage extends React.Component {
         })
     }
 
+
+    //         this.setState({
+    //             profile
+    //         })
+    //     })
+    //     this.otherProfile()
+    // }
     componentDidMount() {
-        userService.getProfile().then((profile) => {
-            console.log(profile);
+        this.props.match.params.id ?
+            (userService.getUser(this.props.match.params.id).then((profile) => {
+                console.log(profile);
 
-            this.setState({
-                profile
+                this.setState({
+                    profile
+                })
+            }))
+            : (userService.getProfile().then((profile) => {
+                console.log(profile);
+
+                this.setState({
+                    profile
+                })
+            }))
+
+        otherProfile = () => {
+
+            userService.getUser(this.props.match.params.userId).then((user) => {
+                this.setState({
+                    otherProfile: user
+                })
             })
-        })
-        this.otherProfile()
-    }
+        }
 
-    otherProfile = () => {
+        render() {
 
-        userService.getUser(this.props.match.params.userId).then((user) => {
-            this.setState({
-                otherProfile: user
-            })
-        })
-    }
+            return (
 
-    render() {
+                <div id='ProfilePage'>
 
-        return (
-
-            <div id='ProfilePage'>
-
-                {(this.props.match.params.userId) ? (
-                    <ProfileExtension
-
-                        profile={this.state.otherProfile}
-                        params={this.props.match.params}
-                    />
-                ) : (
+                    {(this.props.match.params.userId) ? (
                         <ProfileExtension
 
-                            profile={this.state.profile}
+                            profile={this.state.otherProfile}
                             params={this.props.match.params}
-                            handler={this.handleEditProfile}
                         />
-                    )}
+                    ) : (
+                            <ProfileExtension
 
-                <EditProfileModal
+                                profile={this.state.profile}
+                                params={this.props.match.params}
+                                handler={this.handleEditProfile}
+                            />
+                        )}
 
-                    profile={this.state.profile}
-                    editProfile={this.state.editProfile}
-                    handleClose={this.handleClose}
-                    getUpdatedProfile={this.getUpdatedProfile}
-                />
-            </div>
-        )
+                    <EditProfileModal
+
+                        profile={this.state.profile}
+                        editProfile={this.state.editProfile}
+                        handleClose={this.handleClose}
+                        getUpdatedProfile={this.getUpdatedProfile}
+                    />
+                </div>
+            )
+        }
     }
 }
-
 export default ProfilePage
