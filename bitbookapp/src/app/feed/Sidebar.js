@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 class Sidebar extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            selected: 0,
+        };
     }
 
 
@@ -10,16 +12,16 @@ class Sidebar extends Component {
 
         return (
 
-            <div id='FilterList'>
+            <div id='FilterList' tab-index="0">
 
-                <button onClick={this.props.clearFilter}>no filter <i class="fas fa-angle-down"></i>
+                <button onClick={this.props.clearFilter}>filter  <i class="fas fa-angle-down"></i>
 
                 </button>
 
                 <div id='contentList'>
 
                     <div>
-                        <button onClick={this.props.filterVideos} ><span>video</span></button>
+                        <button onClick={this.props.filterVideos} ><span>Video</span></button>
 
                     </div>
                     <div>

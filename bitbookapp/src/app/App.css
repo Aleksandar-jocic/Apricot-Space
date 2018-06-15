@@ -1,17 +1,19 @@
+#base {
+  background-color: #f8eee7; }
+
 #container {
   width: 100%;
-  background-color: #0c8cf5; }
+  background-color: #3b284d; }
   #container #header {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
-    background-color: #0c8cf5;
+    background-color: #3b284d;
     position: relative;
     height: 60px;
     border-radius: 10px; }
     #container #header #bitSpan {
       font-size: 40px;
       display: inline-block;
-      margin-top: 7px;
       color: white; }
     #container #header div {
       position: absolute;
@@ -25,15 +27,15 @@
           text-decoration: none; }
 
 #PeoplePage {
-  width: 70%;
+  width: 50%;
   margin: 0 auto; }
   #PeoplePage #inputDiv {
     width: 100%;
     height: 40px;
     border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 8px 5px rgba(69, 171, 255, 0.7);
-    -moz-box-shadow: 0px 0px 8px 5px rgba(69, 171, 255, 0.7);
-    box-shadow: 0px 0px 8px 5px rgba(69, 171, 255, 0.7); }
+    -webkit-box-shadow: 0px 0px 8px 5px #885282;
+    -moz-box-shadow: 0px 0px 8px 5px #885282;
+    box-shadow: 0px 0px 8px 5px #885282; }
     #PeoplePage #inputDiv i {
       font-size: 30px;
       padding-top: 5px;
@@ -43,20 +45,20 @@
     #PeoplePage #inputDiv input {
       width: calc(100% - 80px);
       border: 0px;
-      background-color: #0c8cf5;
+      background-color: #3b284d;
       height: 40px;
       color: white;
       padding: 0px;
       float: left; }
     #PeoplePage #inputDiv #searchIconDiv {
       width: 40px;
-      background-color: #0c8cf5;
+      background-color: #3b284d;
       height: 40px;
       float: left;
       border-radius: 6px 0px 0px 0px; }
     #PeoplePage #inputDiv #cancelIconDiv {
       width: 40px;
-      background-color: #0c8cf5;
+      background-color: #3b284d;
       height: 40px;
       float: left;
       border-radius: 0px 6px 0px 0px; }
@@ -96,7 +98,7 @@
       vertical-align: top; }
 
 #ProfilePage {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   text-align: center; }
   #ProfilePage img {
@@ -113,13 +115,15 @@
     position: relative; }
     #ProfilePage #postsAndCommentsDiv h4 {
       margin: 0px;
-      padding: 7px;
       padding-left: 20px;
+      padding-right: 10px;
       background-color: rgba(163, 163, 163, 0.56);
       border-radius: 0px 20px 20px 0px;
-      margin-left: 17px; }
+      margin-left: 17px;
+      font-size: 22px;
+      line-height: 32px; }
     #ProfilePage #postsAndCommentsDiv span {
-      background-color: #0c8cf5;
+      background-color: #3b284d;
       border-radius: 50%;
       color: white;
       display: table-cell;
@@ -155,7 +159,7 @@
   margin-bottom: 20px; }
 
 #ProfileModal button {
-  background-color: #0c8cf5;
+  background-color: #3b284d;
   padding: 10px;
   border: 0px;
   border-radius: 3px;
@@ -166,7 +170,7 @@
   margin-left: 20px; }
 
 #FeedPage {
-  width: 70%;
+  width: 50%;
   margin: 0 auto; }
 
 #PostList {
@@ -180,15 +184,39 @@
   position: relative; }
 
 #FilterList {
-  position: absolute;
+  position: relative;
   top: 20px;
   left: 20px;
-  display: inline-block;
-  width: 90px; }
+  display: inline-block; }
+  #FilterList button {
+    background-color: #885282;
+    border: 0px;
+    border-radius: 3px;
+    width: 120px;
+    color: white; }
   #FilterList #contentList {
     display: none;
     position: absolute;
-    z-index: 1; }
+    z-index: -1;
+    visibility: hidden;
+    /* hides sub-menu */
+    opacity: 0;
+    transform: translateY(-2em);
+    transition: all 0.9s ease-in-out 2s, visibility 2s linear 0.9s, z-index 1s linear 0.9s; }
+    #FilterList #contentList button {
+      width: 120px;
+      padding: 5px; }
+
+#FilterList:focus #contentList,
+#FilterList:focus-within #contentList,
+#FilterList:hover #contentList {
+  visibility: visible;
+  /* shows sub-menu */
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 1s, 1s, 0.9s;
+  /* this removes the transition delay so the menu will be visible while the other styles transition */ }
 
 #NewPosts {
   position: fixed;
@@ -199,13 +227,14 @@
     display: none;
     position: absolute;
     z-index: 1;
-    bottom: 47px; }
+    bottom: 65px;
+    background-color: #f8eee7; }
   #NewPosts i {
-    color: orange;
-    font-size: 45px;
+    color: #885282;
+    font-size: 65px;
     display: inline; }
   #NewPosts button {
-    background-color: white;
+    background-color: #f8eee7;
     border: 0px; }
   #NewPosts span {
     display: inline-block; }
@@ -213,7 +242,7 @@
 .Post {
   margin-top: 20px;
   padding: 20px;
-  background-color: #a7c9e6;
+  background-color: #f4decb;
   position: relative;
   border-radius: 5px;
   -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
@@ -249,7 +278,7 @@
   display: block; }
 
 #ProfilePage > a:hover {
-  color: #0c8cf5;
+  color: #3b284d;
   cursor: pointer; }
 
 #FilterList:hover #contentList {
