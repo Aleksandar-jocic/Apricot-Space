@@ -11,7 +11,8 @@ class ProfilePage extends React.Component {
             this.state = {
 
                 profile: {},
-                editProfile: false
+                editProfile: false,
+                otherProfile: {}
             }
     }
 
@@ -46,8 +47,16 @@ class ProfilePage extends React.Component {
                 profile
             })
         })
+        this.otherProfile()
+    }
 
+    otherProfile = () => {
 
+        userService.getUser(this.props.match.params.userId).then((user) => {
+            this.setState({
+                otherProfile: user
+            })
+        })
     }
 
     render() {
@@ -56,13 +65,20 @@ class ProfilePage extends React.Component {
 
             <div id='ProfilePage'>
 
-                <ProfileExtension
+                {(this.props.match.params.userId) ? (
+                    <ProfileExtension
 
-                    profile={this.state.profile}
-                    params={this.props.match.params}
-                    handler={this.handleEditProfile}
+                        profile={this.state.otherProfile}
+                        params={this.props.match.params}
+                    />
+                ) : (
+                        <ProfileExtension
 
-                />
+                            profile={this.state.profile}
+                            params={this.props.match.params}
+                            handler={this.handleEditProfile}
+                        />
+                    )}
 
                 <EditProfileModal
 

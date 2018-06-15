@@ -35,6 +35,7 @@ class EditProfileModal extends Component {
     }
 
     handleUpdate = () => {
+        this.props.profile.aboutshort = ""
         this.props.profile.name = this.state.name || this.props.profile.name
         this.props.profile.about = this.state.about || this.props.profile.about
         this.props.profile.avatarUrl = this.state.avatarUrl || this.props.profile.avatarUrl
