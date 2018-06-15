@@ -14,7 +14,15 @@ class UserService {
     getProfile() {
 
         return fetch(`${url}/profile`, {
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
         })
             .then(function (response) {
                 return response.json();
@@ -26,7 +34,15 @@ class UserService {
     //Preuzimanje profila drugih korisnika na osnovu njihovog ID
     getUser(id) {
         return fetch(`${url}/users/${id}`, {
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
         })
             .then(function (response) {
                 return response.json();
@@ -40,7 +56,15 @@ class UserService {
     getUsers() {
 
         return fetch(`${url}/users`, {
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
         })
             .then(function (response) {
                 return response.json();
@@ -53,7 +77,15 @@ class UserService {
     uploadUser(user) {
 
         return fetch(`${url}/Profiles`, {
-            headers,
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            },
             body: JSON.stringify(user),
             method: 'PUT'
         })
@@ -68,8 +100,8 @@ class UserService {
 
 
 
-                "Key": "bitbookdev",
-                "SessionId": "2990B489-DB94-4AC1-ACDE-CDC9CC3EAEAE"
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
 
 
             },

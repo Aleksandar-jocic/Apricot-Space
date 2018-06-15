@@ -24,6 +24,7 @@ class Header extends React.Component {
                         <span><Link to='/'>Feed</Link></span>
                         <span><Link to='/People'>People</Link></span>
                         <span><Link to='/Profile'>Profile</Link></span>
+                        <span onClick={this.props.handleLogOut} ><Link to="/" >Logout</Link></span>
 
                     </div>
 
