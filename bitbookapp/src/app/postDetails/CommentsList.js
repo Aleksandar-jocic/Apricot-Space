@@ -6,15 +6,33 @@ class CommentList extends Component {
         super(props);
         this.state = {};
     }
+
+
+    renderComment() {
+
+        const array = this.props.comments.map(comment =>
+            <Comment
+
+                comment={comment}
+            />)
+
+        if (array.length === 0) {
+
+            return <div>This post has not been commented yet, be first to post comment</div>
+        } else {
+
+            return array
+        }
+    }
     render() {
         return (
             <div>
-
-                {this.props.comments.map(comment =>
+                {this.renderComment()}
+                {/* {this.props.comments.map(comment =>
                     <Comment
 
                         comment={comment}
-                    />)}
+                    />)} */}
             </div>)
     }
 }
