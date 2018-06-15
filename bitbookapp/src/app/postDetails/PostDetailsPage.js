@@ -116,10 +116,10 @@ class PostDetailsPage extends Component {
 
             }
 
-                <input type="text" onChange={this.handleNewComment} />
+                <input name="newComment" type="text" value={this.state.newComment} onChange={this.handleNewComment} />
                 <br />
                 <br />
-                <button onClick={this.uploadComment} >Send Comment</button>
+                <button disabled={!this.state.newComment} onClick={this.uploadComment} >Send Comment</button>
                 <br />
                 <br />
                 <CommentList

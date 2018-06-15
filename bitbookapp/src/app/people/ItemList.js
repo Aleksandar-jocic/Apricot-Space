@@ -11,11 +11,11 @@ const ItemList = (props) => (
 
             <div id='nameAndDescriptionDiv'>
                 <h3>{props.item.name}</h3>
-                <p>short description</p>
+                <p>{props.item.aboutShort}</p>
             </div>
 
             <div id='lastPostDiv'>
-                <p>Last post at 16:20</p>
+                <p>{props.date(props.item.lastPostDate)}</p>
             </div>
         </Link>
     </div>

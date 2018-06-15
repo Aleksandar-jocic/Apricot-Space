@@ -37,6 +37,7 @@ class EditProfileModal extends Component {
     handleUpdate = () => {
         this.props.profile.name = this.state.name || this.props.profile.name
         this.props.profile.about = this.state.about || this.props.profile.about
+        this.props.profile.aboutShort = this.state.aboutShort || this.props.profile.about.split(" ").slice(0, 7).join(" ").concat("...")
         this.props.profile.avatarUrl = this.state.avatarUrl || this.props.profile.avatarUrl
         userService.uploadUser(this.props.profile).then(() => {
 
@@ -109,6 +110,7 @@ class EditProfileModal extends Component {
                     </div>
 
                     <div>
+
                         <button onClick={this.props.handleClose} >CLOSE</button>
                         <button onClick={this.handleUpdate}>UPDATE</button>
                     </div>
