@@ -10,7 +10,16 @@ class PostService {
     getPosts() {
 
         return fetch(`${url}/Posts`, {
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
+
         })
             .then((response) => {
                 return response.json();
@@ -24,7 +33,16 @@ class PostService {
 
         return fetch(`${url}/Posts/${id}`, {
             method: 'DELETE',
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
+
         })
             .then(function (response) {
                 return response.json();
@@ -36,7 +54,16 @@ class PostService {
     //broj svih postova
     countPosts() {
         return fetch(`${url}/posts/count`, {
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
+
         })
             .then(function (response) {
                 return response.json();
@@ -51,7 +78,16 @@ class PostService {
     getTextPost(id) {
 
         return fetch(`${url}/TextPosts/${id}`, {
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
+
         })
             .then(function (response) {
                 return response.json();
@@ -64,7 +100,15 @@ class PostService {
     uploadTextPost(textPost) {
 
         return fetch(`${url}/TextPosts`, {
-            headers,
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            },
             body: JSON.stringify(textPost),
             method: 'POST'
         })
@@ -80,7 +124,16 @@ class PostService {
     getImagePost(id) {
 
         return fetch(`${url}/ImagePosts/${id}`, {
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
+
         })
             .then((response) => {
                 return response.json();
@@ -94,7 +147,15 @@ class PostService {
     uploadImagePost(imagePost) {
 
         return fetch(`${url}/ImagePosts`, {
-            headers,
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            },
             body: JSON.stringify(imagePost),
             method: 'POST'
         })
@@ -110,7 +171,16 @@ class PostService {
     getVideoPost(id) {
 
         return fetch(`${url}/VideoPosts/${id}`, {
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
+
         })
             .then(function (response) {
                 return response.json();
@@ -124,7 +194,15 @@ class PostService {
     uploadVideoPost(videoPost) {
 
         return fetch(`${url}/VideoPosts`, {
-            headers,
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            },
             body: JSON.stringify(videoPost),
             method: 'POST'
         })
@@ -141,7 +219,16 @@ class PostService {
     getComment(id) {
 
         return fetch(`${url}/Comments?postId=${id}`, {
-            headers
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId")
+
+
+            }
+
         })
             .then(function (response) {
                 return response.json();
@@ -156,7 +243,13 @@ class PostService {
     uploadComment(comment) {
 
         return fetch(`${url}/Comments`, {
-            headers,
+            headers: {
+
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+                "SessionId": localStorage.getItem("SessionId"),
+            },
             body: JSON.stringify(comment),
             method: 'POST'
         })

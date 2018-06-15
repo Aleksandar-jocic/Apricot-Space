@@ -9,30 +9,48 @@ class AuthenticationService {
     logIn(loginObj) {
 
         return fetch(`${url}/login`, {
-            headers,
-            body: JSON.stringify(),
+            headers: {
+
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+
+            },
+            body: JSON.stringify(loginObj),
             method: 'POST'
         })
-            .then(function (response) {
-                return response.json(loginObj);
+            .then((response) => {
+                if (response.ok) {
+
+                    return response.json(loginObj);
+                } else {
+                    throw Error("greska")
+                }
+
             })
 
     }
     register(registerObj) {
 
-        return fetch(`${url}/login`, {
-            headers,
-            body: JSON.stringify(),
+        return fetch(`${url}/register`, {
+
+            headers: {
+                "Content-Type": "application/json",
+                "Key": "0C0DEC2",
+            },
+            body: JSON.stringify(registerObj),
             method: 'POST'
         })
-            .then(function (response) {
-                return response.json(registerObj);
+            .then((response) => {
+                if (response.ok) {
+
+                    return response.json(registerObj);
+                } else {
+                    throw Error("greska")
+                }
+
             })
 
     }
-
-
-
 
 }
 
