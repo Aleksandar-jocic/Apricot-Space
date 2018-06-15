@@ -22,61 +22,67 @@ class App extends Component {
         this.state = {
 
 
-            login: false
+            login: localStorage.getItem("profile") ? true : false
         };
     }
 
+    handleLogOut = () => {
+        localStorage.setItem("profile", "")
+        this.setState({
+            login: false,
 
-    redirect = () => {
+        })
+    }
+    redirect = (data) => {
 
         this.setState({
-            login: true
+            login: true,
+
         })
     }
     render() {
 
         return (
 
+            this.state.login ?
+                (<div>
 
-            <div>
+                    <Header handleLogOut={this.handleLogOut} />
+
+                    <Switch>
 
 
-                {
-                    this.state.login ?
+                        <Route exact path='/' component={FeedPage} />
 
-                        (<div>
-                            <Header />
 
-                            <Switch>
+                        <Route exact path='/People' component={PeoplePage} />
+                        <Route exact path='/Profile' component={ProfilePage} />
+                        <Route exact path='/feeds/:type/:id' component={PostDetailsPage} />
+                        <Route exact path='/People/:userId' component={ProfilePage} />
 
-                                <Route exact path='/Home' component={FeedPage} />
-                                <Route exact path='/People' component={PeoplePage} />
-                                <Route exact path='/Profile' component={ProfilePage} />
-                                <Route exact path='/feeds/:type/:id' component={PostDetailsPage} />
-                                <Route exact path='/People/:userId' component={ProfilePage} />
+                    </Switch>
 
-                            </Switch>
-                        </div>
-                        )
-                        :
-                        (<Switch>
-                            <Route exact path='/' render={() => <LandingPage redirect={this.redirect} />}
+                </div>) :
 
-                            />
-                        </Switch>)
-                }
+
+                (<div> <Route exact path='/' render={() => <LandingPage redirect={this.redirect} />} /></div>)
 
 
 
 
 
 
-            </div>
+
 
 
         )
-
     }
 }
+
+
+
+
+
+
 
 export default App;

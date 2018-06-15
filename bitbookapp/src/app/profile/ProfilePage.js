@@ -46,6 +46,8 @@ class ProfilePage extends React.Component {
                 profile
             })
         })
+
+
     }
 
     render() {

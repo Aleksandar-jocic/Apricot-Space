@@ -10,7 +10,9 @@ class LandingPage extends React.Component {
             this.state = {
                 email: "",
                 password: "",
-                name: ""
+                name: "",
+                username: "",
+                logInError: ""
             }
     }
 
@@ -44,6 +46,16 @@ class LandingPage extends React.Component {
 
 
     }
+    handleUsername = (event) => {
+
+
+        this.setState({
+
+            username: event.target.value
+        })
+
+
+    }
 
     handleLogin = () => {
         authenticationService.logIn({
@@ -51,11 +63,20 @@ class LandingPage extends React.Component {
             "username": this.state.email,
             "password": this.state.password
         }).then((data) => {
+            this.setState({
 
-            sessionStorage.setItem("sessionId", data.sessionId)
-        }).then(() => {
+                logInError: ""
 
-            this.props.redirect()
+            })
+            localStorage.setItem("SessionId", data.sessionId)
+            localStorage.setItem("profile", data)
+            this.props.redirect(data)
+        }).catch(() => {
+            this.setState({
+
+                logInError: "Pogresni podaci, molim vas pokusajte ponovo"
+
+            })
 
         })
 
@@ -64,15 +85,30 @@ class LandingPage extends React.Component {
 
     }
     handleRegister = () => {
-        authenticationService.logIn({
+        authenticationService.register({
 
-            "username": this.state.email,
+            "username": this.state.username,
             "password": this.state.password,
             "name": this.state.name,
             "email": this.state.email
         }).then((data) => {
+            this.setState({
 
-            sessionStorage.setItem("sessionId", data.sessionId)
+                registrationError: ""
+
+            })
+            sessionStorage.setItem("SessionId", data.sessionId);
+            this.props.redirect(data);
+        }).catch(() => {
+            this.setState({
+
+                registrationError: "Pogresni podaci, molim vas pokusajte ponovo"
+
+
+
+            })
+
+
         })
 
 
@@ -109,11 +145,19 @@ class LandingPage extends React.Component {
 
                             <button onClick={this.handleLogin}>Login</button>
 
+                            <br></br>
+
+                            <span>{this.state.logInError}</span>
+
                         </div>
                     </TabPanel>
                     <TabPanel>
                         <div>
                             <h2>Register</h2>
+                            <span>UserName</span>
+                            <br />
+                            <input type="text" onChange={this.handleUsername} />
+                            <br />
                             <span>Name</span>
                             <br />
                             <input type="text" onChange={this.handleName} />
@@ -128,6 +172,9 @@ class LandingPage extends React.Component {
                             <br />
 
                             <button onClick={this.handleRegister} >Register</button>
+                            <br></br>
+
+                            <span>{this.state.registrationError}</span>
 
                         </div>
                     </TabPanel>
