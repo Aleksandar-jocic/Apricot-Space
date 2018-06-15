@@ -33,19 +33,17 @@ class TextPostModal extends Component {
     }
     render() {
         return (
-            <Modal
+            <Modal className='textModal'
+
                 isOpen={this.props.textPostModal}
                 contentLabel="Post new TextPost">
-                <h1>NEW POST</h1>
-                <input type="text" onChange={this.handleNewTextPost} />
-                <br />
-                <br />
-                <br />
-                <button onClick={this.props.closeModal} >close TextModal</button>
-                <br />
-                <br />
-                <br />
-                <button onClick={this.uploadTextPost} >Upload text Post</button>
+
+                <h4>New post</h4>
+                <input type="text" placeholder='share something with us...' onChange={this.handleNewTextPost} />
+                <div>
+                    <button onClick={this.props.closeModal} >close</button>
+                    <button onClick={this.uploadTextPost} >upload</button>
+                </div>
             </Modal>
         );
     }

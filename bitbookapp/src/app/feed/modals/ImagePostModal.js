@@ -52,21 +52,20 @@ class ImagePostModal extends Component {
     }
     render() {
         return (
-            <Modal
+            <Modal className="imageModal"
+
                 isOpen={this.props.imagePostModal}
                 contentLabel="Post new TextPost" center>
-                <h1>NEW IMAGE POST</h1>
-                <input type="text" onChange={this.handleNewImagePost} />
+
+
+                <h4>Select image</h4>
+                <input type="text" placeholder='paste URL here...' onChange={this.handleNewImagePost} />
 
                 <span>{this.state.error}</span>
-                <br />
-                <br />
-                <br />
-                <button onClick={this.props.closeModal} >close Image Modal</button>
-                <br />
-                <br />
-                <br />
-                <button onClick={this.uploadImagePost} >Upload Image Post</button>
+                <div>
+                    <button onClick={this.props.closeModal} >close</button>
+                    <button onClick={this.uploadImagePost} >upload</button>
+                </div>
             </Modal>
         );
     }

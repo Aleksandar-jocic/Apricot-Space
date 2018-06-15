@@ -43,20 +43,20 @@ class VideoPostModal extends Component {
 
     render() {
         return (
-            <Modal
+            <Modal className='videoModal'
+
                 isOpen={this.props.videoPostModal}
                 contentLabel="Post new video">
-                <h1>NEW VIDEO POST</h1>
-                <input type="text" onChange={this.handleNewVideoPost} />
+
+                <h4>Select video</h4>
+
+                <input type="text" placeholder='paste video URL here...' onChange={this.handleNewVideoPost} />
                 <span>{this.state.error}</span>
-                <br />
-                <br />
-                <br />
-                <button onClick={this.props.closeModal} >close video Modal</button>
-                <br />
-                <br />
-                <br />
-                <button onClick={this.uploadVideoPost} >Upload video Post</button>
+
+                <div>
+                    <button onClick={this.props.closeModal} >close</button>
+                    <button onClick={this.uploadVideoPost} >Upload</button>
+                </div>
             </Modal>
 
         )
