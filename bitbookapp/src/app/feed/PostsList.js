@@ -76,7 +76,7 @@ class PostsList extends Component {
             return <div>There is no video posts</div>;
         } else if (array.length === 0) {
 
-            return <div>There is no posts</div>
+            return <div>Nothing in feed</div>
         }
 
         else {

@@ -71,38 +71,38 @@ class ProfilePage extends React.Component {
                 })
             })
         }
+    }
+    render() {
 
-        render() {
+        return (
 
-            return (
+            <div id='ProfilePage'>
 
-                <div id='ProfilePage'>
+                {(this.props.match.params.userId) ? (
+                    <ProfileExtension
 
-                    {(this.props.match.params.userId) ? (
+                        profile={this.state.otherProfile}
+                        params={this.props.match.params}
+                    />
+                ) : (
                         <ProfileExtension
 
-                            profile={this.state.otherProfile}
+                            profile={this.state.profile}
                             params={this.props.match.params}
+                            handler={this.handleEditProfile}
                         />
-                    ) : (
-                            <ProfileExtension
+                    )}
 
-                                profile={this.state.profile}
-                                params={this.props.match.params}
-                                handler={this.handleEditProfile}
-                            />
-                        )}
+                <EditProfileModal
 
-                    <EditProfileModal
-
-                        profile={this.state.profile}
-                        editProfile={this.state.editProfile}
-                        handleClose={this.handleClose}
-                        getUpdatedProfile={this.getUpdatedProfile}
-                    />
-                </div>
-            )
-        }
+                    profile={this.state.profile}
+                    editProfile={this.state.editProfile}
+                    handleClose={this.handleClose}
+                    getUpdatedProfile={this.getUpdatedProfile}
+                />
+            </div>
+        )
     }
+
 }
 export default ProfilePage
