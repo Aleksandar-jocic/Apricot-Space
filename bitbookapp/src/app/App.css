@@ -1,13 +1,13 @@
-#base {
+body {
   background-color: #f8eee7; }
 
 #container {
   width: 100%;
-  background-color: #3b284d; }
+  background-color: #f7882f; }
   #container #header {
     width: 60%;
     margin: 0 auto;
-    background-color: #3b284d;
+    background-color: #f7882f;
     position: relative;
     height: 60px;
     border-radius: 10px; }
@@ -15,6 +15,8 @@
       font-size: 40px;
       display: inline-block;
       color: white; }
+      #container #header #bitSpan a {
+        text-decoration: none; }
     #container #header div {
       position: absolute;
       right: 30px;
@@ -33,9 +35,9 @@
     width: 100%;
     height: 40px;
     border-radius: 5px;
-    -webkit-box-shadow: 0px 0px 8px 5px #885282;
-    -moz-box-shadow: 0px 0px 8px 5px #885282;
-    box-shadow: 0px 0px 8px 5px #885282; }
+    -webkit-box-shadow: 0px 0px 8px 5px #f7c331;
+    -moz-box-shadow: 0px 0px 8px 5px #f7c331;
+    box-shadow: 0px 0px 8px 5px #f7c331; }
     #PeoplePage #inputDiv i {
       font-size: 30px;
       padding-top: 5px;
@@ -45,20 +47,20 @@
     #PeoplePage #inputDiv input {
       width: calc(100% - 80px);
       border: 0px;
-      background-color: #3b284d;
+      background-color: #f7882f;
       height: 40px;
       color: white;
       padding: 0px;
       float: left; }
     #PeoplePage #inputDiv #searchIconDiv {
       width: 40px;
-      background-color: #3b284d;
+      background-color: #f7882f;
       height: 40px;
       float: left;
       border-radius: 6px 0px 0px 0px; }
     #PeoplePage #inputDiv #cancelIconDiv {
       width: 40px;
-      background-color: #3b284d;
+      background-color: #f7882f;
       height: 40px;
       float: left;
       border-radius: 0px 6px 0px 0px; }
@@ -72,6 +74,8 @@
     -webkit-box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56);
     -moz-box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56);
     box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56); }
+    #PeoplePage #itemList #singleItem a {
+      color: black; }
     #PeoplePage #itemList #singleItem #imageDiv {
       width: 80px;
       height: 80px;
@@ -111,6 +115,16 @@
     -webkit-box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56);
     -moz-box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56);
     box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56); }
+  #ProfilePage h1 {
+    margin: 15px 0px; }
+  #ProfilePage #editProfileSpan {
+    padding: 4px 8px;
+    border: 2px solid #f7c331;
+    border-radius: 10px; }
+    #ProfilePage #editProfileSpan :hover {
+      cursor: pointer; }
+  #ProfilePage p {
+    margin-top: 15px; }
   #ProfilePage #postsAndCommentsDiv {
     position: relative; }
     #ProfilePage #postsAndCommentsDiv h4 {
@@ -123,7 +137,7 @@
       font-size: 22px;
       line-height: 32px; }
     #ProfilePage #postsAndCommentsDiv span {
-      background-color: #3b284d;
+      background-color: #f7882f;
       border-radius: 50%;
       color: white;
       display: table-cell;
@@ -159,7 +173,7 @@
   margin-bottom: 20px; }
 
 #ProfileModal button {
-  background-color: #3b284d;
+  background-color: #f7882f;
   padding: 10px;
   border: 0px;
   border-radius: 3px;
@@ -187,22 +201,31 @@
   position: relative;
   top: 20px;
   left: 20px;
-  display: inline-block; }
+  display: inline-block;
+  -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
   #FilterList button {
-    background-color: #885282;
+    background-color: #f7c331;
     border: 0px;
     border-radius: 3px;
     width: 120px;
     color: white; }
   #FilterList #contentList {
-    display: none;
     position: absolute;
     z-index: -1;
     visibility: hidden;
     /* hides sub-menu */
+    top: 100%;
+    left: 0;
+    width: 100%;
     opacity: 0;
     transform: translateY(-2em);
-    transition: all 0.9s ease-in-out 2s, visibility 2s linear 0.9s, z-index 1s linear 0.9s; }
+    transition: all 0.4s ease-in-out 0.3s, visibility 1s linear 0.5s, z-index 0s linear 0.5s;
+    outline: none;
+    -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+    -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+    box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
     #FilterList #contentList button {
       width: 120px;
       padding: 5px; }
@@ -215,7 +238,7 @@
   opacity: 1;
   z-index: 1;
   transform: translateY(0%);
-  transition-delay: 1s, 1s, 0.9s;
+  transition-delay: 0s, 0s, 0.3s;
   /* this removes the transition delay so the menu will be visible while the other styles transition */ }
 
 #NewPosts {
@@ -223,6 +246,9 @@
   bottom: 150px;
   right: 80px;
   display: inline-block; }
+  #NewPosts i {
+    border-radius: 50%;
+    margin-top: 5px; }
   #NewPosts #contentButtons {
     display: none;
     position: absolute;
@@ -230,9 +256,12 @@
     bottom: 65px;
     background-color: #f8eee7; }
   #NewPosts i {
-    color: #885282;
+    color: #f7c331;
     font-size: 65px;
-    display: inline; }
+    display: inline;
+    -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+    -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+    box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
   #NewPosts button {
     background-color: #f8eee7;
     border: 0px; }
@@ -277,12 +306,21 @@
 #NewPosts:hover #contentButtons {
   display: block; }
 
+#NewPosts button:hover {
+  cursor: pointer; }
+
 #ProfilePage > a:hover {
-  color: #3b284d;
+  color: #f7882f;
+  cursor: pointer; }
+
+#editProfileSpan:hover {
   cursor: pointer; }
 
 #FilterList:hover #contentList {
   display: block; }
+
+#FilterList button:hover {
+  cursor: pointer; }
 
 #ProfileModal button:hover {
   cursor: pointer; }

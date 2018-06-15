@@ -9,7 +9,7 @@ const ProfileExtension = (props) => (
 
         {(props.params.userId === undefined) ? (
 
-            <span onClick={props.handler} >edit profile</span>
+            <span id='editProfileSpan' onClick={props.handler} >Edit profile</span>
 
         ) : ('')}
 

@@ -4,19 +4,19 @@ const NewPosts = (props) => (
 
     <div id='NewPosts'>
 
-        <button><i class="fas fa-plus-circle"></i></button>
+        <i class="fas fa-plus-circle"></i>
 
         <div id='contentButtons'>
 
             <div>
-                <button onClick={props.newVideo} ><i class="fas fa-circle"></i><span>video</span></button>
+                <i onClick={props.newVideo} class="fas fa-circle"></i><span>video</span>
 
             </div>
             <div>
-                <button onClick={props.newImage} ><i class="fas fa-circle"></i><span>Image</span></button>
+                <i onClick={props.newImage} class="fas fa-circle"></i><span>Image</span>
             </div>
             <div>
-                <button onClick={props.newText} ><i class="fas fa-circle"></i><span>Text</span></button>
+                <i onClick={props.newText} class="fas fa-circle"></i><span>Text</span>
             </div>
 
         </div>

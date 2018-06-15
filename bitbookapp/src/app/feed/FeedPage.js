@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 
 import TextPostModal from './modals/TextPostModal';
 import ImagePostModal from './modals/ImagePostModal';
-import VideoPostModal from './modals/VideoPostModal'
+import VideoPostModal from './modals/VideoPostModal';
 
 import NewPosts from './NewPosts';
 

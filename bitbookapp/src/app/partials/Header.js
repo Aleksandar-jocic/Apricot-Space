@@ -17,7 +17,7 @@ class Header extends React.Component {
 
                 <div id="header">
 
-                    <span id="bitSpan">BitBook</span>
+                    <span id="bitSpan"><Link to='/'>BitBook</Link></span>
 
                     <div>
 
