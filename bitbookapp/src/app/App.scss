@@ -303,33 +303,8 @@ body {
         }
     }
 }
-//                       PROFILE MODAL                        //
-
-#ProfileModal {
-
-    input {
-        @include generalInput ($baseColor)
-    }
-
-    #uploadNameDiv{
-        margin-bottom: 120px;
-        margin-top: 50px;
-        
-
-        label {
-            color: red;
-        }
-        
-    }
-    #uploadAboutDiv{
-        margin-bottom: 20px;              
-    }
-    button {
-       @include generalButton ($mainColor, $shadow);
-    }
-}
-
 //                            FEED                          //
+
 #FeedPage {
 
     width: 50%;
@@ -556,6 +531,45 @@ body {
         margin-right: 20px;       
 
     }
+}
+//                       PROFILE MODAL                        //
+.profileModal {
+    @include moduleSetup;
+
+    input {
+        @include generalInput ($baseColor)
+    }
+
+    #uploadNameDiv{
+        margin-bottom: 120px;
+        margin-top: 50px;
+        
+
+        label {
+            color: red;
+        }
+        
+    }
+    #uploadAboutDiv{
+        margin-bottom: 20px;              
+    }
+    button {
+       @include generalButton ($mainColor, $shadow);
+    }
+
+
+
+    // background-color: $baseColor;
+    // position: fixed;
+    // width: 450px;
+    // top: 100px;
+    // right: 100px;
+    // padding: 20px;
+    // border-radius: 10px;
+
+    // -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
+    // -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
+    // box-shadow: 2px 4px 13px 0px $shadowStrong; 
 }
 #postDetails {
     width: 40%;

@@ -161,30 +161,6 @@ body {
         top: 0px;
         left: 0px; }
 
-#ProfileModal input {
-  border: 0px;
-  border-bottom: 1px solid red;
-  background-color: #f8eee7; }
-
-#ProfileModal #uploadNameDiv {
-  margin-bottom: 120px;
-  margin-top: 50px; }
-  #ProfileModal #uploadNameDiv label {
-    color: red; }
-
-#ProfileModal #uploadAboutDiv {
-  margin-bottom: 20px; }
-
-#ProfileModal button {
-  background-color: #f7882f;
-  padding: 10px;
-  border: 0px;
-  border-radius: 3px;
-  color: white;
-  -webkit-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
-  -moz-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
-  box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56); }
-
 #FeedPage {
   width: 50%;
   margin: 0 auto; }
@@ -391,6 +367,38 @@ body {
     box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
     display: inline-block;
     margin-right: 20px; }
+
+.profileModal {
+  background-color: #f8eee7;
+  position: fixed;
+  width: 450px;
+  top: 100px;
+  right: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
+  .profileModal input {
+    border: 0px;
+    border-bottom: 1px solid red;
+    background-color: #f8eee7; }
+  .profileModal #uploadNameDiv {
+    margin-bottom: 120px;
+    margin-top: 50px; }
+    .profileModal #uploadNameDiv label {
+      color: red; }
+  .profileModal #uploadAboutDiv {
+    margin-bottom: 20px; }
+  .profileModal button {
+    background-color: #f7882f;
+    padding: 10px;
+    border: 0px;
+    border-radius: 3px;
+    color: white;
+    -webkit-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    -moz-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56); }
 
 #postDetails {
   width: 40%;

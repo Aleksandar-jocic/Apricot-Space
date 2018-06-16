@@ -99,6 +99,14 @@ class LandingPage extends React.Component {
         })
     }
 
+    handleEnter = (e) => {        
+
+        if(e.keyCode === 13) {
+
+            this.handleLogin()            
+        }
+    }
+
     render() {
 
         return (
@@ -124,11 +132,11 @@ class LandingPage extends React.Component {
 
                                 <span>Username</span>
 
-                                <input type="email" onChange={this.handleEmail} />
+                                <input type="text"  onChange={this.handleEmail} />
 
                                 <span>Password</span>
 
-                                <input type="password"  onChange={this.handlePassword} />
+                                <input type="password" onKeyUp={this.handleEnter} onChange={this.handlePassword} />
 
                                 <button onClick={this.handleLogin}>Login</button>
 
