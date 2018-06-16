@@ -512,7 +512,8 @@ body {
           border-radius: 15px 15px 0px 0px;
           margin: 0px;
           text-align: center; }
-    #landingPage div #react-tabs-1, #landingPage div #react-tabs-3 {
+    #landingPage div #react-tabs-1, #landingPage div #react-tabs-3, #landingPage div #react-tabs-5, #landingPage div #react-tabs-7,
+    #landingPage div #react-tabs-9, #landingPage div #react-tabs-11 {
       margin: 0px; }
 
 ::placeholder {
