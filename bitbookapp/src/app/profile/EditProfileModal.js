@@ -35,6 +35,7 @@ class EditProfileModal extends Component {
     }
 
     handleUpdate = () => {
+
         this.props.profile.aboutshort = ""
         this.props.profile.name = this.state.name || this.props.profile.name
         this.props.profile.about = this.state.about || this.props.profile.about
@@ -56,15 +57,9 @@ class EditProfileModal extends Component {
 
             this.setState({
 
-
                 avatarUrl: data
             })
-
-
         })
-
-
-
     }
 
     // uploadImage = () => {
@@ -86,10 +81,12 @@ class EditProfileModal extends Component {
 
     render() {
         return (
-            <Modal
+            <Modal className='profileModal'
+
                 isOpen={this.props.editProfile}
                 contentLabel="Edit Profile">
-                <div id='ProfileModal'>
+
+                <div>
 
                     <h2>Update Profile</h2>
 
