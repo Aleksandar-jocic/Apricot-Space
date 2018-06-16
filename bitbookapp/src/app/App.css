@@ -12,6 +12,7 @@ body {
     height: 60px; }
     #container #header #bitSpan {
       font-size: 40px;
+      font-family: 'Dancing Script', cursive;
       display: inline-block;
       color: white; }
       #container #header #bitSpan a {
@@ -50,7 +51,8 @@ body {
       height: 40px;
       color: white;
       padding: 0px;
-      float: left; }
+      float: left;
+      background: linear-gradient(to right, #f7882f, #f7c331, #f7882f); }
     #PeoplePage #inputDiv #searchIconDiv {
       width: 40px;
       background-color: #f7882f;
@@ -102,6 +104,7 @@ body {
 
 #ProfilePage {
   width: 40%;
+  min-width: 864px;
   margin: 0 auto;
   text-align: center; }
   #ProfilePage img {
@@ -480,9 +483,10 @@ body {
           border-bottom: 1px solid red;
           background-color: white;
           background: transparent;
-          margin-bottom: 5px; }
+          margin-bottom: 5px;
+          color: #f7c331; }
         #landingPage div .react-tabs .sapper button {
-          margin-top: 25px;
+          margin: 25px 0px;
           background-color: #f7882f;
           padding: 10px;
           border: 0px;
@@ -545,3 +549,8 @@ body {
 
 button:hover {
   cursor: pointer; }
+
+#landingPage {
+  cursor: default; }
+  #landingPage li:hover {
+    cursor: pointer; }

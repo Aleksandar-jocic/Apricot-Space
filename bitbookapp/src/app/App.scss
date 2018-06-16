@@ -68,6 +68,7 @@ body {
 
         #bitSpan {
             font-size: 40px;
+            font-family: 'Dancing Script', cursive;
             display: inline-block;
             color: white;
             a {text-decoration: none;            
@@ -108,6 +109,7 @@ body {
         -webkit-box-shadow: 0px 0px 8px 5px $secondaryColor;
         -moz-box-shadow: 0px 0px 8px 5px $secondaryColor;
         box-shadow: 0px 0px 8px 5px $secondaryColor;
+        
 
         i {
             font-size: 30px;
@@ -127,7 +129,9 @@ body {
             height: 40px; 
             color: white;   
             padding: 0px; 
-            float: left;                      
+            float: left; 
+            background: linear-gradient(to right, $mainColor, $secondaryColor, $mainColor ) ;
+                                 
 
         }
         #searchIconDiv {
@@ -218,6 +222,7 @@ body {
 #ProfilePage {
 
     width: 40%;
+    min-width: 864px;
     margin: 0 auto;
     text-align: center;            
 
@@ -687,9 +692,10 @@ body {
                     @include generalInput(white);
                     background: transparent;
                     margin-bottom: 5px;
+                    color: $secondaryColor;
                 }
                 button {
-                    margin-top: 25px;
+                    margin: 25px 0px;
                     @include generalButton($mainColor,$tertiaryColor);
                     width: 100%;
                     -webkit-box-shadow: 1px 1px 5px 2px $secondaryColor;
@@ -784,6 +790,12 @@ body {
 
 button:hover {
     cursor: pointer;
+}
+#landingPage {
+    cursor: default;
+    li:hover {
+        cursor: pointer;
+    }
 }
 
 // #singleItem:hover {

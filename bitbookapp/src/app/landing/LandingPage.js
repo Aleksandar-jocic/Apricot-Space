@@ -68,7 +68,7 @@ class LandingPage extends React.Component {
         }).catch(() => {
             this.setState({
 
-                logInError: "Pogresni podaci, molim vas pokusajte ponovo"
+                logInError: "Username and/or password incorrect"
 
             })
         })
