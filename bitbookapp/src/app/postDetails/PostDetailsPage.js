@@ -32,6 +32,8 @@ class PostDetailsPage extends Component {
             })
         })
     }
+
+    
     //          END OF              //
 
 
@@ -108,10 +110,19 @@ class PostDetailsPage extends Component {
                 comments
 
             })
-        })
-
-
+        }) 
     }
+
+    handleKeyPress = (e) => {
+
+        if(e.keyCode === 13) {
+            console.log('someerroe');            
+
+            this.uploadComment();
+            e.target.value = '';
+        }
+    }
+
     render() {
         return (
 
@@ -129,10 +140,10 @@ class PostDetailsPage extends Component {
                 
                 <div id='commentControls'>
 
-                    <img src={this.state.myProfile.avatarUrl} alt="" />
+                    <img src={this.state.myProfile.avatarUrl}  alt="" />
                 
-                    <div>
-                        <input type="text" placeholder="Write a comment here..." onChange={this.handleNewComment} />
+                    <div >
+                        <input type="text" onKeyUp={this.handleKeyPress} placeholder="Write a comment here..." onChange={this.handleNewComment}  />
                     </div>
                     
                     {/* <button onClick={this.uploadComment} >Send Comment</button> */}
