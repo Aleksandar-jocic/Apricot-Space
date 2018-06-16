@@ -3,14 +3,13 @@ body {
 
 #container {
   width: 100%;
-  background-color: #f7882f; }
+  background: #f7882f; }
   #container #header {
     width: 60%;
     margin: 0 auto;
-    background-color: #f7882f;
+    background: linear-gradient(to right, #f7882f, #f7c331, #f7882f);
     position: relative;
-    height: 60px;
-    border-radius: 10px; }
+    height: 60px; }
     #container #header #bitSpan {
       font-size: 40px;
       display: inline-block;
@@ -447,6 +446,71 @@ body {
         width: 100%;
         background-color: #f8eee7; }
 
+#landingPage {
+  height: 100vh;
+  box-shadow: inset 200px 200px 20px 1000px rgba(255, 115, 0, 0.5);
+  background-image: url("../shared/Shea.jpg");
+  background-size: cover;
+  overflow: hidden; }
+  #landingPage h1 {
+    color: #f7c331;
+    font-family: 'Dancing Script', cursive;
+    font-size: 5em;
+    margin-left: 30px; }
+  #landingPage h3 {
+    color: #f7c331;
+    margin: 0px 0px 20px 30px; }
+  #landingPage div {
+    margin: 0px 0px 0px 30px;
+    float: left;
+    color: white; }
+    #landingPage div .react-tabs {
+      margin: 0px; }
+      #landingPage div .react-tabs .sapper {
+        border: 1px solid #f7882f;
+        margin: 0px;
+        width: 220px;
+        box-sizing: border-box;
+        padding: 10px; }
+        #landingPage div .react-tabs .sapper h2 {
+          margin-bottom: 25px;
+          text-align: center; }
+        #landingPage div .react-tabs .sapper input {
+          border: 0px;
+          border-bottom: 1px solid red;
+          background-color: white;
+          background: transparent;
+          margin-bottom: 5px; }
+        #landingPage div .react-tabs .sapper button {
+          margin-top: 25px;
+          background-color: #f7882f;
+          padding: 10px;
+          border: 0px;
+          border-radius: 3px;
+          color: white;
+          -webkit-box-shadow: 5px 5px 6px 1px #f4decb;
+          -moz-box-shadow: 5px 5px 6px 1px #f4decb;
+          box-shadow: 5px 5px 6px 1px #f4decb;
+          width: 100%;
+          -webkit-box-shadow: 1px 1px 5px 2px #f7c331;
+          -moz-box-shadow: 1px 1px 5px 2px #f7c331;
+          box-shadow: 1px 1px 5px 2px #f7c331; }
+      #landingPage div .react-tabs ul {
+        padding: 0px;
+        color: white;
+        margin: 0px; }
+        #landingPage div .react-tabs ul li {
+          width: 50%;
+          display: inline-block;
+          list-style-type: none;
+          padding: 5px 20px;
+          border: 1px solid #f7882f;
+          border-radius: 15px 15px 0px 0px;
+          margin: 0px;
+          text-align: center; }
+    #landingPage div #react-tabs-1, #landingPage div #react-tabs-3 {
+      margin: 0px; }
+
 ::placeholder {
   color: rgba(92, 92, 92, 0.56); }
 
@@ -478,3 +542,6 @@ body {
 .deletePostButton:hover {
   cursor: pointer;
   color: #941616; }
+
+button:hover {
+  cursor: pointer; }

@@ -19,7 +19,6 @@ class LandingPage extends React.Component {
 
     handleEmail = (event) => {
 
-
         this.setState({
 
             email: event.target.value
@@ -27,7 +26,6 @@ class LandingPage extends React.Component {
     }
 
     handlePassword = (event) => {
-
 
         this.setState({
 
@@ -37,7 +35,6 @@ class LandingPage extends React.Component {
 
     handleName = (event) => {
 
-
         this.setState({
 
             name: event.target.value
@@ -46,7 +43,6 @@ class LandingPage extends React.Component {
 
     handleUsername = (event) => {
 
-
         this.setState({
 
             username: event.target.value
@@ -54,6 +50,7 @@ class LandingPage extends React.Component {
     }
 
     handleLogin = () => {
+
         authenticationService.logIn({
 
             "username": this.state.email,
@@ -78,6 +75,7 @@ class LandingPage extends React.Component {
     }
 
     handleRegister = () => {
+
         authenticationService.register({
 
             "username": this.state.username,
@@ -91,8 +89,7 @@ class LandingPage extends React.Component {
                 registrationError: "success"
 
             })
-            // localStorage.setItem("SessionId", data.sessionId);
-            // this.props.redirect(data);
+
         }).catch(() => {
             this.setState({
 
@@ -106,67 +103,68 @@ class LandingPage extends React.Component {
 
         return (
 
-            <div>
-                <h1>BitBookLogIn</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, quis ut a, minima in quos illo fugit aliquam possimus impedit perspiciatis vero magnam nihil tempore quibusdam dolores obcaecati, vel adipisci.</p>
+            <div id="landingPage">
 
+                <h1>Apricot Space</h1>
 
+                <h3>See the world through Apricot</h3>
 
-                <Tabs>
-                    <TabList>
-                        <Tab>LogIn</Tab>
-                        <Tab>Register</Tab>
-                    </TabList>
+                {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, quis ut a, minima in quos illo fugit aliquam possimus impedit perspiciatis vero magnam nihil tempore quibusdam dolores obcaecati, vel adipisci.</p> */}
+                <div>
+                    <Tabs>
+                        <TabList>
+                            <Tab >LogIn</Tab>
+                            <Tab>Register</Tab>
+                        </TabList>
 
-                    <TabPanel>
-                        <div>
-                            <h2>LogIn</h2>
-                            <span>email</span>
-                            <br />
+                        <TabPanel>
+                            <div className='sapper'>
 
-                            <input type="email" onChange={this.handleEmail} />
-                            <br />
-                            <span>pass</span>
-                            <br />
-                            <input type="password" onChange={this.handlePassword} />
-                            <br />
+                                <h2>LogIn</h2>
 
-                            <button onClick={this.handleLogin}>Login</button>
+                                <span>Username</span>
 
-                            <br></br>
+                                <input type="email" onChange={this.handleEmail} />
 
-                            <span>{this.state.logInError}</span>
+                                <span>Password</span>
 
-                        </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div>
-                            <h2>Register</h2>
-                            <span>UserName</span>
-                            <br />
-                            <input type="text" onChange={this.handleUsername} />
-                            <br />
-                            <span>Name</span>
-                            <br />
-                            <input type="text" onChange={this.handleName} />
-                            <br />
-                            <span>email</span>
-                            <br />
-                            <input type="email" onChange={this.handleEmail} />
-                            <br />
-                            <span>pass</span>
-                            <br />
-                            <input type="password" onChange={this.handlePassword} />
-                            <br />
+                                <input type="password"  onChange={this.handlePassword} />
 
-                            <button onClick={this.handleRegister} >Register</button>
-                            <br></br>
+                                <button onClick={this.handleLogin}>Login</button>
 
-                            <span>{this.state.registrationError}</span>
+                                <span>{this.state.logInError}</span>
 
-                        </div>
-                    </TabPanel>
-                </Tabs>
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className='sapper'>
+                                <h2>Register</h2>
+                                <span>UserName</span>
+                                <br />
+                                <input type="text" onChange={this.handleUsername} />
+                                <br />
+                                <span>Name</span>
+                                <br />
+                                <input type="text" onChange={this.handleName} />
+                                <br />
+                                <span>email</span>
+                                <br />
+                                <input type="email" onChange={this.handleEmail} />
+                                <br />
+                                <span>pass</span>
+                                <br />
+                                <input type="password" onChange={this.handlePassword} />
+                                <br />
+
+                                <button onClick={this.handleRegister} >Register</button>
+                                <br></br>
+
+                                <span>{this.state.registrationError}</span>
+
+                            </div>
+                        </TabPanel>
+                    </Tabs>
+                </div>              
 
             </div>
         )
