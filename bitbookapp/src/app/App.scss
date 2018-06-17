@@ -241,13 +241,9 @@ body {
     h1 {
         margin: 15px 0px;
     }
-    #editProfileSpan {
-        padding: 4px 8px;
-        border: 2px solid $secondaryColor;
-        border-radius: 10px;
-        :hover {
-            cursor: pointer;
-        }
+    #editProfileButton {
+        @include generalButton($mainColor, $shadow);
+        
     }
    
     p {
@@ -322,56 +318,127 @@ body {
 }
 
 //              filterList DOWN            //
-#FilterList{
 
+.wrapper-dropdown-3 {
+    /* Size and position */
     position: relative;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px;
     top: 20px;
     left: 20px;
-    display: inline-block;
+    
+
+    /* Styles */
+    background: linear-gradient(to right, $mainColor, $secondaryColor ) ;
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.15);
+    cursor: pointer;
+    outline: none;
+
+    /* Font settings */
+    font-weight: bold;
+    color: $baseColor;
+
     -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
     -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
-    box-shadow: 2px 4px 13px 0px $shadowStrong;
-
-    button {
-        background-color: $secondaryColor;
-        border: 0px;
-        border-radius: 3px; 
-        width: 120px;
-        color: white;      
-                       
-    }    
-
-    #contentList {
-        // display: none;
-        position: absolute;
-        z-index: -1;
-        visibility: hidden; /* hides sub-menu */
-        top: 100%;
-        left: 0;
-        width: 100%;
-        opacity: 0;
-        transform: translateY(-2em);
-        transition: all 0.4s ease-in-out 0.3s, visibility 1s linear 0.5s, z-index 0s linear 0.5s;
-        outline: none;
-        -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
-        -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
-        box-shadow: 2px 4px 13px 0px $shadowStrong;
-                
-        button {
-            width: 120px;
-            padding: 5px;
-        }
-    }
+    box-shadow: 2px 4px 13px 0px $shadowStrong; 
 }
-#FilterList:focus #contentList,
-#FilterList:focus-within #contentList,
-#FilterList:hover #contentList {
-  visibility: visible; /* shows sub-menu */
-  opacity: 1;
-  z-index: 1;
-  transform: translateY(0%);
-  transition-delay: 0s, 0s, 0.3s;
-   /* this removes the transition delay so the menu will be visible while the other styles transition */
+.wrapper-dropdown-3:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: $baseColor transparent;
+}
+.wrapper-dropdown-3 .dropdown {
+    /* Size & position */
+      position: absolute;
+      top: 140%;
+      left: 0;
+      right: 0;
+      padding: 0px;
+      
+  
+      /* Styles */
+      background: $tertiaryColor;
+      border-radius: inherit;
+      border: 1px solid $baseColor;
+      font-weight: normal;
+      transition: all 0.5s ease-in;
+      list-style: none;
+  
+      /* Hiding */
+      opacity: 0;
+      pointer-events: none;
+
+      -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
+    -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
+    box-shadow: 2px 4px 13px 0px $shadowStrong; 
+     
+  }
+  .wrapper-dropdown-3 .dropdown li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: $mainColor;
+    border-bottom: 1px solid #e6e8ea;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,1);
+    transition: all 0.3s ease-out;
+}
+
+
+.wrapper-dropdown-3 .dropdown li:first-of-type a {
+    border-radius: 7px 7px 0 0;
+}
+
+.wrapper-dropdown-3 .dropdown li:last-of-type a {
+    border-radius: 0 0 7px 7px;
+    border: none;
+}
+
+/* Hover state */
+
+.wrapper-dropdown-3 .dropdown li:hover a {
+    background: $mainColor;
+    color: white;
+}
+.wrapper-dropdown-3 .dropdown:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 15px;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: $baseColor transparent;    
+}
+
+.wrapper-dropdown-3 .dropdown:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 13px;
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.1) transparent;    
+}
+.wrapper-dropdown-3 .dropdown li i {
+    float: right;
+    color: inherit;
+}
+
+.wrapper-dropdown-3.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 //               newPost UP                 //
@@ -380,12 +447,11 @@ body {
 
     position: fixed;
     bottom: 150px;
-    right: 80px;
-    display: inline-block;
+    right: 180px;
 
     i {
         border-radius: 50%;
-        margin-top: 5px;
+        margin-top: 15px;
     }
 
     
@@ -395,27 +461,20 @@ body {
         z-index: 1;
         bottom: 65px;
         background-color: $baseColor;  
-
     }
 
     i{
         color: $secondaryColor;
         font-size: 65px;
-        display: inline;
+        display: block;
 
         -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
         -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
         box-shadow: 2px 4px 13px 0px $shadowStrong;    
     }
     
-    button {
-        background-color: $baseColor;
-        border: 0px;
-    }
-    span {
-        display: inline-block;
-        
-    }
+  
+   
 }
 
 
@@ -535,26 +594,83 @@ body {
 //                       PROFILE MODAL                        //
 .profileModal {
     @include moduleSetup;
+    width: 50%;
+    min-width: 300px;
 
     input {
-        @include generalInput ($baseColor)
+        @include generalInput ($baseColor);
+    }
+
+    #uploadImageDiv {
+
+        margin-top: 30px;
+        // display: none;
+        label {
+            cursor: pointer;
+            text-decoration: underline;
+            color: $mainColor;
+        }
+        label:nth-of-type(1) {
+            text-decoration: none;
+            color: black;
+            cursor: default;
+            margin: 0px;
+            
+        }
+        #cheekyOne{
+            display: none;
+        }
+
+        img {
+            border-radius: 50%;
+        display: inline-block;
+        height: 200px;
+        width: 200px;
+        margin: 0 auto;
+        vertical-align: top;
+
+        -webkit-box-shadow: 0px 0px 18px 2px $shadow;
+        -moz-box-shadow: 0px 0px 18px 2px $shadow;
+        box-shadow: 0px 0px 18px 2px $shadow;
+            
+        } 
+        div {
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        button {
+            margin-top: 15px;
+            display: block;
+        }
+        input {
+            display: block;
+            margin: 15px 0px;
+            
+        }
     }
 
     #uploadNameDiv{
-        margin-bottom: 120px;
+        margin-bottom: 20px;
         margin-top: 50px;
         
 
         label {
-            color: red;
+            display: block
         }
+        
         
     }
     #uploadAboutDiv{
-        margin-bottom: 20px;              
+        margin-bottom: 20px; 
+        label {
+            display: block;
+
+        }             
     }
     button {
        @include generalButton ($mainColor, $shadow);
+       margin-right: 30px;
     }
 
 
@@ -782,7 +898,7 @@ body {
     color: $mainColor;
     cursor: pointer;
 }
-#editProfileSpan:hover {
+#editProfileButton:hover {
     cursor: pointer;
 }
 

@@ -119,12 +119,15 @@ body {
     box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56); }
   #ProfilePage h1 {
     margin: 15px 0px; }
-  #ProfilePage #editProfileSpan {
-    padding: 4px 8px;
-    border: 2px solid #f7c331;
-    border-radius: 10px; }
-    #ProfilePage #editProfileSpan :hover {
-      cursor: pointer; }
+  #ProfilePage #editProfileButton {
+    background-color: #f7882f;
+    padding: 10px;
+    border: 0px;
+    border-radius: 3px;
+    color: white;
+    -webkit-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    -moz-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56); }
   #ProfilePage p {
     margin-top: 15px; }
   #ProfilePage #postsAndCommentsDiv {
@@ -175,58 +178,118 @@ body {
   vertical-align: top;
   position: relative; }
 
-#FilterList {
+.wrapper-dropdown-3 {
+  /* Size and position */
   position: relative;
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px;
   top: 20px;
   left: 20px;
-  display: inline-block;
+  /* Styles */
+  background: linear-gradient(to right, #f7882f, #f7c331);
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  outline: none;
+  /* Font settings */
+  font-weight: bold;
+  color: #f8eee7;
   -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
   -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
   box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
-  #FilterList button {
-    background-color: #f7c331;
-    border: 0px;
-    border-radius: 3px;
-    width: 120px;
-    color: white; }
-  #FilterList #contentList {
-    position: absolute;
-    z-index: -1;
-    visibility: hidden;
-    /* hides sub-menu */
-    top: 100%;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transform: translateY(-2em);
-    transition: all 0.4s ease-in-out 0.3s, visibility 1s linear 0.5s, z-index 0s linear 0.5s;
-    outline: none;
-    -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
-    -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
-    box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
-    #FilterList #contentList button {
-      width: 120px;
-      padding: 5px; }
 
-#FilterList:focus #contentList,
-#FilterList:focus-within #contentList,
-#FilterList:hover #contentList {
-  visibility: visible;
-  /* shows sub-menu */
+.wrapper-dropdown-3:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -3px;
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #f8eee7 transparent; }
+
+.wrapper-dropdown-3 .dropdown {
+  /* Size & position */
+  position: absolute;
+  top: 140%;
+  left: 0;
+  right: 0;
+  padding: 0px;
+  /* Styles */
+  background: #f4decb;
+  border-radius: inherit;
+  border: 1px solid #f8eee7;
+  font-weight: normal;
+  transition: all 0.5s ease-in;
+  list-style: none;
+  /* Hiding */
+  opacity: 0;
+  pointer-events: none;
+  -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
+
+.wrapper-dropdown-3 .dropdown li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #f7882f;
+  border-bottom: 1px solid #e6e8ea;
+  box-shadow: inset 0 1px 0 white;
+  transition: all 0.3s ease-out; }
+
+.wrapper-dropdown-3 .dropdown li:first-of-type a {
+  border-radius: 7px 7px 0 0; }
+
+.wrapper-dropdown-3 .dropdown li:last-of-type a {
+  border-radius: 0 0 7px 7px;
+  border: none; }
+
+/* Hover state */
+.wrapper-dropdown-3 .dropdown li:hover a {
+  background: #f7882f;
+  color: white; }
+
+.wrapper-dropdown-3 .dropdown:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 100%;
+  right: 15px;
+  border-width: 0 6px 6px 6px;
+  border-style: solid;
+  border-color: #f8eee7 transparent; }
+
+.wrapper-dropdown-3 .dropdown:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 100%;
+  right: 13px;
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1) transparent; }
+
+.wrapper-dropdown-3 .dropdown li i {
+  float: right;
+  color: inherit; }
+
+.wrapper-dropdown-3.active .dropdown {
   opacity: 1;
-  z-index: 1;
-  transform: translateY(0%);
-  transition-delay: 0s, 0s, 0.3s;
-  /* this removes the transition delay so the menu will be visible while the other styles transition */ }
+  pointer-events: auto; }
 
 #NewPosts {
   position: fixed;
   bottom: 150px;
-  right: 80px;
-  display: inline-block; }
+  right: 180px; }
   #NewPosts i {
     border-radius: 50%;
-    margin-top: 5px; }
+    margin-top: 15px; }
   #NewPosts #contentButtons {
     display: none;
     position: absolute;
@@ -236,15 +299,10 @@ body {
   #NewPosts i {
     color: #f7c331;
     font-size: 65px;
-    display: inline;
+    display: block;
     -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
     -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
     box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
-  #NewPosts button {
-    background-color: #f8eee7;
-    border: 0px; }
-  #NewPosts span {
-    display: inline-block; }
 
 .Post {
   margin-top: 20px;
@@ -378,18 +436,54 @@ body {
   border-radius: 10px;
   -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
   -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
-  box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
+  box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
+  width: 50%;
+  min-width: 300px; }
   .profileModal input {
     border: 0px;
     border-bottom: 1px solid red;
     background-color: #f8eee7; }
+  .profileModal #uploadImageDiv {
+    margin-top: 30px; }
+    .profileModal #uploadImageDiv label {
+      cursor: pointer;
+      text-decoration: underline;
+      color: #f7882f; }
+    .profileModal #uploadImageDiv label:nth-of-type(1) {
+      text-decoration: none;
+      color: black;
+      cursor: default;
+      margin: 0px; }
+    .profileModal #uploadImageDiv #cheekyOne {
+      display: none; }
+    .profileModal #uploadImageDiv img {
+      border-radius: 50%;
+      display: inline-block;
+      height: 200px;
+      width: 200px;
+      margin: 0 auto;
+      vertical-align: top;
+      -webkit-box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56);
+      -moz-box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56);
+      box-shadow: 0px 0px 18px 2px rgba(163, 163, 163, 0.56); }
+    .profileModal #uploadImageDiv div {
+      display: inline-block;
+      margin-left: 30px; }
+    .profileModal #uploadImageDiv button {
+      margin-top: 15px;
+      display: block; }
+    .profileModal #uploadImageDiv input {
+      display: block;
+      margin: 15px 0px; }
   .profileModal #uploadNameDiv {
-    margin-bottom: 120px;
+    margin-bottom: 20px;
     margin-top: 50px; }
     .profileModal #uploadNameDiv label {
-      color: red; }
+      display: block; }
   .profileModal #uploadAboutDiv {
     margin-bottom: 20px; }
+    .profileModal #uploadAboutDiv label {
+      display: block; }
   .profileModal button {
     background-color: #f7882f;
     padding: 10px;
@@ -398,7 +492,8 @@ body {
     color: white;
     -webkit-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
     -moz-box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
-    box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56); }
+    box-shadow: 5px 5px 6px 1px rgba(163, 163, 163, 0.56);
+    margin-right: 30px; }
 
 #postDetails {
   width: 40%;
@@ -540,7 +635,7 @@ body {
   color: #f7882f;
   cursor: pointer; }
 
-#editProfileSpan:hover {
+#editProfileButton:hover {
   cursor: pointer; }
 
 #FilterList:hover #contentList {
