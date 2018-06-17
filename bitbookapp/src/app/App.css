@@ -437,7 +437,7 @@ body {
   -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
   -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
   box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
-  width: 50%;
+  width: 40%;
   min-width: 300px; }
   .profileModal input {
     border: 0px;
@@ -474,7 +474,8 @@ body {
       display: block; }
     .profileModal #uploadImageDiv input {
       display: block;
-      margin: 15px 0px; }
+      margin: 15px 0px;
+      width: 100%; }
   .profileModal #uploadNameDiv {
     margin-bottom: 20px;
     margin-top: 50px; }
