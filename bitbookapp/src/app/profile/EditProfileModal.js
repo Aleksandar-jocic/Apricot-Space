@@ -10,7 +10,7 @@ class EditProfileModal extends Component {
             name: "",
             about: "",
             avatarUrl: "",
-            image: ""
+            image: "https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg"
         };
     }
 
@@ -91,18 +91,30 @@ class EditProfileModal extends Component {
                     <h2>Update Profile</h2>
 
                     <div id='uploadImageDiv'>
-                        <input onChange={this.handlePicture} type="text" />
+
+                            <img src={this.state.image} />
+
+                        <div>
+                        <label>Paste image URL bellow</label>
+                        <input onChange={this.handlePicture} placeholder='URL here please...' type="text" />
+
+                        <span>or </span>
+                        <label for='cheekyOne'>click here</label><span> and choose from your hard drive</span>
+
+                        <input id='cheekyOne' type="file" onChange={this.handleImageUpload} />
+                        <button onClick={this.uploadImage} >Confirm</button>
+                        </div>
+
                     </div>
 
-                    <input type="file" onChange={this.handleImageUpload} />
-                    <button onClick={this.uploadImage} >Upload Image</button>
-
                     <div id='uploadNameDiv'>
-                        <label>Name</label><br />
-                        <input placeholder='Something about you...' onChange={this.handleName} type="text" />
+                        <label>Name</label>
+                        <input placeholder='Username...' onChange={this.handleName} type="text" />
                     </div>
 
                     <div id='uploadAboutDiv'>
+                        
+                        <label>About you</label>
                         <input type="text" placeholder='Something about you...' onChange={this.handleAbout} />
                     </div>
 
@@ -117,6 +129,5 @@ class EditProfileModal extends Component {
         );
     }
 }
-
 
 export default EditProfileModal;
