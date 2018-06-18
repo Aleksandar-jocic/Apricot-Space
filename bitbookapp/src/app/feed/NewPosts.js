@@ -45,20 +45,3 @@ class NewPosts extends React.Component {
 
 export default NewPosts
 
-
-
-
-// <div id='NewPosts'>
-
-// 
-
-// <div id='contentButtons'>
-
-//         
-//         
-//         
-
-// </div>
-
-
-// </div>

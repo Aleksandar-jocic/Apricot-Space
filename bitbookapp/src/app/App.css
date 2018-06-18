@@ -698,12 +698,6 @@ body {
 #editProfileButton:hover {
   cursor: pointer; }
 
-#FilterList:hover #contentList {
-  display: block; }
-
-#FilterList button:hover {
-  cursor: pointer; }
-
 #ProfileModal button:hover {
   cursor: pointer; }
 
