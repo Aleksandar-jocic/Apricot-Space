@@ -27,6 +27,9 @@ body {
         font-size: 20px; }
         #container #header div span a {
           text-decoration: none; }
+      #container #header div #LogOut {
+        padding-left: 20px;
+        border-left: 2px solid white; }
 
 #PeoplePage {
   width: 40%;
@@ -65,7 +68,7 @@ body {
       height: 40px;
       float: left;
       border-radius: 0px 6px 0px 0px; }
-  #PeoplePage #itemList #singleItem {
+  #PeoplePage #itemList .singleItem {
     margin-top: 45px;
     box-sizing: border-box;
     width: 100%;
@@ -75,30 +78,30 @@ body {
     -webkit-box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56);
     -moz-box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56);
     box-shadow: 0px 0px 13px 2px rgba(163, 163, 163, 0.56); }
-    #PeoplePage #itemList #singleItem a {
+    #PeoplePage #itemList .singleItem a {
       color: black; }
-    #PeoplePage #itemList #singleItem #imageDiv {
+    #PeoplePage #itemList .singleItem .imageDiv {
       width: 80px;
       height: 80px;
       display: inline-block; }
-      #PeoplePage #itemList #singleItem #imageDiv img {
-        border-radius: 50%;
+      #PeoplePage #itemList .singleItem .imageDiv img {
         display: block;
-        max-height: 80px;
-        max-width: 80px;
-        margin: 0 auto; }
-    #PeoplePage #itemList #singleItem #nameAndDescriptionDiv {
+        height: 80px;
+        width: 80px;
+        margin: 0 auto;
+        border-radius: 50%; }
+    #PeoplePage #itemList .singleItem .nameAndDescriptionDiv {
       display: inline-block;
-      width: calc(100% - 140px);
+      width: calc(100% - 170px);
       height: 80px;
       vertical-align: top; }
-      #PeoplePage #itemList #singleItem #nameAndDescriptionDiv p, #PeoplePage #itemList #singleItem #nameAndDescriptionDiv h3 {
+      #PeoplePage #itemList .singleItem .nameAndDescriptionDiv p, #PeoplePage #itemList .singleItem .nameAndDescriptionDiv h3 {
         margin: 0px 0px 0px 10px; }
-      #PeoplePage #itemList #singleItem #nameAndDescriptionDiv h3 {
+      #PeoplePage #itemList .singleItem .nameAndDescriptionDiv h3 {
         margin-bottom: 5px; }
-    #PeoplePage #itemList #singleItem #lastPostDiv {
+    #PeoplePage #itemList .singleItem .lastPostDiv {
       display: inline-block;
-      width: 60px;
+      width: 90px;
       height: 80px;
       vertical-align: top; }
 
@@ -195,6 +198,7 @@ body {
   /* Font settings */
   font-weight: bold;
   color: #f8eee7;
+  transition: all 0.4s ease-out;
   -webkit-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
   -moz-box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56);
   box-shadow: 2px 4px 13px 0px rgba(92, 92, 92, 0.56); }
@@ -278,6 +282,10 @@ body {
 .wrapper-dropdown-3 .dropdown li i {
   float: right;
   color: inherit; }
+
+.wrapper-dropdown-3.active {
+  transition: all 0.4s ease-out;
+  box-shadow: none; }
 
 .wrapper-dropdown-3.active .dropdown {
   opacity: 1;

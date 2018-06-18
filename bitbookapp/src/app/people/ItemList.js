@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 
 const ItemList = (props) => (
 
-    <div id='singleItem'>
+    <div className='singleItem'>
         <Link to={`/People/${props.item.id}`}>
-            <div id='imageDiv'>
+            <div className='imageDiv'>
                 <img src={props.item.avatarUrl} alt="userPhoto" />
             </div>
 
-            <div id='nameAndDescriptionDiv'>
+            <div className='nameAndDescriptionDiv'>
                 <h3>{props.item.name}</h3>
                 <p>{props.item.aboutShort}</p>
             </div>
 
-            <div id='lastPostDiv'>
+            <div className='lastPostDiv'>
                 <p>{props.date(props.item.lastPostDate)}</p>
             </div>
         </Link>
