@@ -44,7 +44,7 @@ class ProfilePage extends React.Component {
     //             profile
     //         })
     //     })
-    //     this.otherProfile()
+    //     
     // }
     componentDidMount() {
         this.props.match.params.id ?
@@ -61,8 +61,10 @@ class ProfilePage extends React.Component {
                 this.setState({
                     profile
                 })
+                this.otherProfile()
             }))
     }
+
     otherProfile = () => {
 
         userService.getUser(this.props.match.params.userId).then((user) => {
