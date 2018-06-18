@@ -134,18 +134,6 @@ class PostDetailsPage extends Component {
                         (<ImagePost imageUrl={this.state.imageUrl} />) :
                         (<VideoPost videoUrl={this.state.videoUrl} />)}
 
-<<<<<<< HEAD
-=======
-
-            }
-
-                <input name="newComment" type="text" value={this.state.newComment} onChange={this.handleNewComment} />
-                <br />
-                <br />
-                <button disabled={!this.state.newComment} onClick={this.uploadComment} >Send Comment</button>
-                <br />
-                <br />
->>>>>>> 0944ccb1de7ba4037217ab3132d82b9850409340
                 <CommentList
                     comments={this.state.comments}
                 />

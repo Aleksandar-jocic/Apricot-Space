@@ -1,20 +1,64 @@
 import React from 'react';
 
-const NewPosts = (props) => (
+class NewPosts extends React.Component {
 
-    <div id='NewPosts'>
+    constructor(props) {
+        super(props)
+        this.state = {
+            dropDown: false
+        }
+    }
 
-        <i class="fas fa-plus-circle"></i>
+    changeClass = (event) => {
+        console.log('state');
+        event.stopPropagation();
 
-        <div id='contentButtons'>
+        this.setState({
 
-                <i onClick={props.newVideo} class="fas fa-video"></i>
-                <i onClick={props.newImage} class="fas fa-camera"></i>
-                <i onClick={props.newText} class="far fa-comment"></i>
-
-        </div>
+            dropDown: !this.state.dropDown
+        })
 
 
-    </div>
-)
+    }
+
+    render() {
+
+        return (
+            <div id="dd" className={(this.state.dropDown === true) ? ('wrapper-dropdown-5 active') : ('wrapper-dropdown-5')} tabindex="1" onClick={this.changeClass}><i className="fas fa-plus-circle"></i><span>New Post</span>
+
+                <ul className="dropdown">
+
+                    <li><a href="#" onClick={this.props.newVideo}><i class="fas fa-video"></i>Video</a></li>
+
+                    <li><a href="#" onClick={this.props.newImage}><i class="fas fa-camera"></i>Image</a></li>
+
+                    <li><a href="#" onClick={this.props.newText}><i class="far fa-comment"></i>Post</a></li>
+
+                </ul>
+            </div>
+        )
+    }
+
+
+}
+
+
 export default NewPosts
+
+
+
+
+// <div id='NewPosts'>
+
+// 
+
+// <div id='contentButtons'>
+
+//         
+//         
+//         
+
+// </div>
+
+
+// </div>
