@@ -7,6 +7,14 @@ class TextPost extends Component {
         super(props);
         this.state = {};
     }
+    // postAuthor = () => {
+
+    //     const profiles = JSON.parse(localStorage.getItem("profiles"))
+    //     const arr = profiles.filter((obj) => {
+    //         return obj.id == this.props.userId
+    //     })
+    //     return arr[0].name
+    // }
     handleDelete = () => {
         this.props.deletePost(this.props.id)
     }
@@ -22,7 +30,15 @@ class TextPost extends Component {
                     (<div>
 
                         <div className='textPostDiv' ><span>Text</span></div>
-                        <div className='deletePostButton'><span onClick={this.handleDelete} >{`<Delete post>`}</span></div>
+
+                        {this.props.userId == localStorage.getItem("user") ? (
+
+                            <div className='deletePostButton'><span onClick={this.handleDelete} >{`<Delete post>`}</span></div>
+                        ) : <div className='deletePostButton'><span >Posted by: {
+                            this.props.postAuthor(this.props.userId)
+
+                        }</span></div>}
+
                         <Link to={`/feeds/${this.props.type}/${this.props.id}`}>
 
                             <div className='commentPostDiv'><span>{this.props.commentsNum} Comments</span></div>

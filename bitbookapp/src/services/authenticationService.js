@@ -23,7 +23,7 @@ class AuthenticationService {
 
                     return response.json(loginObj);
                 } else {
-                    throw Error("greska")
+                    throw Error
                 }
 
             })

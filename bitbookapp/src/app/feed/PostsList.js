@@ -15,7 +15,13 @@ class PostsList extends Component {
         super(props);
         this.state = {};
     }
-
+    postAuthor = (userId) => {
+        const profiles = JSON.parse(localStorage.getItem("profiles"))
+        const arr = profiles.filter((obj) => {
+            return obj.id == userId
+        })
+        return arr[0].name
+    }
     renderList = () => {
 
         const array = this.props.posts.filter((post) => {
@@ -48,6 +54,9 @@ class PostsList extends Component {
                         text={post.text}
                         id={post.id}
                         deletePost={this.props.deletePost}
+                        userId={post.userId}
+                        postAuthor={this.postAuthor}
+
 
                     /> : (post.type === "image" ?
                         <ImagePost
@@ -56,6 +65,8 @@ class PostsList extends Component {
                             imageUrl={post.imageUrl}
                             id={post.id}
                             deletePost={this.props.deletePost}
+                            userId={post.userId}
+                            postAuthor={this.postAuthor}
                         /> :
                         <VideoPost
                             commentsNum={post.commentsNum}
@@ -63,6 +74,9 @@ class PostsList extends Component {
                             videoUrl={post.videoUrl}
                             id={post.id}
                             deletePost={this.props.deletePost}
+                            userId={post.userId}
+                            postAuthor={this.postAuthor}
+
                         />)
             )
         })

@@ -29,12 +29,14 @@ class App extends Component {
     handleLogOut = () => {
         localStorage.setItem("profile", "")
         localStorage.setItem("SessionId", "")
+        localStorage.setItem("user", "")
+        localStorage.setItem("profiles", "")
         this.setState({
             login: false,
 
         })
     }
-    redirect = (data) => {
+    redirect = () => {
 
         this.setState({
             login: true,
