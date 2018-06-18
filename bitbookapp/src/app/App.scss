@@ -1,5 +1,5 @@
-$mainColor: #f7882f; 
-$secondaryColor: #f7c331;
+$mainColor: rgb(247, 136, 47); 
+$secondaryColor: rgb(247, 195, 49);
 // $tertiaryColor: #6b7a8f;
 // $baseColor: #dcc7aa;
 
@@ -57,18 +57,18 @@ body {
 #container {
 
     width: 100%;
-    background-color: $mainColor; 
+    background: $mainColor; 
 
     #header {
         width: 60%;
         margin: 0 auto;
-        background-color: $mainColor;
+        background: linear-gradient(to right, $mainColor, $secondaryColor, $mainColor ) ;
         position: relative;
         height: 60px;
-        border-radius: 10px;
 
         #bitSpan {
             font-size: 40px;
+            font-family: 'Dancing Script', cursive;
             display: inline-block;
             color: white;
             a {text-decoration: none;            
@@ -96,7 +96,7 @@ body {
 
 #PeoplePage {
 
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
 
     //              search                  //
@@ -109,6 +109,7 @@ body {
         -webkit-box-shadow: 0px 0px 8px 5px $secondaryColor;
         -moz-box-shadow: 0px 0px 8px 5px $secondaryColor;
         box-shadow: 0px 0px 8px 5px $secondaryColor;
+        
 
         i {
             font-size: 30px;
@@ -128,7 +129,9 @@ body {
             height: 40px; 
             color: white;   
             padding: 0px; 
-            float: left;                      
+            float: left; 
+            background: linear-gradient(to right, $mainColor, $secondaryColor, $mainColor ) ;
+                                 
 
         }
         #searchIconDiv {
@@ -218,7 +221,8 @@ body {
 
 #ProfilePage {
 
-    width: 50%;
+    width: 40%;
+    min-width: 864px;
     margin: 0 auto;
     text-align: center;            
 
@@ -489,10 +493,6 @@ body {
     }
 }
 //                      IMAGE MODAL                       //
-
-
-
-
 .imageModal {
 
     @include moduleSetup;
@@ -514,6 +514,7 @@ body {
 
     }
 }
+//                      TEXT MODAL                       //
 .textModal {
 
     @include moduleSetup;
@@ -535,6 +536,7 @@ body {
 
     }
 }
+//                      VIDEO MODAL                       //
 .videoModal {
     
     @include moduleSetup;
@@ -555,6 +557,185 @@ body {
 
     }
 }
+#postDetails {
+    width: 40%;
+    margin: 20px auto;
+    background-color: $tertiaryColor;
+    border-radius: 15px;
+    padding: 0px;
+
+    -webkit-box-shadow: 0px 0px 18px 2px $shadowStrong;
+        -moz-box-shadow: 0px 0px 18px 2px $shadowStrong;
+        box-shadow: 0px 0px 18px 2px $shadowStrong;
+
+    .Post {
+    box-shadow: 0px 0px 0px 0px;
+    border-radius: 15px;   
+    margin: 0px;  
+    padding: 10px; 
+    
+
+    }
+    .commentsDiv {
+
+        padding: 10px 20px;
+        div {
+            display: inline-block;
+            margin-left: 15px;
+            background-color: $shadow;
+            padding: 2px 10px;
+            border-radius: 15px;
+
+            p {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0px;
+                padding-left: 12px;
+            }    
+            span {
+                vertical-align: middle;
+                display: inline-block;                                
+            }
+        }
+        img{
+            border-radius: 50%;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+        } 
+    }
+
+    //              APRICOT SPACE               //
+
+
+    #commentControls {
+        padding: 10px 20px;
+        margin-top: 20px;
+        
+        img {
+
+            border-radius: 50%;
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+        }
+
+        div {
+            display: inline-block;
+            margin-left: 15px;
+            background-color: $baseColor;
+            padding: 7px 10px;
+            border-radius: 25px;
+            width: calc(100% - 60px);
+
+            input {
+                @include generalInput($shadow);
+                width: 100%;
+                background-color: $baseColor;
+            }
+        }
+    } 
+}
+
+//                      LANDING PAGE                      //
+
+#landingPage {
+
+    height: 100vh;
+    box-shadow: inset 200px 200px 20px 1000px rgba(255, 115, 0, 0.5);    
+    background-image: url('../shared/Shea.jpg');
+    // background-image: url('../shared/Henrique.jpg');
+    // background-image: url('../shared/Kevin.jpg');        
+    // background-image: url('../shared/Phil.jpg');  
+    background-size: cover;
+    overflow: hidden;   
+
+    h1 {
+        color: $secondaryColor;       
+        // font-family: 'Pacifico', cursive;
+        // font-family: 'Great Vibes', cursive;
+        // font-family: 'Satisfy', cursive;
+        // font-family: 'Italianno', cursive;
+        // font-family: 'Calligraffitti', cursive;
+        font-family: 'Dancing Script', cursive;
+        font-size: 5em;
+        margin-left: 30px;
+    }
+    h3 {
+        color: $secondaryColor;  
+        margin: 0px 0px 20px 30px;
+                     
+    }
+
+    div {
+        margin: 0px 0px 0px 30px;
+        float: left;
+        color: white;
+
+        .react-tabs {
+
+            margin: 0px;
+
+            .sapper{
+                border: 1px solid $mainColor;
+                margin: 0px;
+                width: 220px;
+                box-sizing: border-box;
+                padding: 10px;
+
+                h2{
+                    margin-bottom: 25px;
+                    text-align: center;
+                }
+
+                input {
+                    @include generalInput(white);
+                    background: transparent;
+                    margin-bottom: 5px;
+                    color: $secondaryColor;
+                }
+                button {
+                    margin: 25px 0px;
+                    @include generalButton($mainColor,$tertiaryColor);
+                    width: 100%;
+                    -webkit-box-shadow: 1px 1px 5px 2px $secondaryColor;
+                    -moz-box-shadow: 1px 1px 5px 2px $secondaryColor;
+                    box-shadow: 1px 1px 5px 2px $secondaryColor;
+                
+                    
+                }
+            } 
+            ul{
+                padding: 0px;
+                color: white;
+                margin: 0px;
+        
+                li {
+                    width: 50%;
+                    display: inline-block;        
+                    list-style-type: none;
+                    padding: 5px 20px;
+                    border: 1px solid $mainColor;
+                    border-radius: 15px 15px 0px 0px;
+                    margin: 0px;
+                    text-align: center;
+                }
+            } 
+        }
+        #react-tabs-1, #react-tabs-3, #react-tabs-5, #react-tabs-7,
+        #react-tabs-9, #react-tabs-11 {
+            margin: 0px;
+        }
+        
+        
+    
+        
+    }
+}     
+    
+        
+    
+
 
 
 //                      MISCELLANEOUS                      //
@@ -566,7 +747,7 @@ body {
 //https://tympanus.net/codrops/2012/10/04/custom-drop-down-list-styling/
 
 ::placeholder {
-    color: white;
+    color: $shadowStrong;
 }
 #header a:visited {
     color: white;
@@ -608,7 +789,15 @@ body {
     color: rgb(148, 22, 22);
 }
 
-
+button:hover {
+    cursor: pointer;
+}
+#landingPage {
+    cursor: default;
+    li:hover {
+        cursor: pointer;
+    }
+}
 
 // #singleItem:hover {
     

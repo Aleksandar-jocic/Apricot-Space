@@ -3,16 +3,16 @@ body {
 
 #container {
   width: 100%;
-  background-color: #f7882f; }
+  background: #f7882f; }
   #container #header {
     width: 60%;
     margin: 0 auto;
-    background-color: #f7882f;
+    background: linear-gradient(to right, #f7882f, #f7c331, #f7882f);
     position: relative;
-    height: 60px;
-    border-radius: 10px; }
+    height: 60px; }
     #container #header #bitSpan {
       font-size: 40px;
+      font-family: 'Dancing Script', cursive;
       display: inline-block;
       color: white; }
       #container #header #bitSpan a {
@@ -29,7 +29,7 @@ body {
           text-decoration: none; }
 
 #PeoplePage {
-  width: 50%;
+  width: 40%;
   margin: 0 auto; }
   #PeoplePage #inputDiv {
     width: 100%;
@@ -51,7 +51,8 @@ body {
       height: 40px;
       color: white;
       padding: 0px;
-      float: left; }
+      float: left;
+      background: linear-gradient(to right, #f7882f, #f7c331, #f7882f); }
     #PeoplePage #inputDiv #searchIconDiv {
       width: 40px;
       background-color: #f7882f;
@@ -102,7 +103,8 @@ body {
       vertical-align: top; }
 
 #ProfilePage {
-  width: 50%;
+  width: 40%;
+  min-width: 864px;
   margin: 0 auto;
   text-align: center; }
   #ProfilePage img {
@@ -390,8 +392,132 @@ body {
     display: inline-block;
     margin-right: 20px; }
 
+#postDetails {
+  width: 40%;
+  margin: 20px auto;
+  background-color: #f4decb;
+  border-radius: 15px;
+  padding: 0px;
+  -webkit-box-shadow: 0px 0px 18px 2px rgba(92, 92, 92, 0.56);
+  -moz-box-shadow: 0px 0px 18px 2px rgba(92, 92, 92, 0.56);
+  box-shadow: 0px 0px 18px 2px rgba(92, 92, 92, 0.56); }
+  #postDetails .Post {
+    box-shadow: 0px 0px 0px 0px;
+    border-radius: 15px;
+    margin: 0px;
+    padding: 10px; }
+  #postDetails .commentsDiv {
+    padding: 10px 20px; }
+    #postDetails .commentsDiv div {
+      display: inline-block;
+      margin-left: 15px;
+      background-color: rgba(163, 163, 163, 0.56);
+      padding: 2px 10px;
+      border-radius: 15px; }
+      #postDetails .commentsDiv div p {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0px;
+        padding-left: 12px; }
+      #postDetails .commentsDiv div span {
+        vertical-align: middle;
+        display: inline-block; }
+    #postDetails .commentsDiv img {
+      border-radius: 50%;
+      display: inline-block;
+      height: 40px;
+      width: 40px; }
+  #postDetails #commentControls {
+    padding: 10px 20px;
+    margin-top: 20px; }
+    #postDetails #commentControls img {
+      border-radius: 50%;
+      display: inline-block;
+      height: 40px;
+      width: 40px; }
+    #postDetails #commentControls div {
+      display: inline-block;
+      margin-left: 15px;
+      background-color: #f8eee7;
+      padding: 7px 10px;
+      border-radius: 25px;
+      width: calc(100% - 60px); }
+      #postDetails #commentControls div input {
+        border: 0px;
+        border-bottom: 1px solid red;
+        background-color: rgba(163, 163, 163, 0.56);
+        width: 100%;
+        background-color: #f8eee7; }
+
+#landingPage {
+  height: 100vh;
+  box-shadow: inset 200px 200px 20px 1000px rgba(255, 115, 0, 0.5);
+  background-image: url("../shared/Shea.jpg");
+  background-size: cover;
+  overflow: hidden; }
+  #landingPage h1 {
+    color: #f7c331;
+    font-family: 'Dancing Script', cursive;
+    font-size: 5em;
+    margin-left: 30px; }
+  #landingPage h3 {
+    color: #f7c331;
+    margin: 0px 0px 20px 30px; }
+  #landingPage div {
+    margin: 0px 0px 0px 30px;
+    float: left;
+    color: white; }
+    #landingPage div .react-tabs {
+      margin: 0px; }
+      #landingPage div .react-tabs .sapper {
+        border: 1px solid #f7882f;
+        margin: 0px;
+        width: 220px;
+        box-sizing: border-box;
+        padding: 10px; }
+        #landingPage div .react-tabs .sapper h2 {
+          margin-bottom: 25px;
+          text-align: center; }
+        #landingPage div .react-tabs .sapper input {
+          border: 0px;
+          border-bottom: 1px solid red;
+          background-color: white;
+          background: transparent;
+          margin-bottom: 5px;
+          color: #f7c331; }
+        #landingPage div .react-tabs .sapper button {
+          margin: 25px 0px;
+          background-color: #f7882f;
+          padding: 10px;
+          border: 0px;
+          border-radius: 3px;
+          color: white;
+          -webkit-box-shadow: 5px 5px 6px 1px #f4decb;
+          -moz-box-shadow: 5px 5px 6px 1px #f4decb;
+          box-shadow: 5px 5px 6px 1px #f4decb;
+          width: 100%;
+          -webkit-box-shadow: 1px 1px 5px 2px #f7c331;
+          -moz-box-shadow: 1px 1px 5px 2px #f7c331;
+          box-shadow: 1px 1px 5px 2px #f7c331; }
+      #landingPage div .react-tabs ul {
+        padding: 0px;
+        color: white;
+        margin: 0px; }
+        #landingPage div .react-tabs ul li {
+          width: 50%;
+          display: inline-block;
+          list-style-type: none;
+          padding: 5px 20px;
+          border: 1px solid #f7882f;
+          border-radius: 15px 15px 0px 0px;
+          margin: 0px;
+          text-align: center; }
+    #landingPage div #react-tabs-1, #landingPage div #react-tabs-3, #landingPage div #react-tabs-5, #landingPage div #react-tabs-7,
+    #landingPage div #react-tabs-9, #landingPage div #react-tabs-11 {
+      margin: 0px; }
+
 ::placeholder {
-  color: white; }
+  color: rgba(92, 92, 92, 0.56); }
 
 #header a:visited {
   color: white; }
@@ -421,3 +547,11 @@ body {
 .deletePostButton:hover {
   cursor: pointer;
   color: #941616; }
+
+button:hover {
+  cursor: pointer; }
+
+#landingPage {
+  cursor: default; }
+  #landingPage li:hover {
+    cursor: pointer; }

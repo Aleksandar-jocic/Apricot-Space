@@ -11,10 +11,7 @@ class CommentList extends Component {
             <div>
 
                 {this.props.comments.map(comment =>
-                    <Comment
-
-                        comment={comment}
-                    />)}
+                    <Comment comment={comment} />)}
             </div>)
     }
 }
