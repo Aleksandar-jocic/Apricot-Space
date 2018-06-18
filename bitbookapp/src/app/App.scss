@@ -591,6 +591,7 @@ body {
         img {
             width: 100%;
             margin-bottom: 16px;
+            height: auto;
             
         }
         
@@ -602,6 +603,17 @@ body {
             height: 330px;
             margin-bottom: 16px;
         }
+    }
+    .topHR {
+        margin: 3px 0px 15px 0px;
+        width: 33%;
+    }
+    .bottomHR {
+        margin: 15px 0px 3px 0px;
+        background-color: $mainColor;
+    }
+    a {
+        color: $mainColor;
     }
 }
 //                      IMAGE MODAL                       //
@@ -960,7 +972,7 @@ body {
 }
 .deletePostButton:hover {
     cursor: pointer;
-    color: rgb(148, 22, 22);
+    color: $mainColor;
 }
 
 button:hover {
