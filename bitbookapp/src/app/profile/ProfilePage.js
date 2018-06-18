@@ -39,6 +39,13 @@ class ProfilePage extends React.Component {
         })
     }
 
+
+    //         this.setState({
+    //             profile
+    //         })
+    //     })
+    //     
+    // }
     componentDidMount() {
         this.props.match.params.id ?
             (userService.getUser(this.props.match.params.id).then((profile) => {
