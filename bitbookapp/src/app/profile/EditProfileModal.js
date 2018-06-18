@@ -9,6 +9,7 @@ class EditProfileModal extends Component {
 
             name: "",
             about: "",
+            aboutShort: "",
             avatarUrl: "",
             image: "https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg"
         };
@@ -22,7 +23,8 @@ class EditProfileModal extends Component {
 
     handleAbout = (event) => {
         this.setState({
-            about: event.target.value
+            about: event.target.value,
+            aboutShort: event.target.value.split(" ").slice(0, 7).join(" ").concat("...")
         })
     }
 
@@ -36,7 +38,6 @@ class EditProfileModal extends Component {
 
     handleUpdate = () => {
 
-        this.props.profile.aboutshort = ""
         this.props.profile.name = this.state.name || this.props.profile.name
         this.props.profile.about = this.state.about || this.props.profile.about
         this.props.profile.aboutShort = this.state.aboutShort || this.props.profile.about.split(" ").slice(0, 7).join(" ").concat("...")
@@ -93,17 +94,17 @@ class EditProfileModal extends Component {
 
                     <div id='uploadImageDiv'>
 
-                            <img src={this.state.image} />
+                        <img src={this.state.image} />
 
                         <div>
-                        <label>Paste image URL bellow</label>
-                        <input onChange={this.handlePicture} placeholder='URL here please...' type="text" />
+                            <label>Paste image URL bellow</label>
+                            <input onChange={this.handlePicture} placeholder='URL here please...' type="text" />
 
-                        <span>or </span>
-                        <label for='cheekyOne'>click here</label><span> and choose from your hard drive</span>
+                            <span>or </span>
+                            <label for='cheekyOne'>click here</label><span> and choose from your hard drive</span>
 
-                        <input id='cheekyOne' type="file" onChange={this.handleImageUpload} />
-                        <button onClick={this.uploadImage} >Confirm</button>
+                            <input id='cheekyOne' type="file" onChange={this.handleImageUpload} />
+                            <button onClick={this.uploadImage} >Confirm</button>
                         </div>
 
                     </div>
@@ -114,7 +115,7 @@ class EditProfileModal extends Component {
                     </div>
 
                     <div id='uploadAboutDiv'>
-                        
+
                         <label>About you</label>
                         <input type="text" placeholder='Something about you...' onChange={this.handleAbout} />
                     </div>

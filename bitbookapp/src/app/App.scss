@@ -444,35 +444,108 @@ body {
 
 //               newPost UP                 //
 
-#NewPosts{
-
+.wrapper-dropdown-5 {
+    /* Size & position */
     position: fixed;
-    bottom: 150px;
-    right: 180px;
+    bottom: 100px;
+    right: 100px;
+    width: 140px;
+    margin: 0 auto;
+    padding: 12px 15px;
 
-    i {
-        border-radius: 50%;
-        margin-top: 15px;
+
+    /* Styles */
+    background: $mainColor;
+    color: $baseColor;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.4s ease-out;
+    @include Shadow;
+    
+
+    span {
+        margin-left: 10px;
     }
 
     
-    #contentButtons {
-        display: none;
-        position: absolute;
-        z-index: 1;
-        bottom: 65px;
-        background-color: $baseColor;  
-    }
-
-    i{
-        color: $secondaryColor;
-        font-size: 65px;
-        display: block;
-
-        @include Shadow;  
-    } 
 }
 
+.wrapper-dropdown-5 .dropdown {
+    /* Size & position */
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    padding: 0px;
+    text-align: center;
+
+    /* Styles */
+    background: $tertiaryColor;
+    border-radius: 10px;
+    border: 1px solid white;
+    border-top: none;
+    border-bottom: none;
+    list-style: none;
+    transition: all 1.5s ease-out;
+
+    /* Hiding */
+    max-height: 0;
+    overflow: hidden;
+}
+.wrapper-dropdown-5 .dropdown li {
+    padding: 0 10px ;
+    margin: 0px 0px;
+}
+
+.wrapper-dropdown-5 .dropdown li a {
+    display: block;
+    text-decoration: none;
+    color: $mainColor;
+    padding: 10px 0;
+    transition: all 0.6s ease-out;
+    border-bottom: 1px solid white;
+}
+
+.wrapper-dropdown-5 .dropdown li:last-of-type a {
+    border: none;
+}
+
+.wrapper-dropdown-5 .dropdown li i {
+    margin-right: 5px;
+    color: inherit;
+    vertical-align: middle;
+    float: left;
+    margin-top: 5px;
+}
+
+
+/* Hover state */
+
+.wrapper-dropdown-5 .dropdown li:hover {
+    a{
+        color: $baseColor;
+
+    }
+    background-color: $mainColor;
+}
+.wrapper-dropdown-5.active {
+    border-radius: 5px;
+    background: $mainColor;
+    box-shadow: none;
+    border-bottom: none;
+    color: white;
+}
+
+.wrapper-dropdown-5.active:after {
+    border-color: #82d1ff transparent;
+}
+
+.wrapper-dropdown-5.active .dropdown {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    max-height: 400px;
+    @include Shadow
+}
 
 //           POST           \\
 
@@ -667,21 +740,8 @@ body {
        @include generalButton ($mainColor, $shadow);
        margin-right: 30px;
     }
-
-
-
-    // background-color: $baseColor;
-    // position: fixed;
-    // width: 450px;
-    // top: 100px;
-    // right: 100px;
-    // padding: 20px;
-    // border-radius: 10px;
-
-    // -webkit-box-shadow: 2px 4px 13px 0px $shadowStrong;
-    // -moz-box-shadow: 2px 4px 13px 0px $shadowStrong;
-    // box-shadow: 2px 4px 13px 0px $shadowStrong; 
 }
+
 #postDetails {
     width: 40%;
     margin: 20px auto;
@@ -875,15 +935,6 @@ body {
 }
 
 
-
-#NewPosts:hover #contentButtons {
-    display: block;
-}
-#NewPosts button:hover {
-    cursor: pointer;     
-}
-
-
 #ProfilePage > a:hover {
 
     color: $mainColor;
@@ -892,15 +943,6 @@ body {
 #editProfileButton:hover {
     cursor: pointer;
 }
-
-#FilterList:hover #contentList {
-    display: block;
-}
-#FilterList button:hover{
-    cursor: pointer;  
-}
-
-
 
 #ProfileModal button:hover {
     cursor: pointer;
