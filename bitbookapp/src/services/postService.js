@@ -46,6 +46,24 @@ class PostService {
         }).then(function (response) {
             return response.json();
         })
+            .then(response => {
+
+                if (response.ok) {
+
+                    return response.json();
+                } else {
+
+                    throw Error;
+
+
+                }
+
+            }).catch(() => {
+
+
+                console.log("greska...")
+
+            })
 
     }
 

@@ -27,10 +27,10 @@ class PeoplePage extends React.Component {
 
         if (todayDateFormatted === lastPostDateFormmated) {
 
-            return `Last post at:${lastPostDate.getHours()}:${lastPostDate.getMinutes()} `
+            return `Last post at:${lastPostDate.getHours() < 10 ? '0' + lastPostDate.getHours() : lastPostDate.getHours()}:${lastPostDate.getMinutes() == 0 ? '00' : lastPostDate.getMinutes()} `
         } else {
 
-            return `Last post at:${lastPostDateFormmated} ${lastPostDate.getHours()}:${lastPostDate.getMinutes()}`
+            return `Last post at:${lastPostDateFormmated} ${lastPostDate.getHours() < 10 ? '0' + lastPostDate.getHours() : lastPostDate.getHours()}:${lastPostDate.getMinutes() == 0 ? '00' : lastPostDate.getMinutes()}`
         }
 
     }

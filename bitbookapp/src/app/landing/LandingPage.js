@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import authenticationService from "../../services/authenticationService"
+import userService from "../../services/userService"
 
 class LandingPage extends React.Component {
 
@@ -13,7 +14,8 @@ class LandingPage extends React.Component {
             password: "",
             name: "",
             username: "",
-            logInError: ""
+            logInError: "",
+            tabIndex: 0
         }
     }
 
@@ -52,19 +54,26 @@ class LandingPage extends React.Component {
     handleLogin = () => {
 
         authenticationService.logIn({
-
             "username": this.state.email,
             "password": this.state.password
-
         }).then((data) => {
             this.setState({
-
                 logInError: ""
-
             })
-            localStorage.setItem("SessionId", data.sessionId),
-                localStorage.setItem("profile", data),
-                this.props.redirect(data)
+            localStorage.setItem("SessionId", data.sessionId);
+            localStorage.setItem("profile", data);
+
+        }).then(() => {
+            userService.getProfile().then((profile) => {
+                localStorage.setItem("user", profile.userId)
+            })
+        }).then(() => {
+            userService.getUsers().then(profiles => {
+                localStorage.setItem("profiles", JSON.stringify(profiles))
+            })
+        }).then(() => {
+            this.props.redirect()
+
         }).catch(() => {
             this.setState({
 
@@ -83,29 +92,30 @@ class LandingPage extends React.Component {
             "name": this.state.name,
             "email": this.state.email
 
-        }).then((data) => {
+        }).then(() => {
             this.setState({
-
-                registrationError: "success"
-
+                registrationError: "",
+                tabIndex: 0
             })
 
         }).catch(() => {
             this.setState({
 
-                registrationError: "Pogresni podaci, molim vas pokusajte ponovo"
+                registrationError: "Invalid registration data, please try again"
 
             })
         })
     }
 
-    handleEnter = (e) => {        
+    handleEnter = (e) => {
 
-        if(e.keyCode === 13) {
+        if (e.keyCode === 13) {
 
-            this.handleLogin()            
+            this.handleLogin()
         }
     }
+
+
 
     render() {
 
@@ -117,9 +127,9 @@ class LandingPage extends React.Component {
 
                 <h3>See the world through Apricot</h3>
 
-                {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, quis ut a, minima in quos illo fugit aliquam possimus impedit perspiciatis vero magnam nihil tempore quibusdam dolores obcaecati, vel adipisci.</p> */}
+
                 <div>
-                    <Tabs>
+                    <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
                         <TabList>
                             <Tab >LogIn</Tab>
                             <Tab>Register</Tab>
@@ -132,7 +142,7 @@ class LandingPage extends React.Component {
 
                                 <span>Username</span>
 
-                                <input type="text"  onChange={this.handleEmail} />
+                                <input type="text" onChange={this.handleEmail} />
 
                                 <span>Password</span>
 
@@ -172,7 +182,7 @@ class LandingPage extends React.Component {
                             </div>
                         </TabPanel>
                     </Tabs>
-                </div>              
+                </div>
 
             </div>
         )
