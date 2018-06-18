@@ -1,47 +1,104 @@
 import React, { Component } from 'react';
+
+
 class Sidebar extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
             selected: 0,
+            dropDown: false,
+            selectedValue: ''
+
         };
+    }
+    
+
+    changeClass = () => {
+        console.log('state');
+
+        this.setState({
+            
+            dropDown: !this.state.dropDown})          
+            
+        
+    }
+    valueNotation = () => {
+
+        this.setState({
+            selectedValue: ''
+        })
+
+
     }
 
 
     render() {
 
-        return (
+        return (          
 
-            <div id='FilterList' tab-index="0">
 
-                <button onClick={this.props.clearFilter}>filter  <i class="fas fa-angle-down"></i>
 
-                </button>
+                <div id="dd" className={(this.state.dropDown === true) ? ('wrapper-dropdown-3 active') : ('wrapper-dropdown-3')} tabindex="1" onClick={this.changeClass}>
+                    <span >Filter</span>
 
-                <div id='contentList'>
+                    <ul className='dropdown' >
 
-                    <div>
-                        <button onClick={this.props.filterVideos} ><span>Video</span></button>
+                        <li className='to'><a href="#" onClick={this.props.filterVideos}  ><i class="fas fa-video"></i>Video</a></li>
 
-                    </div>
-                    <div>
-                        <button onClick={this.props.filterImages} ><span>Image</span></button>
-                    </div>
-                    <div>
-                        <button onClick={this.props.filterText} ><span>Text</span></button>
-                    </div>
+                        <li className='to'><a href="#" onClick={this.props.filterImages}><i class="fas fa-image"></i>Image</a></li>
 
+                        <li className='to'><a href="#" onClick={this.props.filterText}><i class="fas fa-comments"></i>Text</a></li>
+
+                        <li className='to'><a href="#" onClick={this.props.clearFilter}  ><i class="fas fa-ban"></i>No Filter</a></li>
+                    </ul>
                 </div>
 
-
-            </div>
-
-
-        );
+        )
     }
+            
+
+
 }
 
+
 export default Sidebar;
+
+
+
+
+
+// <div id='FilterList' tab-index="0">
+
+// <button >filter  <i class="fas fa-angle-down"></i>
+
+// </button>
+
+// <div id='contentList'>
+
+//     <div>
+//         <button ><span>Video</span></button>
+
+//     </div>
+//     <div>
+//         <button  ><span>Image</span></button>
+//     </div>
+//     <div>
+//         <button  ><span>Text</span></button>
+//     </div>
+
+// </div>
+
+
+// // </div>
+
+
+
+
+            
+
+
+
 
 
 // Branko's inefficient technique bellow (zero elegance):
