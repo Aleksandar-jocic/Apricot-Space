@@ -31,7 +31,8 @@ class EditProfileModal extends Component {
     handlePicture = (event) => {
 
         this.setState({
-            avatarUrl: event.target.value
+            avatarUrl: event.target.value,
+            image: event.target.value
         })
 
     }
@@ -59,7 +60,7 @@ class EditProfileModal extends Component {
         userService.uploadImage(formData).then((data) => {
 
             this.setState({
-
+                image: data,
                 avatarUrl: data
             })
         })
@@ -104,8 +105,8 @@ class EditProfileModal extends Component {
                             <span>or </span>
                             <label for='cheekyOne'>click here</label><span> and choose from your hard drive</span>
 
-                            <input id='cheekyOne' type="file" onChange={this.handleImageUpload} />
-                            <button onClick={this.uploadImage} >Confirm</button>
+                            // <input id='cheekyOne' type="file" onChange={this.handleImageUpload} />
+                            {/* // <button onClick={this.uploadImage} >Confirm</button> */}
                         </div>
 
                     </div>
