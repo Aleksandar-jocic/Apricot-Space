@@ -39,26 +39,39 @@ class ProfilePage extends React.Component {
         })
     }
 
+
+    //         this.setState({
+    //             profile
+    //         })
+    //     })
+    //     this.otherProfile()
+    // }
     componentDidMount() {
-        userService.getProfile().then((profile) => {
-            console.log(profile);
+        this.props.match.params.id ?
+            (userService.getUser(this.props.match.params.id).then((profile) => {
+                console.log(profile);
 
-            this.setState({
-                profile
+                this.setState({
+                    profile
+                })
+            }))
+            : (userService.getProfile().then((profile) => {
+                console.log(profile);
+
+                this.setState({
+                    profile
+                })
+            }))
+
+        otherProfile = () => {
+
+            userService.getUser(this.props.match.params.userId).then((user) => {
+                this.setState({
+                    otherProfile: user
+                })
             })
-        })
-        this.otherProfile()
+        }
     }
-
-    otherProfile = () => {
-
-        userService.getUser(this.props.match.params.userId).then((user) => {
-            this.setState({
-                otherProfile: user
-            })
-        })
-    }
-
     render() {
 
         return (
@@ -90,6 +103,6 @@ class ProfilePage extends React.Component {
             </div>
         )
     }
-}
 
+}
 export default ProfilePage
