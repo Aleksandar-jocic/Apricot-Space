@@ -76,6 +76,7 @@ body {
             font-family: 'Dancing Script', cursive;
             display: inline-block;
             color: white;
+
             a {text-decoration: none;            
         
             }
@@ -92,6 +93,10 @@ body {
                 a {
                     text-decoration: none;
                 }
+            }
+            #LogOut {
+                padding-left: 20px;
+                border-left: 2px solid white;
             }
         }
     }
@@ -164,7 +169,7 @@ body {
     #itemList {
       
 
-        #singleItem{
+        .singleItem{
             margin-top: 45px;
             box-sizing: border-box;
             width: 100%;
@@ -182,7 +187,7 @@ body {
                 color: black;
             }
 
-            #imageDiv {
+            .imageDiv {
 
                 width: 80px;
                 height: 80px;            
@@ -191,16 +196,17 @@ body {
                
                 
                 img {
-                    border-radius: 50%;
                     display: block;
-                    max-height: 80px;
-                    max-width: 80px;
+                    height: 80px;
+                    width: 80px;
                     margin: 0 auto;
+                    border-radius: 50%;
+                    
                 }
             }
-            #nameAndDescriptionDiv {
+            .nameAndDescriptionDiv {
                 display: inline-block;
-                width: calc(100% - 140px);
+                width: calc(100% - 170px);
                 height: 80px;   
                 vertical-align: top;
     
@@ -212,9 +218,9 @@ body {
                 }
               
             }
-            #lastPostDiv {
+            .lastPostDiv {
                 display: inline-block;
-                width: 60px;
+                width: 90px;
                 height: 80px;   
                 vertical-align: top;
             } 
@@ -344,6 +350,7 @@ body {
     /* Font settings */
     font-weight: bold;
     color: $baseColor;
+    transition: all 0.4s ease-out;
 
     @include Shadow
 }
@@ -436,7 +443,11 @@ body {
     float: right;
     color: inherit;
 }
-
+.wrapper-dropdown-3.active {
+    transition: all 0.4s ease-out;
+    
+    box-shadow: none; 
+}
 .wrapper-dropdown-3.active .dropdown {
     opacity: 1;
     pointer-events: auto;
