@@ -62,15 +62,14 @@ class ProfilePage extends React.Component {
                     profile
                 })
             }))
+    }
+    otherProfile = () => {
 
-        otherProfile = () => {
-
-            userService.getUser(this.props.match.params.userId).then((user) => {
-                this.setState({
-                    otherProfile: user
-                })
+        userService.getUser(this.props.match.params.userId).then((user) => {
+            this.setState({
+                otherProfile: user
             })
-        }
+        })
     }
     render() {
 
