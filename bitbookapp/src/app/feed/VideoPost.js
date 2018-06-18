@@ -20,11 +20,17 @@ class VideoPost extends Component {
         return (
             <div className='Post'>
 
+                <span ><Link to='/'>{this.props.postAuthor(this.props.userId)}</Link></span>
+
+                <hr className='topHR'/>            
+
                 <div className='videoDivOnFeed'>
                     <iframe
                         src={this.props.videoUrl}>
                     </iframe>
                 </div>
+                <hr className='bottomHR'/>
+                
                 {this.props.commentsNum >= 0 ?
 
                     (<div>
@@ -32,9 +38,8 @@ class VideoPost extends Component {
                         <div className='textPostDiv' ><span>Video</span></div>
                         {this.props.userId == localStorage.getItem("user") ? (
 
-                            <div className='deletePostButton'><span onClick={this.handleDelete} >{`<Delete post>`}</span></div>
-                        ) : <div className='deletePostButton'><span >
-                            Posted by: {this.props.postAuthor(this.props.userId)}</span></div>}
+                            <div className='deletePostButton'><span onClick={this.handleDelete} ><i class="fas fa-trash-alt"></i></span></div>
+                        ) : <div className='deletePostButton'></div>}
                         <Link to={`/feeds/${this.props.type}/${this.props.id}`}>
 
                             <div className='commentPostDiv'><span>{this.props.commentsNum} Comments</span></div>
