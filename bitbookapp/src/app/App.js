@@ -9,6 +9,7 @@ import ProfilePage from './profile/ProfilePage';
 import PeoplePage from './people/PeoplePage';
 //partials
 import Header from './partials/Header';
+import Footer from './partials/Footer';
 
 import PostDetailsPage from './postDetails/PostDetailsPage';
 
@@ -64,6 +65,7 @@ class App extends Component {
                         <Route exact path='/People/:userId' component={ProfilePage} />
 
                     </Switch>
+
 
                 </div>) :
 

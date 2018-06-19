@@ -142,7 +142,7 @@ class PostDetailsPage extends Component {
                     <img src={this.state.myProfile.avatarUrl} alt="" />
 
                     <div >
-                        <input type="text" onKeyUp={this.handleKeyPress} placeholder="Write a comment here..." onChange={this.handleNewComment} />
+                        <input type="text" onKeyUp={this.handleKeyPress} placeholder="Write a comment here..." autoFocus onChange={this.handleNewComment} />
                     </div>
 
                     {/* <button onClick={this.uploadComment} >Send Comment</button> */}
