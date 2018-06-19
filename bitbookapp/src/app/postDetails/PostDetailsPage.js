@@ -16,7 +16,7 @@ class PostDetailsPage extends Component {
             imageUrl: "",
             videoUrl: "",
             comments: [],
-            newComment: ""
+            newComment: "",
         };
     }
 
@@ -116,7 +116,6 @@ class PostDetailsPage extends Component {
     handleKeyPress = (e) => {
 
         if (e.keyCode === 13) {
-            console.log('someerroe');
 
             this.uploadComment();
             e.target.value = '';

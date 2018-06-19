@@ -17,10 +17,21 @@ class PostsList extends Component {
     }
     postAuthor = (userId) => {
         const profiles = JSON.parse(localStorage.getItem("profiles"))
-        const arr = profiles.filter((obj) => {
-            return obj.id == userId
-        })
-        return arr[0].name
+
+        if (localStorage.getItem("profiles")) {
+
+
+            const arr = profiles.filter((obj) => {
+                return obj.id == userId
+            })
+            return arr[0].name
+
+        } else {
+
+            return "another"
+
+        }
+
     }
     renderList = () => {
 

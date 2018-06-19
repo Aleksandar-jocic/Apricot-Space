@@ -31,6 +31,13 @@ class TextPostModal extends Component {
 
 
     }
+    handleEnter = (e) => {
+
+        if (e.keyCode === 13) {
+
+            this.uploadTextPost()
+        }
+    }
     render() {
         return (
             <Modal className='textModal'
@@ -39,7 +46,7 @@ class TextPostModal extends Component {
                 contentLabel="Post new TextPost">
 
                 <h4>New post</h4>
-                <input type="text" placeholder='share something with us...' onChange={this.handleNewTextPost} />
+                <input type="text" autoFocus placeholder='share something with us...' onChange={this.handleNewTextPost} onKeyUp={this.handleEnter} />
                 <div>
                     <button onClick={this.props.closeModal} >close</button>
                     <button onClick={this.uploadTextPost} >upload</button>

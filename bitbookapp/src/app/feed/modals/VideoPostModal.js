@@ -41,6 +41,13 @@ class VideoPostModal extends Component {
         })
     }
 
+    handleEnter = (e) => {
+
+        if (e.keyCode === 13) {
+
+            this.uploadVideoPost()
+        }
+    }
     render() {
         return (
             <Modal className='videoModal'
@@ -50,8 +57,8 @@ class VideoPostModal extends Component {
 
                 <h4>Select video</h4>
 
-                <input type="text" placeholder='paste video URL here...' onChange={this.handleNewVideoPost} />
-                <span>{this.state.error}</span>
+                <input type="text" autoFocus placeholder='paste video URL here...' onChange={this.handleNewVideoPost} onKeyUp={this.handleEnter} />
+                <span>{this.state.error} </span>
 
                 <div>
                     <button onClick={this.props.closeModal} >close</button>

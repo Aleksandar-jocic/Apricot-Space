@@ -18,16 +18,18 @@ class ImagePost extends Component {
         return (
             <div className='Post'>
 
-                <span><Link to='/'>{this.props.postAuthor(this.props.userId)}</Link>
-                </span> 
+                {(window.location.href == 'http://localhost:3000/#/') ? (<span ><Link to='/'>{this.props.postAuthor(this.props.userId)}</Link></span>) : ('Image')}
 
-                <hr className='topHR'/>            
+                {/* <span><Link to='/'>{this.props.postAuthor(this.props.userId)}</Link>
+                </span> */}
+
+                <hr className='topHR' />
 
                 <div className='imageDivOnFeed'>
                     <img src={this.props.imageUrl} alt="" />
                 </div>
 
-                <hr className='bottomHR'/>
+                <hr className='bottomHR' />
 
                 {this.props.commentsNum >= 0 ?
 
