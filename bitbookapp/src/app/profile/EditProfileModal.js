@@ -107,7 +107,7 @@ class EditProfileModal extends Component {
 
                     <div>
 
-                        <button onClick={this.props.handleClose} >CLOSE</button>
+                        <button onClick={this.props.handleEditProfile} >CLOSE</button>
                         <button onClick={this.handleUpdate}>UPDATE</button>
                     </div>
 

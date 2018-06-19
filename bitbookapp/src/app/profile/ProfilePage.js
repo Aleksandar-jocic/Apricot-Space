@@ -17,46 +17,40 @@ class ProfilePage extends React.Component {
     }
 
     getUpdatedProfile = () => {
-        userService.getProfile().then((profile) => {
+        this.handleEditProfile()
+        this.loadProfile()
 
-            this.setState({
-                editProfile: false,
-                profile
-            })
-        })
     }
 
-    handleClose = () => {
-        this.setState({
-            editProfile: false,
-        })
-    }
 
     handleEditProfile = (event) => {
         event.preventDefault()
-        this.setState({
-            editProfile: true
+        this.setState((prevState) => {
+            return { editProfile: !prevState.editProfile }
         })
     }
 
+    loadProfile = () => {
+
+        (userService.getProfile().then((profile) => {
+
+            this.setState({
+                profile
+            })
+
+        }))
+
+    }
 
     componentDidMount() {
-        this.props.match.params.id ?
-            (userService.getUser(this.props.match.params.id).then((profile) => {
-
+        this.props.match.params.userId ?
+            (userService.getUser(this.props.match.params.userId).then((profile) => {
 
                 this.setState({
                     profile
                 })
             }))
-            : (userService.getProfile().then((profile) => {
-
-
-                this.setState({
-                    profile
-                })
-
-            }))
+            : this.loadProfile()
     }
 
 
@@ -67,19 +61,18 @@ class ProfilePage extends React.Component {
             <div id='ProfilePage'>
 
 
-
                 <Profile
 
                     profile={this.state.profile}
-                    params={this.props.match.params}
-                    handler={this.handleEditProfile}
+                    userId={this.props.match.params.userId}
+                    handleEditProfile={this.handleEditProfile}
                 />
 
                 <EditProfileModal
 
                     profile={this.state.profile}
                     editProfile={this.state.editProfile}
-                    handleClose={this.handleClose}
+                    handleEditProfile={this.handleEditProfile}
                     getUpdatedProfile={this.getUpdatedProfile}
                 />
             </div>

@@ -1,28 +1,28 @@
 import React from 'react';
 
-const Profile = (props) => (
+const Profile = ({ userId, handleEditProfile, profile }) => (
 
     <div>
-        <img src={props.profile.avatarUrl} alt="userPhoto" />
+        <img src={profile.avatarUrl} alt="userPhoto" />
 
-        <h1>{props.profile.name}</h1>
+        <h1>{profile.name}</h1>
 
-        {(props.params.userId === undefined) ? (
+        {(userId === undefined) ? (
 
-            <button id='editProfileButton' onClick={props.handler} >Edit profile</button>
+            <button id='editProfileButton' onClick={handleEditProfile} >Edit profile</button>
 
-        ) : ('')}
+        ) : undefined}
 
-        <p>{props.profile.about}</p>
+        <p>{profile.about}</p>
 
         <div id='postsAndCommentsDiv'>
             <div id='PostsDiv'>
                 <div><span>P</span></div>
-                <h4> {props.profile.postsCount} posts  </h4>
+                <h4> {profile.postsCount} posts  </h4>
             </div>
             <div id='CommentsDiv'>
                 <div><span>C</span></div>
-                <h4> {props.profile.commentsCount} comments</h4>
+                <h4> {profile.commentsCount} comments</h4>
             </div>
         </div>
     </div>
