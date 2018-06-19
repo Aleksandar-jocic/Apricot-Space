@@ -6,30 +6,18 @@ class Sidebar extends Component {
         super(props);
         this.state = {
 
-            selected: 0,
             dropDown: false,
-            selectedValue: ''
 
         };
     }
 
 
     changeClass = () => {
-        console.log('state');
 
-        this.setState({
+        this.setState((prevState) => {
 
-            dropDown: !this.state.dropDown
+            return { dropDown: !prevState.dropDown }
         })
-
-
-    }
-    valueNotation = () => {
-
-        this.setState({
-            selectedValue: ''
-        })
-
 
     }
 
@@ -44,13 +32,13 @@ class Sidebar extends Component {
 
                 <ul className='dropdown' >
 
-                    <li className='to'><a href="#" onClick={this.props.filterVideos}  ><i class="fas fa-video"></i>Video</a></li>
+                    <li className='to'><a href="#" onClick={() => { this.props.filter("video") }}  ><i class="fas fa-video"></i>Video</a></li>
 
-                    <li className='to'><a href="#" onClick={this.props.filterImages}><i class="fas fa-image"></i>Image</a></li>
+                    <li className='to'><a href="#" onClick={() => { this.props.filter("image") }}><i class="fas fa-image"></i>Image</a></li>
 
-                    <li className='to'><a href="#" onClick={this.props.filterText}><i class="fas fa-comments"></i>Text</a></li>
+                    <li className='to'><a href="#" onClick={() => { this.props.filter("text") }}><i class="fas fa-comments"></i>Text</a></li>
 
-                    <li className='to'><a href="#" onClick={this.props.clearFilter}  ><i class="fas fa-ban"></i>No Filter</a></li>
+                    <li className='to'><a href="#" onClick={() => { this.props.filter("") }}  ><i class="fas fa-ban"></i>No Filter</a></li>
                 </ul>
             </div>
 

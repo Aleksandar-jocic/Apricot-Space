@@ -1,66 +1,42 @@
 import React, { Component } from 'react';
 import Modal from "react-modal";
-import postService from "../../../services/postService"
 
-class VideoPostModal extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
 
-            newVideoPost: "",
-            error: ""
-        };
-    }
-    handleNewVideoPost = (event) => {
 
-        let youTubeRegex = /(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|[a-zA-Z0-9_\-]+\?v=)([^#\&\?\n<>\'\"]*)/gi;
-        if (youTubeRegex.test(event.target.value)) {
+const VideoPostModal = ({
 
-            let youTubeWatch = event.target.value
-            let youTubeEmbed = `https://www.youtube.com/embed/${youTubeWatch.split("=")[1]}`
+    postModal,
+    handleNewPost,
+    uploadPost,
+    closeModal,
+    error
+}) => {
 
-            this.setState({
-                newVideoPost: youTubeEmbed,
-                error: ''
-            })
 
-        } else {
+    return (
 
-            this.setState({
+        <Modal className='videoModal'
 
-                error: 'This is not valid Youtube url'
-            })
-        }
+            isOpen={postModal == "video"}
+            contentLabel="Post new video">
 
-    }
-    uploadVideoPost = () => {
+            <h4>Select video</h4>
 
-        postService.uploadVideoPost({ 'videoUrl': this.state.newVideoPost }).then(() => {
+            <input type="text" placeholder='paste video URL here...' onChange={(event) => {
+                handleNewPost(event, "video")
+            }} />
+            <span>{error}</span>
 
-            this.props.getUpdatedPosts()
-        })
-    }
+            <div>
+                <button onClick={closeModal}>close</button>
+                <button onClick={() => { uploadPost("video") }
 
-    render() {
-        return (
-            <Modal className='videoModal'
+                } >Upload</button>
+            </div>
+        </Modal>
 
-                isOpen={this.props.videoPostModal}
-                contentLabel="Post new video">
 
-                <h4>Select video</h4>
-
-                <input type="text" placeholder='paste video URL here...' onChange={this.handleNewVideoPost} />
-                <span>{this.state.error}</span>
-
-                <div>
-                    <button onClick={this.props.closeModal} >close</button>
-                    <button onClick={this.uploadVideoPost} >Upload</button>
-                </div>
-            </Modal>
-
-        )
-    }
+    )
 }
 
 export default VideoPostModal

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class NewPosts extends React.Component {
+class NewPosts extends Component {
 
     constructor(props) {
         super(props)
@@ -10,14 +10,13 @@ class NewPosts extends React.Component {
     }
 
     changeClass = (event) => {
-        console.log('state');
+
         event.stopPropagation();
 
-        this.setState({
+        this.setState((prevState) => {
 
-            dropDown: !this.state.dropDown
+            return { dropDown: !prevState.dropDown }
         })
-
 
     }
 
@@ -28,11 +27,11 @@ class NewPosts extends React.Component {
 
                 <ul className="dropdown">
 
-                    <li><a href="#" onClick={this.props.newVideo}><i class="fas fa-video"></i>Video</a></li>
+                    <li><a href="#" onClick={() => { this.props.openModal("video") }}><i class="fas fa-video"></i>Video</a></li>
 
-                    <li><a href="#" onClick={this.props.newImage}><i class="fas fa-camera"></i>Image</a></li>
+                    <li><a href="#" onClick={() => { this.props.openModal("image") }}><i class="fas fa-camera"></i>Image</a></li>
 
-                    <li><a href="#" onClick={this.props.newText}><i class="far fa-comment"></i>Post</a></li>
+                    <li><a href="#" onClick={() => { this.props.openModal("text") }}><i class="far fa-comment"></i>Post</a></li>
 
                 </ul>
             </div>

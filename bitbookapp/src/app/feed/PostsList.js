@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-
 import ImagePost from './ImagePost';
 import TextPost from './TextPost';
 import VideoPost from './VideoPost';
-import Sidebar from './Sidebar';
-import { Link } from 'react-router-dom';
 
 
 
@@ -15,26 +12,20 @@ class PostsList extends Component {
         super(props);
         this.state = {};
     }
-    postAuthor = (userId) => {
-        const profiles = JSON.parse(localStorage.getItem("profiles"))
-        const arr = profiles.filter((obj) => {
-            return obj.id == userId
-        })
-        return arr[0].name
-    }
+
     renderList = () => {
 
         const array = this.props.posts.filter((post) => {
 
-            if (this.props.filterVideos) {
+            if (this.props.filter === "video") {
 
                 return post.type === "video"
 
-            } else if (this.props.filterImages) {
+            } else if (this.props.filter === "image") {
 
                 return post.type === "image"
 
-            } else if (this.props.filterText) {
+            } else if (this.props.filter === "text") {
 
                 return post.type === "text"
 
@@ -49,33 +40,19 @@ class PostsList extends Component {
 
                 post.type === "text" ?
                     <TextPost
-                        commentsNum={post.commentsNum}
-                        type={post.type}
-                        text={post.text}
-                        id={post.id}
+
                         deletePost={this.props.deletePost}
-                        userId={post.userId}
-                        postAuthor={this.postAuthor}
+                        post={post}
 
 
                     /> : (post.type === "image" ?
                         <ImagePost
-                            commentsNum={post.commentsNum}
-                            type={post.type}
-                            imageUrl={post.imageUrl}
-                            id={post.id}
                             deletePost={this.props.deletePost}
-                            userId={post.userId}
-                            postAuthor={this.postAuthor}
+                            post={post}
                         /> :
                         <VideoPost
-                            commentsNum={post.commentsNum}
-                            type={post.type}
-                            videoUrl={post.videoUrl}
-                            id={post.id}
                             deletePost={this.props.deletePost}
-                            userId={post.userId}
-                            postAuthor={this.postAuthor}
+                            post={post}
 
                         />)
             )

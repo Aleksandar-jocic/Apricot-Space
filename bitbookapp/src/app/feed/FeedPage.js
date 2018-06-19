@@ -1,13 +1,10 @@
 import React from 'react';
-
 import postService from '../../services/postService';
 import PostsList from './PostsList';
 import Sidebar from './Sidebar';
-
 import TextPostModal from './modals/TextPostModal';
 import ImagePostModal from './modals/ImagePostModal';
 import VideoPostModal from './modals/VideoPostModal';
-
 import NewPosts from './NewPosts';
 
 
@@ -18,14 +15,97 @@ class FeedPage extends React.Component {
         super(props),
             this.state = {
                 posts: [],
-                filterVideos: false,
-                filterImages: false,
-                filterText: false,
-                textPostModal: false,
-                imagePostModal: false,
-                videoPostModal: false
+                filter: "",
+                postModal: false,
+                newPost: ""
             }
     }
+
+    handleNewPost = (event, type) => {
+
+        if (type === "text") {
+
+            this.setState({
+
+                newPost: event.target.value
+
+            })
+
+        } else if (type === "image") {
+
+            let reg = /^(ftp|http|https):\/\/[^ "]+$/
+
+            if (reg.test(event.target.value)) {
+
+                this.setState({
+
+                    newPost: event.target.value,
+                    error: ""
+
+                })
+
+            } else {
+
+                this.setState({
+
+                    error: "This is not valid image url"
+
+                })
+
+            }
+
+        } else {
+
+            let youTubeRegex = /(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|[a-zA-Z0-9_\-]+\?v=)([^#\&\?\n<>\'\"]*)/gi;
+            if (youTubeRegex.test(event.target.value)) {
+
+                let youTubeWatch = event.target.value
+                let youTubeEmbed = `https://www.youtube.com/embed/${youTubeWatch.split("=")[1]}`
+
+                this.setState({
+                    newPost: youTubeEmbed,
+                    error: ''
+                })
+
+            } else {
+
+                this.setState({
+
+                    error: 'This is not valid Youtube url'
+                })
+            }
+
+
+        }
+    }
+
+    uploadPost = (type) => {
+
+        if (type === "text") {
+
+            postService.uploadTextPost({ "text": this.state.newPost }).then(() => {
+                this.loadData()
+                this.closeModal();
+
+            })
+        } else if (type === "image") {
+            postService.uploadImagePost({ "imageUrl": this.state.newPost }).then(() => {
+                this.loadData()
+                this.closeModal();
+
+            })
+
+        } else if (type === "video") {
+
+            postService.uploadVideoPost({ 'videoUrl': this.state.newPost }).then(() => {
+
+                this.loadData();
+                this.closeModal();
+            })
+        }
+
+    }
+
 
     deletePost = (id) => {
 
@@ -42,121 +122,56 @@ class FeedPage extends React.Component {
         })
 
     }
-    filterVideos = () => {
 
+    filter = (type) => {
 
         this.setState({
 
-            filterVideos: true,
-            filterImages: false,
-            filterText: false
-        })
+            filter: type,
 
-    }
-    clearFilter = () => {
-        console.log("clicked")
-        this.setState({
-
-            filterVideos: false,
-            filterImages: false,
-            filterText: false
         })
 
     }
 
-    filterImages = () => {
-
-
-        this.setState({
-
-            filterVideos: false,
-            filterImages: true,
-            filterText: false
-        })
-
-    }
-
-    filterText = () => {
-
+    openModal = (type) => {
 
         this.setState({
 
-            filterVideos: false,
-            filterImages: false,
-            filterText: true
+            postModal: type
         })
 
-    }
-    componentDidMount() {
-
-        postService.getPosts().then((posts) => {
-
-            this.setState({
-
-                posts
-            })
-
-
-        }
-
-
-        )
 
     }
-    getUpdatedPosts = () => {
+
+    closeModal = () => {
+
+        this.setState({
+            newPost: "",
+            postModal: false
+        })
+    }
+
+
+    loadData = () => {
 
         postService.getPosts().then((posts) => {
 
             this.setState({
 
                 posts,
-                textPostModal: false,
-                imagePostModal: false,
-                videoPostModal: false
 
             })
 
-        }
-
-        )
-
-    }
-
-
-    openTextModal = () => {
-
-        this.setState({
-
-            textPostModal: true
-        })
-
-    }
-    openImageModal = () => {
-
-        this.setState({
-
-            imagePostModal: true
-        })
-
-    }
-    openVideoModal = () => {
-
-        this.setState({
-
-            videoPostModal: true
         })
     }
 
+    componentDidMount() {
 
-    closeModal = () => {
+        this.loadData()
 
-        this.setState({
-
-            textPostModal: false,
-            imagePostModal: false,
-            videoPostModal: false
-        })
     }
+
+
     render() {
 
         return (
@@ -169,6 +184,7 @@ class FeedPage extends React.Component {
                         filterVideos={this.state.filterVideos}
                         filterImages={this.state.filterImages}
                         filterText={this.state.filterText}
+                        filter={this.state.filter}
                         posts={this.state.posts}
                         deletePost={this.deletePost}
                     />
@@ -180,32 +196,43 @@ class FeedPage extends React.Component {
                         filterVideos={this.filterVideos}
                         filterImages={this.filterImages}
                         filterText={this.filterText}
+                        filter={this.filter}
                         clearFilter={this.clearFilter}
                     />
 
                     <NewPosts
-                        newText={this.openTextModal}
+
                         newImage={this.openImageModal}
                         newVideo={this.openVideoModal}
+                        openModal={this.openModal}
                     />
 
                 </div>
 
                 <TextPostModal
+
+                    postModal={this.state.postModal}
+
                     closeModal={this.closeModal}
-                    textPostModal={this.state.textPostModal}
-                    getUpdatedPosts={this.getUpdatedPosts}
+                    uploadPost={this.uploadPost}
+                    handleNewPost={this.handleNewPost}
                 />
                 <ImagePostModal
 
+                    postModal={this.state.postModal}
+
                     closeModal={this.closeModal}
-                    imagePostModal={this.state.imagePostModal}
-                    getUpdatedPosts={this.getUpdatedPosts}
+                    uploadPost={this.uploadPost}
+                    handleNewPost={this.handleNewPost}
+                    error={this.state.error}
                 />
                 <VideoPostModal
+
+                    postModal={this.state.postModal}
                     closeModal={this.closeModal}
-                    videoPostModal={this.state.videoPostModal}
-                    getUpdatedPosts={this.getUpdatedPosts}
+                    uploadPost={this.uploadPost}
+                    handleNewPost={this.handleNewPost}
+                    error={this.state.error}
 
                 />
 

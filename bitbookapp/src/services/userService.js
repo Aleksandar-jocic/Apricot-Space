@@ -25,7 +25,12 @@ class UserService {
             }
         })
             .then(function (response) {
-                return response.json();
+                if (response.ok) {
+
+                    return response.json();
+                } else {
+                    throw "Something went wrong, please try again"
+                }
             })
 
     }
@@ -45,7 +50,12 @@ class UserService {
             }
         })
             .then(function (response) {
-                return response.json();
+                if (response.ok) {
+
+                    return response.json();
+                } else {
+                    throw "Something went wrong, please try again"
+                }
             })
 
 
@@ -67,7 +77,12 @@ class UserService {
             }
         })
             .then(function (response) {
-                return response.json();
+                if (response.ok) {
+
+                    return response.json();
+                } else {
+                    throw "Something went wrong, please try again"
+                }
             })
 
     }

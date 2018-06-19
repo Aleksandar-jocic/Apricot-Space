@@ -68,16 +68,12 @@ class LandingPage extends React.Component {
                 localStorage.setItem("user", profile.userId)
             })
         }).then(() => {
-            userService.getUsers().then(profiles => {
-                localStorage.setItem("profiles", JSON.stringify(profiles))
-            })
-        }).then(() => {
             this.props.redirect()
 
-        }).catch(() => {
+        }).catch((error) => {
             this.setState({
 
-                logInError: "Username and/or password incorrect"
+                logInError: error
 
             })
         })

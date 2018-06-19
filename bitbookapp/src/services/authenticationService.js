@@ -23,7 +23,7 @@ class AuthenticationService {
 
                     return response.json(loginObj);
                 } else {
-                    throw Error
+                    throw "Invalid username or password"
                 }
 
             })
@@ -45,7 +45,7 @@ class AuthenticationService {
 
                     return response.json(registerObj);
                 } else {
-                    throw Error("greska")
+                    throw "Invalid input data"
                 }
 
             })

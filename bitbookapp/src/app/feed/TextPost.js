@@ -1,56 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Link from 'react-router-dom/Link';
 
 
-class TextPost extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-    // postAuthor = () => {
 
-    //     const profiles = JSON.parse(localStorage.getItem("profiles"))
-    //     const arr = profiles.filter((obj) => {
-    //         return obj.id == this.props.userId
-    //     })
-    //     return arr[0].name
-    // }
-    handleDelete = () => {
-        this.props.deletePost(this.props.id)
-    }
-    render() {
-        return (
+const TextPost = ({ post: {
+    id,
+    userId,
+    userDisplayName,
+    type,
+    commentsNum, text
 
-            <div className='Post' >
+} = {},
+    deletePost }) => {
 
-                <p>{this.props.text}</p>
+    return (
 
-                {this.props.commentsNum >= 0 ?
+        <div className='Post' >
 
-                    (<div>
+            <p>{text}</p>
 
-                        <div className='textPostDiv' ><span>Text</span></div>
+            {commentsNum >= 0 ?
 
-                        {this.props.userId == localStorage.getItem("user") ? (
+                (<div>
 
-                            <div className='deletePostButton'><span onClick={this.handleDelete} >{`<Delete post>`}</span></div>
-                        ) : <div className='deletePostButton'><span >Posted by: {
-                            this.props.postAuthor(this.props.userId)
+                    <div className='textPostDiv' ><span>Text</span></div>
 
-                        }</span></div>}
+                    {userId == localStorage.getItem("user") ? (
 
-                        <Link to={`/feeds/${this.props.type}/${this.props.id}`}>
+                        <div className='deletePostButton'><span onClick={() => { deletePost(id) }} >{`<Delete post>`}</span></div>
+                    ) : <div className='deletePostButton'><span >Posted by: {userDisplayName}</span></div>}
 
-                            <div className='commentPostDiv'><span>{this.props.commentsNum} Comments</span></div>
+                    <Link to={`/feeds/${type}/${id}`}>
 
-                        </Link>
+                        <div className='commentPostDiv'><span>{commentsNum} Comments</span></div>
+
+                    </Link>
 
 
-                    </div>) : undefined}
+                </div>) : undefined}
 
-            </div>
-        );
-    }
+        </div>
+
+    )
+
 }
 
 export default TextPost;
