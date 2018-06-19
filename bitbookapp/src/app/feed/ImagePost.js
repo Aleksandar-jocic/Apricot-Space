@@ -22,7 +22,7 @@ const ImagePost = ({ post: {
                 <img src={imageUrl} alt="" />
             </div>
 
-            {commentsNum >= 0 ?
+            {deletePost ?
 
                 (<div>
                     <div className='textPostDiv' ><span>Image</span></div>

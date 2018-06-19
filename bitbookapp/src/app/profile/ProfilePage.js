@@ -1,7 +1,7 @@
 import React from 'react';
 import userService from "../../services/userService"
 import EditProfileModal from "./EditProfileModal"
-import ProfileExtension from './ProfileExtension'
+import Profile from './Profile'
 
 class ProfilePage extends React.Component {
 
@@ -12,7 +12,7 @@ class ProfilePage extends React.Component {
 
                 profile: {},
                 editProfile: false,
-                otherProfile: {}
+
             }
     }
 
@@ -40,59 +40,40 @@ class ProfilePage extends React.Component {
     }
 
 
-    //         this.setState({
-    //             profile
-    //         })
-    //     })
-    //     
-    // }
     componentDidMount() {
         this.props.match.params.id ?
             (userService.getUser(this.props.match.params.id).then((profile) => {
-                console.log(profile);
+
 
                 this.setState({
                     profile
                 })
             }))
             : (userService.getProfile().then((profile) => {
-                console.log(profile);
+
 
                 this.setState({
                     profile
                 })
-                this.otherProfile()
+
             }))
     }
 
-    otherProfile = () => {
 
-        userService.getUser(this.props.match.params.userId).then((user) => {
-            this.setState({
-                otherProfile: user
-            })
-        })
-    }
     render() {
 
         return (
 
             <div id='ProfilePage'>
 
-                {(this.props.match.params.userId) ? (
-                    <ProfileExtension
 
-                        profile={this.state.otherProfile}
-                        params={this.props.match.params}
-                    />
-                ) : (
-                        <ProfileExtension
 
-                            profile={this.state.profile}
-                            params={this.props.match.params}
-                            handler={this.handleEditProfile}
-                        />
-                    )}
+                <Profile
+
+                    profile={this.state.profile}
+                    params={this.props.match.params}
+                    handler={this.handleEditProfile}
+                />
 
                 <EditProfileModal
 

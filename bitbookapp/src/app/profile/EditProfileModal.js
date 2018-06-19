@@ -49,7 +49,6 @@ class EditProfileModal extends Component {
         })
 
 
-
     }
 
     handleImageUpload = (event) => {
@@ -65,21 +64,6 @@ class EditProfileModal extends Component {
         })
     }
 
-    // uploadImage = () => {
-    //     const formData = new FormData();
-    //     formData.append('file', this.state.image)
-    //     userService.uploadImage(formData).then((data) => {
-    //         console.log(data)
-    //         this.setState({
-
-
-    //             avatarUrl: data
-    //         })
-
-
-    //     })
-
-    // }
 
 
     render() {
@@ -105,7 +89,7 @@ class EditProfileModal extends Component {
                             <label for='cheekyOne'>click here</label><span> and choose from your hard drive</span>
 
                             // <input id='cheekyOne' type="file" onChange={this.handleImageUpload} />
-                            {/* // <button onClick={this.uploadImage} >Confirm</button> */}
+                         
                         </div>
 
                     </div>

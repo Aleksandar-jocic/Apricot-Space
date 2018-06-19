@@ -8,7 +8,8 @@ const TextPost = ({ post: {
     userId,
     userDisplayName,
     type,
-    commentsNum, text
+    commentsNum,
+    text
 
 } = {},
     deletePost }) => {
@@ -19,7 +20,7 @@ const TextPost = ({ post: {
 
             <p>{text}</p>
 
-            {commentsNum >= 0 ?
+            {deletePost ?
 
                 (<div>
 

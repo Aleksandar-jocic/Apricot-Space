@@ -32,7 +32,7 @@ class Comment extends Component {
 
                     <p>{this.props.comment.body}</p>
                 </div>
-                
+
             </div>
         )
     }

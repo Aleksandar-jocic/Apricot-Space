@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import authenticationService from "../../services/authenticationService"
 import userService from "../../services/userService"
 
-class LandingPage extends React.Component {
+class LandingPage extends Component {
 
     constructor(props) {
 

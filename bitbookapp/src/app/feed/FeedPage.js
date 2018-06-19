@@ -16,7 +16,7 @@ class FeedPage extends React.Component {
             this.state = {
                 posts: [],
                 filter: "",
-                postModal: false,
+                openModal: false,
                 newPost: ""
             }
     }
@@ -181,9 +181,7 @@ class FeedPage extends React.Component {
                 <div id='PostList'>
 
                     <PostsList
-                        filterVideos={this.state.filterVideos}
-                        filterImages={this.state.filterImages}
-                        filterText={this.state.filterText}
+
                         filter={this.state.filter}
                         posts={this.state.posts}
                         deletePost={this.deletePost}
@@ -193,17 +191,13 @@ class FeedPage extends React.Component {
                 <div id='SideBarNewPosts'>
 
                     <Sidebar
-                        filterVideos={this.filterVideos}
-                        filterImages={this.filterImages}
-                        filterText={this.filterText}
+
                         filter={this.filter}
-                        clearFilter={this.clearFilter}
+
                     />
 
                     <NewPosts
 
-                        newImage={this.openImageModal}
-                        newVideo={this.openVideoModal}
                         openModal={this.openModal}
                     />
 
@@ -212,7 +206,6 @@ class FeedPage extends React.Component {
                 <TextPostModal
 
                     postModal={this.state.postModal}
-
                     closeModal={this.closeModal}
                     uploadPost={this.uploadPost}
                     handleNewPost={this.handleNewPost}
@@ -220,7 +213,6 @@ class FeedPage extends React.Component {
                 <ImagePostModal
 
                     postModal={this.state.postModal}
-
                     closeModal={this.closeModal}
                     uploadPost={this.uploadPost}
                     handleNewPost={this.handleNewPost}

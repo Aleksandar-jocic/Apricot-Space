@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileExtension = (props) => (
+const Profile = (props) => (
 
     <div>
         <img src={props.profile.avatarUrl} alt="userPhoto" />
@@ -28,4 +28,4 @@ const ProfileExtension = (props) => (
     </div>
 )
 
-export default ProfileExtension
+export default Profile

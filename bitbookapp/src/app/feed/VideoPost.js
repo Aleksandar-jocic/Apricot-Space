@@ -23,7 +23,7 @@ const VideoPost = ({ post: {
                     src={videoUrl}>
                 </iframe>
             </div>
-            {commentsNum >= 0 ?
+            {deletePost ?
 
                 (<div>
 

@@ -5,25 +5,21 @@ import TextPost from '../feed/TextPost';
 import ImagePost from '../feed/ImagePost';
 import VideoPost from '../feed/VideoPost';
 import CommentList from './CommentsList';
-postService
+
 
 class PostDetailsPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             myProfile: {},
-            text: "",
-            imageUrl: "",
-            videoUrl: "",
+            post: {},
             comments: [],
             newComment: ""
         };
     }
 
-    //              PROFILE             //
 
     getUpdatedProfile = () => {
-        console.log(this.state.myProfile.avatarUrl);
 
         userService.getProfile().then((profile) => {
 
@@ -33,8 +29,6 @@ class PostDetailsPage extends Component {
         })
     }
 
-
-    //          END OF              //
 
 
     handleNewComment = (event) => {
@@ -50,14 +44,12 @@ class PostDetailsPage extends Component {
 
     uploadComment = () => {
 
-
         postService.uploadComment({
             "body": this.state.newComment,
             "postId": this.props.match.params.id
         }).then(() => {
 
             postService.getComment(this.props.match.params.id).then((comments) => {
-
 
                 this.setState({
                     comments
@@ -69,42 +61,41 @@ class PostDetailsPage extends Component {
         })
 
     }
+
     componentDidMount() {
 
         this.getUpdatedProfile()
 
         this.props.match.params.type === "text" ?
-            postService.getTextPost(this.props.match.params.id).then(({ text }) => {
+            postService.getTextPost(this.props.match.params.id).then((post) => {
                 this.setState({
 
-                    text
+                    post
 
                 })
 
             })
             : (this.props.match.params.type === "image" ?
-                postService.getImagePost(this.props.match.params.id).then(({ imageUrl }) => {
+                postService.getImagePost(this.props.match.params.id).then((post) => {
                     this.setState({
 
-                        imageUrl
+                        post
 
                     })
 
                 })
 
-
-
-                : postService.getVideoPost(this.props.match.params.id).then(({ videoUrl }) => {
+                : postService.getVideoPost(this.props.match.params.id).then((post) => {
                     this.setState({
 
-                        videoUrl
+                        post
 
                     })
 
                 }))
 
-        postService.getComment(this.props.match.params.id).then((comments) => {
 
+        postService.getComment(this.props.match.params.id).then((comments) => {
 
             this.setState({
                 comments
@@ -116,7 +107,7 @@ class PostDetailsPage extends Component {
     handleKeyPress = (e) => {
 
         if (e.keyCode === 13) {
-            console.log('someerroe');
+
 
             this.uploadComment();
             e.target.value = '';
@@ -130,9 +121,9 @@ class PostDetailsPage extends Component {
 
                 {this.props.match.params.type === "text" ?
 
-                    (<TextPost text={this.state.text} />) : (this.props.match.params.type === "image") ?
-                        (<ImagePost imageUrl={this.state.imageUrl} />) :
-                        (<VideoPost videoUrl={this.state.videoUrl} />)}
+                    (<TextPost post={this.state.post} />) : (this.props.match.params.type === "image") ?
+                        (<ImagePost post={this.state.post} />) :
+                        (<VideoPost post={this.state.post} />)}
 
                 <CommentList
                     comments={this.state.comments}
@@ -146,7 +137,6 @@ class PostDetailsPage extends Component {
                         <input type="text" onKeyUp={this.handleKeyPress} placeholder="Write a comment here..." onChange={this.handleNewComment} />
                     </div>
 
-                    {/* <button onClick={this.uploadComment} >Send Comment</button> */}
                 </div>
 
             </div>

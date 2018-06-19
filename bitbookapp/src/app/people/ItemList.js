@@ -1,23 +1,30 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const ItemList = (props) => (
+const ItemList = ({ item: {
+    id,
+    avatarUrl,
+    name,
+    aboutShort,
+    lastPostDate
+} = {}, date }) => (
 
-    <div className='singleItem'>
-        <Link to={`/People/${props.item.id}`}>
-            <div className='imageDiv'>
-                <img src={props.item.avatarUrl} alt="userPhoto" />
-            </div>
+        <div className='singleItem'>
+            <Link to={`/People/${id}`}>
+                <div className='imageDiv'>
+                    <img src={avatarUrl} alt="userPhoto" />
+                </div>
 
-            <div className='nameAndDescriptionDiv'>
-                <h3>{props.item.name}</h3>
-                <p>{props.item.aboutShort}</p>
-            </div>
+                <div className='nameAndDescriptionDiv'>
+                    <h3>{name}</h3>
+                    <p>{aboutShort}</p>
+                </div>
 
-            <div className='lastPostDiv'>
-                <p>{props.date(props.item.lastPostDate)}</p>
-            </div>
-        </Link>
-    </div>
-)
+                <div className='lastPostDiv'>
+                    <p>{date(lastPostDate)}</p>
+                </div>
+            </Link>
+        </div>
+    )
 export default ItemList
+

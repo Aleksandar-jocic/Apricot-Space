@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Comment from './Comment';
 
-class CommentList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
 
+const CommentList = ({ comments }) => {
 
-    renderComment() {
+    const renderComment = () => {
 
-        const array = this.props.comments.map(comment =>
+        const array = comments.map(comment =>
             <Comment
 
                 comment={comment}
@@ -24,14 +20,12 @@ class CommentList extends Component {
             return array
         }
     }
-    render() {
-        return (
-            <div>
+    return (
 
-                {this.props.comments.map(comment =>
-                    <Comment comment={comment} />)}
-            </div>)
-    }
+        <div>
+            {renderComment()}
+        </div>)
 }
+
 
 export default CommentList;
