@@ -64,6 +64,13 @@ class EditProfileModal extends Component {
             })
         })
     }
+    handleEnter = (e) => {
+
+        if (e.keyCode === 13) {
+
+            this.handleUpdate()
+        }
+    }
 
     // uploadImage = () => {
     //     const formData = new FormData();
@@ -112,13 +119,13 @@ class EditProfileModal extends Component {
 
                     <div id='uploadNameDiv'>
                         <label>Name</label>
-                        <input placeholder='Username...' onChange={this.handleName} type="text" />
+                        <input placeholder='Username...' onChange={this.handleName} onKeyUp={this.handleEnter} type="text" />
                     </div>
 
                     <div id='uploadAboutDiv'>
 
                         <label>About you</label>
-                        <input type="text" placeholder='Something about you...' onChange={this.handleAbout} />
+                        <input type="text" placeholder='Something about you...' onKeyUp={this.handleEnter} onChange={this.handleAbout} />
                     </div>
 
                     <div>

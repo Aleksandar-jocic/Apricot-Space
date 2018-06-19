@@ -46,10 +46,38 @@ class LandingPage extends React.Component {
     handleUsername = (event) => {
 
         this.setState({
-
             username: event.target.value
+
         })
+        // this.userNameAvailability()
+
     }
+    // getUsers = () => {
+    //     userService.getUsers().then(us)
+    // }
+    // userNameAvailability = () => {
+
+    //     userService.getUsers().then((users) => {
+
+    //         return (users.find(user => {
+
+    //             if (user.name.toLowerCase() === this.state.username.toLowerCase()) {
+
+    //                 return true
+
+    //             } else {
+
+    //                 return false
+
+    //             }
+    //         })
+    //         )
+    //     }).then(isFound => {
+    //         isFound ? (this.setState({
+    //             logInError: "Username already exists"
+    //         })) : ('')
+    //     })
+    // }
 
     handleLogin = () => {
 
@@ -94,6 +122,7 @@ class LandingPage extends React.Component {
 
         }).then(() => {
             this.setState({
+
                 registrationError: "",
                 tabIndex: 0
             })
@@ -101,7 +130,7 @@ class LandingPage extends React.Component {
         }).catch(() => {
             this.setState({
 
-                registrationError: "Invalid registration data, please try again"
+                registrationError: "Username or email is already in use."
 
             })
         })
@@ -112,6 +141,13 @@ class LandingPage extends React.Component {
         if (e.keyCode === 13) {
 
             this.handleLogin()
+        }
+    }
+    handleEnterRegistration = (e) => {
+
+        if (e.keyCode === 13) {
+
+            this.handleRegister()
         }
     }
 
@@ -171,7 +207,7 @@ class LandingPage extends React.Component {
                                 <br />
                                 <span>pass</span>
                                 <br />
-                                <input type="password" onChange={this.handlePassword} />
+                                <input type="password" onChange={this.handlePassword} onKeyUp={this.handleEnterRegistration} />
                                 <br />
 
                                 <button onClick={this.handleRegister} >Register</button>

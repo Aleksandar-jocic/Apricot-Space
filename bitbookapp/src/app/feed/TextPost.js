@@ -25,13 +25,14 @@ class TextPost extends Component {
 
             <div className='Post' >
 
-                <span><Link to='/'>{this.props.postAuthor(this.props.userId)}</Link>
-                </span>                
-                <hr className='topHR'/>            
+                {(window.location.href == 'http://localhost:3000/#/') ? (<span ><Link to='/'>{this.props.postAuthor(this.props.userId)}</Link></span>) : ('Post')}
+                {/* <span><Link to='/'>{this.props.postAuthor(this.props.userId)}</Link> */}
+                {/* </span>                 */}
+                <hr className='topHR' />
 
                 <p>{this.props.text}</p>
 
-                <hr className='bottomHR'/>
+                <hr className='bottomHR' />
 
                 {this.props.commentsNum >= 0 ?
 
@@ -47,7 +48,7 @@ class TextPost extends Component {
                         <Link to={`/feeds/${this.props.type}/${this.props.id}`}>
 
                             <div className='commentPostDiv'><span>                      {this.props.commentsNum} Comments</span>
-                            </div>  
+                            </div>
 
                         </Link>
 

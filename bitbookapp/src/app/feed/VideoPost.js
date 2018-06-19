@@ -20,17 +20,18 @@ class VideoPost extends Component {
         return (
             <div className='Post'>
 
-                <span ><Link to='/'>{this.props.postAuthor(this.props.userId)}</Link></span>
+                {(window.location.href == 'http://localhost:3000/#/') ? (<span ><Link to='/'>{this.props.postAuthor(this.props.userId)}</Link></span>) : ('Video')}
 
-                <hr className='topHR'/>            
+
+                <hr className='topHR' />
 
                 <div className='videoDivOnFeed'>
                     <iframe
                         src={this.props.videoUrl}>
                     </iframe>
                 </div>
-                <hr className='bottomHR'/>
-                
+                <hr className='bottomHR' />
+
                 {this.props.commentsNum >= 0 ?
 
                     (<div>

@@ -50,6 +50,13 @@ class ImagePostModal extends Component {
 
 
     }
+    handleEnter = (e) => {
+
+        if (e.keyCode === 13) {
+
+            this.uploadImagePost()
+        }
+    }
     render() {
         return (
             <Modal className="imageModal"
@@ -59,7 +66,7 @@ class ImagePostModal extends Component {
 
 
                 <h4>Select image</h4>
-                <input type="text" placeholder='paste URL here...' onChange={this.handleNewImagePost} />
+                <input type="text" autoFocus placeholder='paste URL here...' onChange={this.handleNewImagePost} onKeyUp={this.handleEnter} />
 
                 <span>{this.state.error}</span>
                 <div>
