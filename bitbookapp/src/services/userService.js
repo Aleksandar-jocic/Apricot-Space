@@ -14,16 +14,16 @@ class UserService {
     getProfile() {
 
         return fetch(`${url}/profile`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
-        })
+                }
+            })
             .then(function (response) {
                 if (response.ok) {
 
@@ -39,16 +39,16 @@ class UserService {
     //Preuzimanje profila drugih korisnika na osnovu njihovog ID
     getUser(id) {
         return fetch(`${url}/users/${id}`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
-        })
+                }
+            })
             .then(function (response) {
                 if (response.ok) {
 
@@ -66,16 +66,16 @@ class UserService {
     getUsers() {
 
         return fetch(`${url}/users`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
-        })
+                }
+            })
             .then(function (response) {
                 if (response.ok) {
 
@@ -111,18 +111,18 @@ class UserService {
     uploadImage(formData) {
 
         return fetch(`${url}/upload`, {
-            headers: {
+                headers: {
 
 
 
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            },
-            body: formData,
-            method: 'POST'
-        })
+                },
+                body: formData,
+                method: 'POST'
+            })
             .then(function (response) {
                 return response.json();
             })
