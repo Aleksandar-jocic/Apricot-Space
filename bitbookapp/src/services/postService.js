@@ -10,19 +10,24 @@ class PostService {
     getPosts() {
 
         return fetch(`${url}/Posts`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
+                }
 
-        })
+            })
             .then((response) => {
-                return response.json();
+                if (response.ok) {
+
+                    return response.json();
+                } else {
+                    throw new Error()
+                }
             })
 
     }
@@ -32,20 +37,20 @@ class PostService {
     deletePost(id) {
 
         return fetch(`${url}/Posts/${id}`, {
-            method: 'DELETE',
-            headers: {
+                method: 'DELETE',
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
+                }
 
-        }).then(function (response) {
-            return response.json();
-        })
+            }).then(function (response) {
+                return response.json();
+            })
             .then(response => {
 
                 if (response.ok) {
@@ -71,17 +76,17 @@ class PostService {
     //broj svih postova
     countPosts() {
         return fetch(`${url}/posts/count`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
+                }
 
-        })
+            })
             .then(function (response) {
                 return response.json();
             })
@@ -95,17 +100,17 @@ class PostService {
     getTextPost(id) {
 
         return fetch(`${url}/TextPosts/${id}`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
+                }
 
-        })
+            })
             .then(function (response) {
                 return response.json();
             })
@@ -117,18 +122,18 @@ class PostService {
     uploadTextPost(textPost) {
 
         return fetch(`${url}/TextPosts`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            },
-            body: JSON.stringify(textPost),
-            method: 'POST'
-        })
+                },
+                body: JSON.stringify(textPost),
+                method: 'POST'
+            })
             .then(function (response) {
                 return response.json();
             })
@@ -141,17 +146,17 @@ class PostService {
     getImagePost(id) {
 
         return fetch(`${url}/ImagePosts/${id}`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
+                }
 
-        })
+            })
             .then((response) => {
                 return response.json();
             })
@@ -164,18 +169,18 @@ class PostService {
     uploadImagePost(imagePost) {
 
         return fetch(`${url}/ImagePosts`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            },
-            body: JSON.stringify(imagePost),
-            method: 'POST'
-        })
+                },
+                body: JSON.stringify(imagePost),
+                method: 'POST'
+            })
             .then(function (response) {
                 return response.json();
             })
@@ -188,17 +193,17 @@ class PostService {
     getVideoPost(id) {
 
         return fetch(`${url}/VideoPosts/${id}`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
+                }
 
-        })
+            })
             .then(function (response) {
                 return response.json();
             })
@@ -211,18 +216,18 @@ class PostService {
     uploadVideoPost(videoPost) {
 
         return fetch(`${url}/VideoPosts`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            },
-            body: JSON.stringify(videoPost),
-            method: 'POST'
-        })
+                },
+                body: JSON.stringify(videoPost),
+                method: 'POST'
+            })
             .then(function (response) {
                 return response.json();
             })
@@ -236,17 +241,17 @@ class PostService {
     getComment(id) {
 
         return fetch(`${url}/Comments?postId=${id}`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId")
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId")
 
 
-            }
+                }
 
-        })
+            })
             .then(function (response) {
                 return response.json();
             })
@@ -260,16 +265,16 @@ class PostService {
     uploadComment(comment) {
 
         return fetch(`${url}/Comments`, {
-            headers: {
+                headers: {
 
 
-                "Content-Type": "application/json",
-                "Key": "0C0DEC2",
-                "SessionId": localStorage.getItem("SessionId"),
-            },
-            body: JSON.stringify(comment),
-            method: 'POST'
-        })
+                    "Content-Type": "application/json",
+                    "Key": "0C0DEC2",
+                    "SessionId": localStorage.getItem("SessionId"),
+                },
+                body: JSON.stringify(comment),
+                method: 'POST'
+            })
             .then(function (response) {
                 return response.json();
             })

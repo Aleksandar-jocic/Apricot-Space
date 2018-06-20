@@ -47,9 +47,8 @@ class PostDetailsPage extends Component {
         postService.uploadComment({
             "body": this.state.newComment,
             "postId": this.props.match.params.id
-        }).then(() => {
-
-            postService.getComment(this.props.match.params.id).then((comments) => {
+        }).then(() => { return postService.getComment(this.props.match.params.id) })
+            .then((comments) => {
 
                 this.setState({
                     comments
@@ -58,7 +57,7 @@ class PostDetailsPage extends Component {
             })
 
 
-        })
+
 
     }
 

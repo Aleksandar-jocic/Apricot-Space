@@ -1,188 +1,167 @@
-import React, { Component } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import authenticationService from "../../services/authenticationService"
-import userService from "../../services/userService"
+import React, { Component } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import authenticationService from "../../services/authenticationService";
+import userService from "../../services/userService";
 
 class LandingPage extends Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
+    this.state = {
+      email: "",
+      password: "",
+      name: "",
+      username: "",
+      logInError: "",
+      tabIndex: 0
+    };
+  }
 
-        super(props)
+  handleEmail = event => {
+    this.setState({
+      email: event.target.value
+    });
+  };
 
-        this.state = {
-            email: "",
-            password: "",
-            name: "",
-            username: "",
-            logInError: "",
-            tabIndex: 0
-        }
-    }
+  handlePassword = event => {
+    this.setState({
+      password: event.target.value
+    });
+  };
 
-    handleEmail = (event) => {
+  handleName = event => {
+    this.setState({
+      name: event.target.value
+    });
+  };
 
+  handleUsername = event => {
+    this.setState({
+      username: event.target.value
+    });
+  };
+
+  handleLogin = () => {
+    authenticationService
+      .logIn({
+        username: this.state.email,
+        password: this.state.password
+      })
+      .then(data => {
         this.setState({
-
-            email: event.target.value
-        })
-    }
-
-    handlePassword = (event) => {
-
+          logInError: ""
+        });
+        localStorage.setItem("SessionId", data.sessionId);
+        localStorage.setItem("profile", data);
+        return userService.getProfile();
+      })
+      .then(profile => {
+        localStorage.setItem("user", profile.userId);
+        this.props.redirect();
+      })
+      .catch(error => {
         this.setState({
+          logInError: error
+        });
+      });
+  };
 
-            password: event.target.value
-        })
-    }
-
-    handleName = (event) => {
-
+  handleRegister = () => {
+    authenticationService
+      .register({
+        username: this.state.username,
+        password: this.state.password,
+        name: this.state.name,
+        email: this.state.email
+      })
+      .then(() => {
         this.setState({
-
-            name: event.target.value
-        })
-    }
-
-    handleUsername = (event) => {
-
+          registrationError: "",
+          tabIndex: 0
+        });
+      })
+      .catch(() => {
         this.setState({
+          registrationError: "Invalid registration data, please try again"
+        });
+      });
+  };
 
-            username: event.target.value
-        })
+  handleEnter = e => {
+    if (e.keyCode === 13) {
+      this.handleLogin();
     }
+  };
 
-    handleLogin = () => {
+  render() {
+    return (
+      <div id="landingPage">
+        <h1>Apricot Space</h1>
 
-        authenticationService.logIn({
-            "username": this.state.email,
-            "password": this.state.password
-        }).then((data) => {
-            this.setState({
-                logInError: ""
-            })
-            localStorage.setItem("SessionId", data.sessionId);
-            localStorage.setItem("profile", data);
+        <h3>See the world through Apricot</h3>
 
-        }).then(() => {
-            userService.getProfile().then((profile) => {
-                localStorage.setItem("user", profile.userId)
-            })
-        }).then(() => {
-            this.props.redirect()
+        <div>
+          <Tabs
+            selectedIndex={this.state.tabIndex}
+            onSelect={tabIndex => this.setState({ tabIndex })}
+          >
+            <TabList>
+              <Tab>LogIn</Tab>
+              <Tab>Register</Tab>
+            </TabList>
 
-        }).catch((error) => {
-            this.setState({
+            <TabPanel>
+              <div className="sapper">
+                <h2>LogIn</h2>
 
-                logInError: error
+                <span>Username</span>
 
-            })
-        })
-    }
+                <input type="text" onChange={this.handleEmail} />
 
-    handleRegister = () => {
+                <span>Password</span>
 
-        authenticationService.register({
+                <input
+                  type="password"
+                  onKeyUp={this.handleEnter}
+                  onChange={this.handlePassword}
+                />
 
-            "username": this.state.username,
-            "password": this.state.password,
-            "name": this.state.name,
-            "email": this.state.email
+                <button onClick={this.handleLogin}>Login</button>
 
-        }).then(() => {
-            this.setState({
-                registrationError: "",
-                tabIndex: 0
-            })
+                <span>{this.state.logInError}</span>
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className="sapper">
+                <h2>Register</h2>
+                <span>UserName</span>
+                <br />
+                <input type="text" onChange={this.handleUsername} />
+                <br />
+                <span>Name</span>
+                <br />
+                <input type="text" onChange={this.handleName} />
+                <br />
+                <span>email</span>
+                <br />
+                <input type="email" onChange={this.handleEmail} />
+                <br />
+                <span>pass</span>
+                <br />
+                <input type="password" onChange={this.handlePassword} />
+                <br />
 
-        }).catch(() => {
-            this.setState({
+                <button onClick={this.handleRegister}>Register</button>
+                <br />
 
-                registrationError: "Invalid registration data, please try again"
-
-            })
-        })
-    }
-
-    handleEnter = (e) => {
-
-        if (e.keyCode === 13) {
-
-            this.handleLogin()
-        }
-    }
-
-
-
-    render() {
-
-        return (
-
-            <div id="landingPage">
-
-                <h1>Apricot Space</h1>
-
-                <h3>See the world through Apricot</h3>
-
-
-                <div>
-                    <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
-                        <TabList>
-                            <Tab >LogIn</Tab>
-                            <Tab>Register</Tab>
-                        </TabList>
-
-                        <TabPanel>
-                            <div className='sapper'>
-
-                                <h2>LogIn</h2>
-
-                                <span>Username</span>
-
-                                <input type="text" onChange={this.handleEmail} />
-
-                                <span>Password</span>
-
-                                <input type="password" onKeyUp={this.handleEnter} onChange={this.handlePassword} />
-
-                                <button onClick={this.handleLogin}>Login</button>
-
-                                <span>{this.state.logInError}</span>
-
-                            </div>
-                        </TabPanel>
-                        <TabPanel>
-                            <div className='sapper'>
-                                <h2>Register</h2>
-                                <span>UserName</span>
-                                <br />
-                                <input type="text" onChange={this.handleUsername} />
-                                <br />
-                                <span>Name</span>
-                                <br />
-                                <input type="text" onChange={this.handleName} />
-                                <br />
-                                <span>email</span>
-                                <br />
-                                <input type="email" onChange={this.handleEmail} />
-                                <br />
-                                <span>pass</span>
-                                <br />
-                                <input type="password" onChange={this.handlePassword} />
-                                <br />
-
-                                <button onClick={this.handleRegister} >Register</button>
-                                <br></br>
-
-                                <span>{this.state.registrationError}</span>
-
-                            </div>
-                        </TabPanel>
-                    </Tabs>
-                </div>
-
-            </div>
-        )
-    }
+                <span>{this.state.registrationError}</span>
+              </div>
+            </TabPanel>
+          </Tabs>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default LandingPage
+export default LandingPage;
