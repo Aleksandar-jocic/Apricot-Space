@@ -110,8 +110,9 @@ class FeedPage extends React.Component {
     deletePost = (id) => {
 
         postService.deletePost(id).then(() => {
-
-            postService.getPosts().then((posts) => {
+            return postService.getPosts()
+        })
+            .then((posts) => {
 
                 this.setState({
 
@@ -119,7 +120,7 @@ class FeedPage extends React.Component {
 
                 })
             })
-        })
+
 
     }
 
