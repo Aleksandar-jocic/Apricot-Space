@@ -1,39 +1,21 @@
-change colors..add to vars 
+Welcome to Apricot Space!
 
 
-Sta god da se radi, koristi yarn! nevidjeni mindfuck u suprotnom!!!!
+To get a feel for the app login with:
+
+username: user1
+password: user1
 
 
+Simple Facebook-like single page app, written in React.js, as a final team project for the JavaScript course at BIT.
 
+The app supports registering/logging in, creating and editing a profile, a profile search function, posting and deleting new text, image and video posts, as well as commenting.
 
+The central page is the feed, which shows all the posts by all the users (which can be filtered by type).
 
+Cheers!
 
-
--->package.json setup for scss
-{
-  "name": "bitbookapp",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "node-sass-chokidar": "^1.3.0",
-    "npm-run-all": "^4.1.3",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^1.1.4"
-  },
-  "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build-js": "react-scripts build",
-    "build": "npm-run-all build-css build-js",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-<--package.json setup for scss
+<!-- 
 
 
 
@@ -2480,4 +2462,4 @@ In the future, we might start automatically compiling incompatible third-party m
 
 ## Something Missing?
 
-If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md) -->
